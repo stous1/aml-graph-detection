@@ -1,5 +1,17 @@
 # Cambios
 
+## Hito 3 (2026-10-19)
+
+- La cifra principal pasa a ser el combinado estructural; las variantes con moneda o formato
+  quedan como referencia.
+- Secuencias por cuenta sin moneda ni formato y CoLES (pytorch-lifestream, torch CPU)
+  entrenado sin etiquetas con el desarrollo de cada variante; modelos versionados.
+- Detector de huella atípica (vecinos más cercanos) y combinado estructural + CoLES.
+- Cobertura por largo de historia, viabilidad de "no te pareces a ti mismo" (no viable),
+  sonda supervisada de diagnóstico en desarrollo y diagnóstico de la deriva de la rareza.
+- Propuesta de prueba fresca con HI-Medium y LI-Medium.
+- Parámetros y modelos congelados en hito3-congelado; prueba medida una vez.
+
 ## Hito 2 (2026-10-19)
 
 - Ablación de la mezcla de monedas en el detector del hito 1 (desarrollo y prueba).

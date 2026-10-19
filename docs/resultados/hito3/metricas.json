@@ -1,0 +1,1932 @@
+{
+  "parametros": {
+    "coles": {
+      "min_eventos": 20,
+      "oculto": 64,
+      "epocas": 10,
+      "tasa": 0.002,
+      "lote": 128,
+      "cortes": 5,
+      "corte_min": 10,
+      "corte_max": 60,
+      "max_eventos": 500,
+      "semilla": 20220902
+    },
+    "criterio": "detector CoLES: máximo F1 ilícita por transacción en HI desarrollo, empate a la primera configuración; umbrales y esquema de combinación en desarrollo",
+    "detector": {
+      "config": {
+        "metodo": "knn",
+        "agregacion": "max",
+        "min_eventos": 20,
+        "k": 10
+      },
+      "umbrales": {
+        "hi": {
+          "transaccion": 1.901634442806244,
+          "cuenta": 1.5726183533668519
+        },
+        "li": {
+          "transaccion": 1.8232774257659912,
+          "cuenta": 1.5356801867485046
+        }
+      }
+    },
+    "combinado": {
+      "componentes": [
+        "abanicos_salida_forma",
+        "abanicos_entrada_forma",
+        "ciclos",
+        "cadenas",
+        "dispersion_concentracion",
+        "concentracion_dispersion",
+        "aislamiento_forma",
+        "coles_atipico"
+      ],
+      "umbrales": {
+        "hi": {
+          "transaccion": 0.9999463864464937,
+          "cuenta": 0.9996264425675317
+        },
+        "li": {
+          "transaccion": 0.9999891215893989,
+          "cuenta": 0.9998002497847353
+        }
+      },
+      "esquema": "max",
+      "f1_por_esquema_hi_desarrollo": {
+        "max": 0.17552144824872098,
+        "media": 0.08943445857080229,
+        "noisy_or": 0.17132386623912046
+      }
+    },
+    "modelos": {
+      "hi": "modelos/coles_hi.pt",
+      "li": "modelos/coles_li.pt"
+    },
+    "no_te_pareces_viable": false
+  },
+  "variantes": {
+    "hi": {
+      "regla_simple": {
+        "universo": {
+          "transacciones": 1789315,
+          "lavado": 1422,
+          "ignoradas_puente": 568,
+          "cuentas": 366967,
+          "cuentas_ilicitas": 2072,
+          "cuentas_ignoradas": 621
+        },
+        "f1_transaccion": {
+          "umbral": 7280.0,
+          "tp": 87,
+          "fp": 59777,
+          "fn": 1335,
+          "marcadas": 59864,
+          "precision": 0.0014532941333689697,
+          "recall": 0.06118143459915612,
+          "f1": 0.0028391476030414776,
+          "f1_ic": [
+            0.0,
+            0.0028825091771902123
+          ]
+        },
+        "f1_cuenta": {
+          "umbral": 628.0,
+          "tp": 358,
+          "fp": 27248,
+          "fn": 1714,
+          "marcadas": 27606,
+          "precision": 0.012968195319858001,
+          "recall": 0.17277992277992277,
+          "f1": 0.02412561493362086,
+          "f1_ic": [
+            0.021766680431240467,
+            0.026407164441085335
+          ]
+        },
+        "precision_k": [
+          {
+            "k": 100,
+            "aciertos": 1,
+            "precision": 0.01,
+            "ic_inf": 0.0017674320641406505,
+            "ic_sup": 0.054486196178705315
+          },
+          {
+            "k": 500,
+            "aciertos": 6,
+            "precision": 0.012,
+            "ic_inf": 0.005510995174027703,
+            "ic_sup": 0.025930361116447292
+          },
+          {
+            "k": 1000,
+            "aciertos": 16,
+            "precision": 0.016,
+            "ic_inf": 0.009872242002277388,
+            "ic_sup": 0.02583206021173997
+          },
+          {
+            "k": 2072,
+            "aciertos": 33,
+            "precision": 0.015926640926640926,
+            "ic_inf": 0.011362941408306425,
+            "ic_sup": 0.022281949208904653
+          }
+        ],
+        "recall_tipo": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 18,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 18,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 17,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 19,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 20,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 17,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 19,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 15,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 750,
+            "detectados": 87,
+            "recall": 0.116,
+            "ic_inf": 0.09501388908825027,
+            "ic_sup": 0.14089971945605617
+          }
+        ],
+        "recall_tipo_min3": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 9,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 7,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 9,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 750,
+            "detectados": 87,
+            "recall": 0.116,
+            "ic_inf": 0.09501388908825027,
+            "ic_sup": 0.14089971945605617
+          }
+        ]
+      },
+      "coles_atipico": {
+        "universo": {
+          "transacciones": 1789315,
+          "lavado": 1422,
+          "ignoradas_puente": 568,
+          "cuentas": 366967,
+          "cuentas_ilicitas": 2072,
+          "cuentas_ignoradas": 621
+        },
+        "f1_transaccion": {
+          "umbral": 1.901634442806244,
+          "tp": 163,
+          "fp": 120827,
+          "fn": 1259,
+          "marcadas": 120990,
+          "precision": 0.001347218778411439,
+          "recall": 0.11462728551336146,
+          "f1": 0.0026631376008888017,
+          "f1_ic": [
+            0.0004479759940918413,
+            0.0028169789208566465
+          ]
+        },
+        "f1_cuenta": {
+          "umbral": 1.5726183533668519,
+          "tp": 25,
+          "fp": 949,
+          "fn": 2047,
+          "marcadas": 974,
+          "precision": 0.02566735112936345,
+          "recall": 0.012065637065637066,
+          "f1": 0.016414970453053186,
+          "f1_ic": [
+            0.010173480246769676,
+            0.023079721516820268
+          ]
+        },
+        "precision_k": [
+          {
+            "k": 100,
+            "aciertos": 10,
+            "precision": 0.1,
+            "ic_inf": 0.0552291370606751,
+            "ic_sup": 0.17436566150491345
+          },
+          {
+            "k": 500,
+            "aciertos": 21,
+            "precision": 0.042,
+            "ic_inf": 0.027632310108451703,
+            "ic_sup": 0.06335158575433016
+          },
+          {
+            "k": 1000,
+            "aciertos": 25,
+            "precision": 0.025,
+            "ic_inf": 0.016990131293434067,
+            "ic_sup": 0.0366452892678433
+          },
+          {
+            "k": 2072,
+            "aciertos": 39,
+            "precision": 0.018822393822393823,
+            "ic_inf": 0.01379936759589904,
+            "ic_sup": 0.025626311312734504
+          }
+        ],
+        "recall_tipo": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 18,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 18,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 17,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 19,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 20,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 17,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 19,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 15,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 750,
+            "detectados": 163,
+            "recall": 0.21733333333333332,
+            "ic_inf": 0.18929706107579586,
+            "ic_sup": 0.24825045632487414
+          }
+        ],
+        "recall_tipo_min3": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 9,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 7,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 9,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 750,
+            "detectados": 163,
+            "recall": 0.21733333333333332,
+            "ic_inf": 0.18929706107579586,
+            "ic_sup": 0.24825045632487414
+          }
+        ]
+      },
+      "combinado_forma": {
+        "universo": {
+          "transacciones": 1789315,
+          "lavado": 1422,
+          "ignoradas_puente": 568,
+          "cuentas": 366967,
+          "cuentas_ilicitas": 2072,
+          "cuentas_ignoradas": 621
+        },
+        "f1_transaccion": {
+          "umbral": 0.9999463864464937,
+          "tp": 122,
+          "fp": 521,
+          "fn": 1300,
+          "marcadas": 643,
+          "precision": 0.18973561430793157,
+          "recall": 0.08579465541490858,
+          "f1": 0.11815980629539952,
+          "f1_ic": [
+            0.07898370502673012,
+            0.159417051874679
+          ]
+        },
+        "f1_cuenta": {
+          "umbral": 0.9996264425675317,
+          "tp": 171,
+          "fp": 565,
+          "fn": 1901,
+          "marcadas": 736,
+          "precision": 0.23233695652173914,
+          "recall": 0.08252895752895753,
+          "f1": 0.1217948717948718,
+          "f1_ic": [
+            0.1042822474409364,
+            0.13980828651477192
+          ]
+        },
+        "precision_k": [
+          {
+            "k": 100,
+            "aciertos": 48,
+            "precision": 0.48,
+            "ic_inf": 0.384645517580519,
+            "ic_sup": 0.5768342223477603
+          },
+          {
+            "k": 500,
+            "aciertos": 143,
+            "precision": 0.286,
+            "ic_inf": 0.24814005321609287,
+            "ic_sup": 0.3271231645014515
+          },
+          {
+            "k": 1000,
+            "aciertos": 185,
+            "precision": 0.185,
+            "ic_inf": 0.16215480378454947,
+            "ic_sup": 0.2102560540613503
+          },
+          {
+            "k": 2072,
+            "aciertos": 265,
+            "precision": 0.1278957528957529,
+            "ic_inf": 0.11420095320910732,
+            "ic_sup": 0.14296775134310574
+          }
+        ],
+        "recall_tipo": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 18,
+            "detectados": 2,
+            "recall": 0.1111111111111111,
+            "ic_inf": 0.0,
+            "ic_sup": 0.2777777777777778
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 18,
+            "detectados": 6,
+            "recall": 0.3333333333333333,
+            "ic_inf": 0.1111111111111111,
+            "ic_sup": 0.5555555555555556
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 17,
+            "detectados": 2,
+            "recall": 0.11764705882352941,
+            "ic_inf": 0.0,
+            "ic_sup": 0.29411764705882354
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 19,
+            "detectados": 3,
+            "recall": 0.15789473684210525,
+            "ic_inf": 0.0,
+            "ic_sup": 0.3684210526315789
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 20,
+            "detectados": 3,
+            "recall": 0.15,
+            "ic_inf": 0.0,
+            "ic_sup": 0.35
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 17,
+            "detectados": 2,
+            "recall": 0.11764705882352941,
+            "ic_inf": 0.0,
+            "ic_sup": 0.29411764705882354
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 19,
+            "detectados": 9,
+            "recall": 0.47368421052631576,
+            "ic_inf": 0.2631578947368421,
+            "ic_sup": 0.6842105263157895
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 15,
+            "detectados": 2,
+            "recall": 0.13333333333333333,
+            "ic_inf": 0.0,
+            "ic_sup": 0.3333333333333333
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 750,
+            "detectados": 1,
+            "recall": 0.0013333333333333333,
+            "ic_inf": 0.00023540485994490764,
+            "ic_sup": 0.007513517346897464
+          }
+        ],
+        "recall_tipo_min3": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 9,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 5,
+            "recall": 0.45454545454545453,
+            "ic_inf": 0.18181818181818182,
+            "ic_sup": 0.7272727272727273
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 1,
+            "recall": 0.125,
+            "ic_inf": 0.0,
+            "ic_sup": 0.375
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 7,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 4,
+            "recall": 0.36363636363636365,
+            "ic_inf": 0.09090909090909091,
+            "ic_sup": 0.6363636363636364
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 9,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 750,
+            "detectados": 1,
+            "recall": 0.0013333333333333333,
+            "ic_inf": 0.00023540485994490764,
+            "ic_sup": 0.007513517346897464
+          }
+        ]
+      },
+      "combinado_forma_coles": {
+        "universo": {
+          "transacciones": 1789315,
+          "lavado": 1422,
+          "ignoradas_puente": 568,
+          "cuentas": 366967,
+          "cuentas_ilicitas": 2072,
+          "cuentas_ignoradas": 621
+        },
+        "f1_transaccion": {
+          "umbral": 0.9999463864464937,
+          "tp": 283,
+          "fp": 114537,
+          "fn": 1139,
+          "marcadas": 114820,
+          "precision": 0.0024647273994077685,
+          "recall": 0.1990154711673699,
+          "f1": 0.004869152285748697,
+          "f1_ic": [
+            0.0035571722886921496,
+            0.07524834385178948
+          ]
+        },
+        "f1_cuenta": {
+          "umbral": 0.9996264425675317,
+          "tp": 171,
+          "fp": 572,
+          "fn": 1901,
+          "marcadas": 743,
+          "precision": 0.23014804845222073,
+          "recall": 0.08252895752895753,
+          "f1": 0.12149200710479574,
+          "f1_ic": [
+            0.10394582295786838,
+            0.13940730851870575
+          ]
+        },
+        "precision_k": [
+          {
+            "k": 100,
+            "aciertos": 48,
+            "precision": 0.48,
+            "ic_inf": 0.384645517580519,
+            "ic_sup": 0.5768342223477603
+          },
+          {
+            "k": 500,
+            "aciertos": 142,
+            "precision": 0.284,
+            "ic_inf": 0.2462377719556586,
+            "ic_sup": 0.32505594312373204
+          },
+          {
+            "k": 1000,
+            "aciertos": 185,
+            "precision": 0.185,
+            "ic_inf": 0.16215480378454947,
+            "ic_sup": 0.2102560540613503
+          },
+          {
+            "k": 2072,
+            "aciertos": 264,
+            "precision": 0.1274131274131274,
+            "ic_inf": 0.11374231709203501,
+            "ic_sup": 0.142462922744941
+          }
+        ],
+        "recall_tipo": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 18,
+            "detectados": 2,
+            "recall": 0.1111111111111111,
+            "ic_inf": 0.0,
+            "ic_sup": 0.2777777777777778
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 18,
+            "detectados": 6,
+            "recall": 0.3333333333333333,
+            "ic_inf": 0.1111111111111111,
+            "ic_sup": 0.5555555555555556
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 17,
+            "detectados": 2,
+            "recall": 0.11764705882352941,
+            "ic_inf": 0.0,
+            "ic_sup": 0.29411764705882354
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 19,
+            "detectados": 3,
+            "recall": 0.15789473684210525,
+            "ic_inf": 0.0,
+            "ic_sup": 0.3684210526315789
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 20,
+            "detectados": 3,
+            "recall": 0.15,
+            "ic_inf": 0.0,
+            "ic_sup": 0.35
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 17,
+            "detectados": 2,
+            "recall": 0.11764705882352941,
+            "ic_inf": 0.0,
+            "ic_sup": 0.29411764705882354
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 19,
+            "detectados": 9,
+            "recall": 0.47368421052631576,
+            "ic_inf": 0.2631578947368421,
+            "ic_sup": 0.6842105263157895
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 15,
+            "detectados": 2,
+            "recall": 0.13333333333333333,
+            "ic_inf": 0.0,
+            "ic_sup": 0.3333333333333333
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 750,
+            "detectados": 162,
+            "recall": 0.216,
+            "ic_inf": 0.18803557027639678,
+            "ic_sup": 0.2468588693761632
+          }
+        ],
+        "recall_tipo_min3": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 9,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 5,
+            "recall": 0.45454545454545453,
+            "ic_inf": 0.18181818181818182,
+            "ic_sup": 0.7272727272727273
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 1,
+            "recall": 0.125,
+            "ic_inf": 0.0,
+            "ic_sup": 0.375
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 7,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 4,
+            "recall": 0.36363636363636365,
+            "ic_inf": 0.09090909090909091,
+            "ic_sup": 0.6363636363636364
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 9,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 750,
+            "detectados": 162,
+            "recall": 0.216,
+            "ic_inf": 0.18803557027639678,
+            "ic_sup": 0.2468588693761632
+          }
+        ]
+      }
+    },
+    "li": {
+      "regla_simple": {
+        "universo": {
+          "transacciones": 2440396,
+          "lavado": 1212,
+          "ignoradas_puente": 225,
+          "cuentas": 501213,
+          "cuentas_ilicitas": 1991,
+          "cuentas_ignoradas": 269
+        },
+        "f1_transaccion": {
+          "umbral": 11.0,
+          "tp": 451,
+          "fp": 290360,
+          "fn": 761,
+          "marcadas": 290811,
+          "precision": 0.0015508354223189632,
+          "recall": 0.3721122112211221,
+          "f1": 0.003088797800173274,
+          "f1_ic": [
+            0.002807194727094311,
+            0.003731540477561032
+          ]
+        },
+        "f1_cuenta": {
+          "umbral": 921.0,
+          "tp": 405,
+          "fp": 37005,
+          "fn": 1586,
+          "marcadas": 37410,
+          "precision": 0.01082598235765838,
+          "recall": 0.20341536916122552,
+          "f1": 0.020557853861577116,
+          "f1_ic": [
+            0.018569337209323394,
+            0.022204020107811345
+          ]
+        },
+        "precision_k": [
+          {
+            "k": 100,
+            "aciertos": 2,
+            "precision": 0.02,
+            "ic_inf": 0.00550196755016235,
+            "ic_sup": 0.07001179072854388
+          },
+          {
+            "k": 500,
+            "aciertos": 10,
+            "precision": 0.02,
+            "ic_inf": 0.010899183596210813,
+            "ic_sup": 0.036420183246879345
+          },
+          {
+            "k": 1000,
+            "aciertos": 17,
+            "precision": 0.017,
+            "ic_inf": 0.010640689856816328,
+            "ic_sup": 0.027055958840229925
+          },
+          {
+            "k": 1991,
+            "aciertos": 25,
+            "precision": 0.012556504269211451,
+            "ic_inf": 0.00851948197553232,
+            "ic_sup": 0.01847086283739532
+          }
+        ],
+        "recall_tipo": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 7,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 3,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 1,
+            "recall": 0.2,
+            "ic_inf": 0.0,
+            "ic_sup": 0.6
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 1,
+            "recall": 0.2,
+            "ic_inf": 0.0,
+            "ic_sup": 0.6
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 3,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 1034,
+            "detectados": 438,
+            "recall": 0.42359767891682787,
+            "ic_inf": 0.3938168420768417,
+            "ic_sup": 0.45394410574698446
+          }
+        ],
+        "recall_tipo_min3": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 1,
+            "recall": 0.25,
+            "ic_inf": 0.0,
+            "ic_sup": 0.75
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 2,
+            "detectados": 1,
+            "recall": 0.5,
+            "ic_inf": 0.0,
+            "ic_sup": 1.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 1034,
+            "detectados": 438,
+            "recall": 0.42359767891682787,
+            "ic_inf": 0.3938168420768417,
+            "ic_sup": 0.45394410574698446
+          }
+        ]
+      },
+      "coles_atipico": {
+        "universo": {
+          "transacciones": 2440396,
+          "lavado": 1212,
+          "ignoradas_puente": 225,
+          "cuentas": 501213,
+          "cuentas_ilicitas": 1991,
+          "cuentas_ignoradas": 269
+        },
+        "f1_transaccion": {
+          "umbral": 1.8232774257659912,
+          "tp": 69,
+          "fp": 55878,
+          "fn": 1143,
+          "marcadas": 55947,
+          "precision": 0.0012333100970561425,
+          "recall": 0.05693069306930693,
+          "f1": 0.0024143179551776623,
+          "f1_ic": [
+            0.0,
+            0.0034957299400807593
+          ]
+        },
+        "f1_cuenta": {
+          "umbral": 1.5356801867485046,
+          "tp": 20,
+          "fp": 884,
+          "fn": 1971,
+          "marcadas": 904,
+          "precision": 0.022123893805309734,
+          "recall": 0.010045203415369162,
+          "f1": 0.013816925734024179,
+          "f1_ic": [
+            0.008252677983859666,
+            0.01953304406012517
+          ]
+        },
+        "precision_k": [
+          {
+            "k": 100,
+            "aciertos": 7,
+            "precision": 0.07,
+            "ic_inf": 0.03431926106727268,
+            "ic_sup": 0.137495147390735
+          },
+          {
+            "k": 500,
+            "aciertos": 15,
+            "precision": 0.03,
+            "ic_inf": 0.018263213197913384,
+            "ic_sup": 0.04890366683594573
+          },
+          {
+            "k": 1000,
+            "aciertos": 20,
+            "precision": 0.02,
+            "ic_inf": 0.012983682916415136,
+            "ic_sup": 0.030690005229717786
+          },
+          {
+            "k": 1991,
+            "aciertos": 29,
+            "precision": 0.014565544952285283,
+            "ic_inf": 0.010160482907137038,
+            "ic_sup": 0.020840205667509604
+          }
+        ],
+        "recall_tipo": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 7,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 3,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 3,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 1034,
+            "detectados": 69,
+            "recall": 0.06673114119922631,
+            "ic_inf": 0.05306763470835098,
+            "ic_sup": 0.08360204409005577
+          }
+        ],
+        "recall_tipo_min3": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 2,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 1034,
+            "detectados": 69,
+            "recall": 0.06673114119922631,
+            "ic_inf": 0.05306763470835098,
+            "ic_sup": 0.08360204409005577
+          }
+        ]
+      },
+      "combinado_forma": {
+        "universo": {
+          "transacciones": 2440396,
+          "lavado": 1212,
+          "ignoradas_puente": 225,
+          "cuentas": 501213,
+          "cuentas_ilicitas": 1991,
+          "cuentas_ignoradas": 269
+        },
+        "f1_transaccion": {
+          "umbral": 0.9999891215893989,
+          "tp": 22,
+          "fp": 351,
+          "fn": 1190,
+          "marcadas": 373,
+          "precision": 0.058981233243967826,
+          "recall": 0.018151815181518153,
+          "f1": 0.0277602523659306,
+          "f1_ic": [
+            0.01627236859420819,
+            0.042886946260897105
+          ]
+        },
+        "f1_cuenta": {
+          "umbral": 0.9998002497847353,
+          "tp": 51,
+          "fp": 800,
+          "fn": 1940,
+          "marcadas": 851,
+          "precision": 0.05992949471210341,
+          "recall": 0.025615268709191362,
+          "f1": 0.03589021815622801,
+          "f1_ic": [
+            0.027546994084859514,
+            0.04569435603494592
+          ]
+        },
+        "precision_k": [
+          {
+            "k": 100,
+            "aciertos": 4,
+            "precision": 0.04,
+            "ic_inf": 0.01566330399154762,
+            "ic_sup": 0.0983707143588792
+          },
+          {
+            "k": 500,
+            "aciertos": 34,
+            "precision": 0.068,
+            "ic_inf": 0.04906650742490687,
+            "ic_sup": 0.0935209227338743
+          },
+          {
+            "k": 1000,
+            "aciertos": 55,
+            "precision": 0.055,
+            "ic_inf": 0.04249742737476844,
+            "ic_sup": 0.07090838767737563
+          },
+          {
+            "k": 1991,
+            "aciertos": 76,
+            "precision": 0.03817177297840281,
+            "ic_inf": 0.030605803865423473,
+            "ic_sup": 0.047516423909421415
+          }
+        ],
+        "recall_tipo": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 1,
+            "recall": 0.125,
+            "ic_inf": 0.0,
+            "ic_sup": 0.375
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 7,
+            "detectados": 1,
+            "recall": 0.14285714285714285,
+            "ic_inf": 0.0,
+            "ic_sup": 0.42857142857142855
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 3,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 2,
+            "recall": 0.3333333333333333,
+            "ic_inf": 0.0,
+            "ic_sup": 0.6666666666666666
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 1,
+            "recall": 0.2,
+            "ic_inf": 0.0,
+            "ic_sup": 0.6
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 3,
+            "detectados": 2,
+            "recall": 0.6666666666666666,
+            "ic_inf": 0.0,
+            "ic_sup": 1.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 1034,
+            "detectados": 1,
+            "recall": 0.0009671179883945841,
+            "ic_inf": 0.00017074047689363868,
+            "ic_sup": 0.005457728853414107
+          }
+        ],
+        "recall_tipo_min3": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 1,
+            "recall": 0.25,
+            "ic_inf": 0.0,
+            "ic_sup": 0.75
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 1,
+            "recall": 0.25,
+            "ic_inf": 0.0,
+            "ic_sup": 0.75
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 2,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 1034,
+            "detectados": 1,
+            "recall": 0.0009671179883945841,
+            "ic_inf": 0.00017074047689363868,
+            "ic_sup": 0.005457728853414107
+          }
+        ]
+      },
+      "combinado_forma_coles": {
+        "universo": {
+          "transacciones": 2440396,
+          "lavado": 1212,
+          "ignoradas_puente": 225,
+          "cuentas": 501213,
+          "cuentas_ilicitas": 1991,
+          "cuentas_ignoradas": 269
+        },
+        "f1_transaccion": {
+          "umbral": 0.9999891215893989,
+          "tp": 22,
+          "fp": 351,
+          "fn": 1190,
+          "marcadas": 373,
+          "precision": 0.058981233243967826,
+          "recall": 0.018151815181518153,
+          "f1": 0.0277602523659306,
+          "f1_ic": [
+            0.01627236859420819,
+            0.042886946260897105
+          ]
+        },
+        "f1_cuenta": {
+          "umbral": 0.9998002497847353,
+          "tp": 52,
+          "fp": 805,
+          "fn": 1939,
+          "marcadas": 857,
+          "precision": 0.060676779463243874,
+          "recall": 0.026117528879959818,
+          "f1": 0.03651685393258427,
+          "f1_ic": [
+            0.028133241275590186,
+            0.046450130541803386
+          ]
+        },
+        "precision_k": [
+          {
+            "k": 100,
+            "aciertos": 4,
+            "precision": 0.04,
+            "ic_inf": 0.01566330399154762,
+            "ic_sup": 0.0983707143588792
+          },
+          {
+            "k": 500,
+            "aciertos": 35,
+            "precision": 0.07,
+            "ic_inf": 0.0507597429450181,
+            "ic_sup": 0.09579718985191686
+          },
+          {
+            "k": 1000,
+            "aciertos": 55,
+            "precision": 0.055,
+            "ic_inf": 0.04249742737476844,
+            "ic_sup": 0.07090838767737563
+          },
+          {
+            "k": 1991,
+            "aciertos": 77,
+            "precision": 0.03867403314917127,
+            "ic_inf": 0.031054562041885805,
+            "ic_sup": 0.04807025167338884
+          }
+        ],
+        "recall_tipo": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 1,
+            "recall": 0.125,
+            "ic_inf": 0.0,
+            "ic_sup": 0.375
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 7,
+            "detectados": 1,
+            "recall": 0.14285714285714285,
+            "ic_inf": 0.0,
+            "ic_sup": 0.42857142857142855
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 3,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 2,
+            "recall": 0.3333333333333333,
+            "ic_inf": 0.0,
+            "ic_sup": 0.6666666666666666
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 1,
+            "recall": 0.2,
+            "ic_inf": 0.0,
+            "ic_sup": 0.6
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 3,
+            "detectados": 2,
+            "recall": 0.6666666666666666,
+            "ic_inf": 0.0,
+            "ic_sup": 1.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 1034,
+            "detectados": 1,
+            "recall": 0.0009671179883945841,
+            "ic_inf": 0.00017074047689363868,
+            "ic_sup": 0.005457728853414107
+          }
+        ],
+        "recall_tipo_min3": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 1,
+            "recall": 0.25,
+            "ic_inf": 0.0,
+            "ic_sup": 0.75
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 1,
+            "recall": 0.25,
+            "ic_inf": 0.0,
+            "ic_sup": 0.75
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 2,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 1034,
+            "detectados": 1,
+            "recall": 0.0009671179883945841,
+            "ic_inf": 0.00017074047689363868,
+            "ic_sup": 0.005457728853414107
+          }
+        ]
+      }
+    }
+  },
+  "aporte": {
+    "hi": {
+      "lavado_marcado_base": 122,
+      "lavado_marcado_nuevo": 283,
+      "lavado_solo_con_coles": 161,
+      "lavado_perdido_con_coles": 0,
+      "solo_con_coles_por_tipo": {
+        "SIN_PATRON": 161
+      },
+      "legitimas_marcadas_base": 521,
+      "legitimas_marcadas_nuevo": 114537
+    },
+    "li": {
+      "lavado_marcado_base": 22,
+      "lavado_marcado_nuevo": 22,
+      "lavado_solo_con_coles": 0,
+      "lavado_perdido_con_coles": 0,
+      "solo_con_coles_por_tipo": {},
+      "legitimas_marcadas_base": 351,
+      "legitimas_marcadas_nuevo": 351
+    }
+  }
+}

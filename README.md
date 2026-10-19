@@ -35,6 +35,9 @@ Detectores estructurales que lo componen (HI / LI, top-100): abanicos de salida 
   top-100 de HI rinde menos que el mejor abanico solo.
 - **LI** cae porque el 82 % de su lavado son transferencias sueltas, sin patrón; no porque la
   configuración se haya elegido en HI.
+- **Hito 3 (CoLES):** la huella de comportamiento aprendida sin etiquetas no mejora esta cifra,
+  y "no te pareces a ti mismo" no es viable con 10 días. Los embeddings sí contienen
+  información sobre el lavado (AUC 0,78 a 0,81 con etiquetas), lo que motiva el hito 4.
 
 ### Referencia: con señales de moneda y formato (huella del simulador)
 
@@ -68,6 +71,7 @@ uv run python scripts/hito1.py preparar
 uv run python scripts/hito1.py explorar
 uv run python scripts/hito1.py desarrollar && uv run python scripts/hito1.py evaluar
 uv run python scripts/hito2.py desarrollar && uv run python scripts/hito2.py evaluar
+uv run python scripts/hito3.py desarrollar && uv run python scripts/hito3.py evaluar
 uv run pytest            # pruebas sobre un mini-AMLworld sintético
 ```
 

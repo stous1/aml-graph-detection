@@ -1,0 +1,22 @@
+{
+ "hi": {
+  "mediana_rareza_dev": 1.4057883024215698,
+  "mediana_rareza_prueba": 1.319193696975708,
+  "p99_dev": 1.738644019007683,
+  "p99_prueba": 1.5853857159614564,
+  "frac_cuentas_sobre_umbral_dev": 0.11518506229073029,
+  "frac_cuentas_sobre_umbral_prueba": 0.012651841502697249,
+  "frac_tx_percentil_ge_0.999_dev": 0.00100525412824362,
+  "frac_tx_percentil_ge_0.999_prueba": 0.0675965970960113
+ },
+ "li": {
+  "mediana_rareza_dev": 1.3471948742866515,
+  "mediana_rareza_prueba": 1.2679949402809143,
+  "p99_dev": 1.6750230145454408,
+  "p99_prueba": 1.5282424578666687,
+  "frac_cuentas_sobre_umbral_dev": 0.08456503261841422,
+  "frac_cuentas_sobre_umbral_prueba": 0.008617012200324204,
+  "frac_tx_percentil_ge_0.999_dev": 0.0010173068494333224,
+  "frac_tx_percentil_ge_0.999_prueba": 0.022932278301301186
+ }
+}

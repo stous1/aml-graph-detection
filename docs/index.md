@@ -21,6 +21,10 @@ moneda ni formato de pago. Período de prueba, días 7 a 10:
 
 ## En un minuto
 
+- **Hito 3, CoLES** ([página](hito3.md)). La huella de comportamiento aprendida sin etiquetas
+  no mejora el combinado estructural, y "no te pareces a ti mismo" no es viable con 10 días.
+  Pero los embeddings sí contienen información sobre el lavado (AUC 0,78 a 0,81 con
+  etiquetas), lo que motiva el hito 4.
 - **Hito 2, detectores estructurales** ([página](hito2.md)). Ciclos y dispersión-concentración
   con monto conservado, abanicos por forma pura e Isolation Forest sobre variables de
   comportamiento. Combinados, superan a la regla simple por amplio margen en HI. En LI la
@@ -36,7 +40,7 @@ moneda ni formato de pago. Período de prueba, días 7 a 10:
 
 1. [Ingesta, exploración, grafo temporal y abanicos](hito1.md) ✔
 2. [Ciclos, dispersión-concentración, variables por cuenta e Isolation Forest](hito2.md) ✔
-3. Huella de comportamiento con CoLES
+3. [Huella de comportamiento con CoLES](hito3.md) ✔
 4. PyGOD y redes neuronales sobre grafos
 5. Visualización con Cosmograph
 

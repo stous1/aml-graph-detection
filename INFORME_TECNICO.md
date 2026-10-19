@@ -8,6 +8,8 @@ montos y topología. En el período de prueba: F1 ilícita por transacción 0,11
 LI; precisión en el top-100 de 0,48 y 0,04 (regla simple: F1 0,003 y top-100 de 0,01 y 0,02).
 Las versiones que usan moneda o formato de pago (hasta F1 0,151 en HI) dependen de una huella
 del simulador (ver la ablación del hito 2) y se muestran solo como referencia.
+El hito 3 (CoLES) no mejoró esa cifra: la huella de comportamiento contiene información sobre
+el lavado, pero sin etiquetas no se aprovecha.
 
 ## Hito 1: ingesta, exploración y abanicos por forma
 
@@ -458,3 +460,185 @@ generador.
 uv run python scripts/hito2.py desarrollar   # ~45 min, sin mirar prueba
 uv run python scripts/hito2.py evaluar       # ~15 min, parámetros del tag hito2-congelado
 ```
+
+## Hito 3: CoLES y "no te pareces a ti mismo"
+
+**Respuesta corta:** CoLES aprende una huella de comportamiento que sí contiene información
+sobre el lavado, pero sin etiquetas no se aprovecha. Como detector de rareza no aporta al
+combinado estructural, y "no te pareces a ti mismo" no es viable con 10 días de datos. La
+cifra principal del proyecto sigue siendo la del combinado estructural del hito 2.
+
+El período de prueba (días 7 a 10) es el mismo de los hitos 1 y 2. Este hito lo midió una
+sola vez, con parámetros y modelos congelados (tag `hito3-congelado`).
+
+### Datos y modelo
+
+- **Eventos:** cada transferencia es un evento para sus dos cuentas. Variables solo
+  estructurales y de comportamiento: dirección, hora, día de la semana, si es la primera
+  transferencia con esa contraparte, rol en un par de paso (entrada reenviada o salida que
+  reenvía), log del monto en USD, log de las horas desde el evento anterior y log de la
+  actividad de la contraparte. **Nada de moneda ni formato de pago**; una prueba lo verifica.
+- **Entrenamiento:** CoLES (pytorch-lifestream 0.7, GRU de 64 dimensiones, 10 épocas,
+  subsecuencias de 10 a 60 eventos) sin etiquetas, con la ventana de desarrollo (días 2 a 6)
+  de cada variante y las cuentas con 20 o más eventos: 66.302 cuentas en HI y 90.593 en LI
+  (largo medio 32). La pérdida contrastiva baja de 131 a 44 (HI) y de 117 a 42 (LI).
+  Determinista en CPU; los modelos quedan versionados y `evaluar` los carga sin reentrenar.
+
+### Cobertura de las cuentas con historia suficiente
+
+Ventanas de 5 días: desarrollo (días 2 a 6) y la de puntaje de prueba (días 6 a 10).
+
+| Con 20 o más eventos | HI desarrollo | HI prueba | LI desarrollo | LI prueba |
+|---|---|---|---|---|
+| Cuentas activas cubiertas | 17,6 % | 20,7 % | 17,6 % | 20,7 % |
+| Cuentas ilícitas cubiertas | 21,8 % | 27,8 % | 22,9 % | 24,7 % |
+| Tx de lavado con alguna cuenta cubierta | 53 % | 57 % | 52 % | 55 % |
+| … del lavado sin patrón | 46 % | 52 % | 48 % | 52 % |
+| Tx de lavado con las dos cuentas cubiertas | 17 % | 19 % | 16 % | 18 % |
+
+Con 10 o más eventos la cobertura sube al 82 % del lavado (alguna cuenta); con 50 o más cae al
+23 a 34 %. Puntuar con 10 eventos se probó en desarrollo y no mejoró.
+
+### Detector: huella atípica
+
+Una cuenta es más sospechosa cuanto más lejos está su embedding de los de desarrollo.
+Elección en HI desarrollo, entre 8 configuraciones: distancia media a los 10 vecinos más
+cercanos (mejor que Isolation Forest sobre los embeddings), transferencia = máximo de sus dos
+cuentas y 20 o más eventos. En desarrollo ya era débil: F1 0,021 y top-100 de 0,04 en HI.
+
+**Combinado estructural + CoLES:** los 7 componentes del combinado estructural del hito 2
+más la huella atípica, con máximo de percentiles de desarrollo. En desarrollo no mejoró:
+F1 0,176 contra 0,184 en HI y 0,070 contra 0,074 en LI.
+
+### Resultados en prueba (medidos una vez)
+
+| | F1 tx (IC 95 %) | F1 cuenta | Top-100 (IC) | Top-500 | Top-1.000 |
+|---|---|---|---|---|---|
+| **HI** regla simple | 0,003 | 0,024 | 0,01 (0,00–0,05) | 0,01 | 0,02 |
+| HI combinado estructural (hito 2) | **0,118** (0,079–0,159) | **0,122** | **0,48** (0,38–0,58) | **0,29** | **0,18** |
+| HI CoLES, huella atípica | 0,003 | 0,016 | 0,10 (0,06–0,17) | 0,04 | 0,03 |
+| HI combinado estructural + CoLES | 0,005 (0,004–0,075) | 0,121 | 0,48 (0,38–0,58) | 0,28 | 0,18 |
+| **LI** regla simple | 0,003 | 0,021 | 0,02 (0,01–0,07) | 0,02 | 0,02 |
+| LI combinado estructural (hito 2) | **0,028** (0,016–0,043) | 0,036 | 0,04 (0,02–0,10) | 0,07 | 0,06 |
+| LI CoLES, huella atípica | 0,002 | 0,014 | 0,07 (0,03–0,14) | 0,03 | 0,02 |
+| LI combinado estructural + CoLES | 0,028 (0,016–0,043) | 0,037 | 0,04 (0,02–0,10) | 0,07 | 0,06 |
+
+![Top-100, hito 3](docs/resultados/hito3/hito3_top100.png)
+
+**Aporte sobre el combinado estructural, en transferencias marcadas (prueba):**
+
+| | HI | LI |
+|---|---|---|
+| Lavado marcado por el combinado estructural | 122 | 22 |
+| Lavado marcado con CoLES | 283 | 22 |
+| Lavado que solo encuentra CoLES | **161, todo sin patrón** | 0 |
+| Legítimas marcadas por el combinado estructural | 521 | 351 |
+| Legítimas marcadas con CoLES | **114.537** | 351 |
+
+### Lectura
+
+1. **¿CoLES ve lo que la forma no ve?** En HI, sí ve lavado sin patrón: 161 transferencias
+   que ningún detector de forma marcaba. Pero lo hace a costa de 114.016 legítimas más, así
+   que el F1 del combinado cae de 0,118 a 0,005. En LI no aporta nada. En las métricas de
+   ranking (top-100 a top-1.000) el combinado con CoLES queda igual que sin él. **Como está, no
+   es un aporte útil.**
+2. **La calibración no se trasladó de desarrollo a prueba** (diagnóstico posterior, sin
+   etiquetas, sobre lo congelado). Las distancias de prueba no son mayores, son algo menores
+   (mediana 1,32 contra 1,41 en HI), y la fracción de cuentas sobre el umbral baja del 11,5 %
+   al 1,3 %. Pero la fracción de transferencias con percentil de desarrollo ≥ 0,999 pasa del
+   0,10 % al 6,8 % (HI) y al 2,3 % (LI). Menos cuentas raras con muchas más transferencias
+   raras: el exceso se concentra en pocas cuentas de mucha actividad, cuyas transferencias
+   heredan el puntaje. Una explicación posible es que las cuentas de desarrollo son las mismas
+   con que se entrenó el modelo y las de prueba no, pero no está verificada. La primera
+   hipótesis que planteé (distancias mayores en prueba) resultó falsa. Una calibración honesta
+   necesitaría la referencia en una ventana que el modelo no vio en el entrenamiento.
+3. **La huella sí sabe algo del lavado.** Diagnóstico supervisado solo en desarrollo, con
+   validación cruzada (no alimenta ningún detector): una regresión logística sobre los
+   embeddings separa cuentas ilícitas con AUC 0,78 en HI y 0,81 en LI, más que las variables
+   estructurales por cuenta (0,73 y 0,70); juntas, 0,80 y 0,82. Lo que falla es la hipótesis
+   no supervisada: lavar no hace que una cuenta parezca rara. Esto respalda usar los
+   embeddings de CoLES como característica de una GNN con etiquetas en el hito 4.
+
+### "No te pareces a ti mismo"
+
+Para cada cuenta con historia suficiente en las dos mitades de desarrollo (historia: días 2 a
+4; actual: días 5 y 6), la distancia coseno entre los dos embeddings mide cuánto cambió su
+comportamiento. Criterio de viabilidad fijado antes de medir: cubrir al menos el 10 % de las
+cuentas ilícitas y lograr un AUC de al menos 0,60 entre las cuentas cubiertas.
+
+| Mínimo de eventos por mitad | Cuentas cubiertas | Ilícitas cubiertas | AUC HI | AUC LI |
+|---|---|---|---|---|
+| 5 | 50 % de las activas | 41 % (HI), 43 % (LI) | 0,575 | 0,577 |
+| 10 | 22 % | 16 % (HI), 17 % (LI) | 0,555 | 0,574 |
+
+**No es viable con 10 días de datos.** La cobertura alcanza, pero la señal es casi azar
+(AUC 0,55 a 0,58). Tres o dos días de historia no bastan para fijar una huella propia, y en
+AMLworld las cuentas que lavan también siguen haciendo transferencias normales. Necesitaría
+semanas de historia por cuenta (por ejemplo, la variante Large, de 97 días). No se midió en
+prueba.
+
+### Limitaciones del hito 3
+
+- El período de prueba ya se había mirado en los hitos 1 y 2.
+- CoLES cubre solo cuentas con historia suficiente: el 53 % del lavado tiene al menos una
+  cuenta cubierta y el 17 %, las dos.
+- Hiperparámetros de CoLES fijados a priori (no se buscaron con etiquetas). Otra
+  arquitectura u otras variables podrían dar otra huella.
+- La rareza de CoLES necesita una calibración que se traslade entre ventanas (punto 2).
+
+### Memoria y tiempos medidos con Small
+
+- Entrenar CoLES (incluida la construcción de secuencias): 24 minutos en HI y 31 en LI, en CPU
+  (12 núcleos).
+- `scripts/hito3.py evaluar` (HI y LI, 7 detectores, CoLES y combinados): unos 30 minutos y
+  un **pico de 10,1 GB** de memoria del proceso.
+
+## Propuesta: prueba fresca con HI-Medium y LI-Medium
+
+Una prueba que nadie ha mirado, para medir una sola vez los detectores congelados **sin
+ningún ajuste**. Todavía no se descargó nada.
+
+### Los archivos
+
+Según la descripción de AMLworld (a verificar al descargar):
+
+| | Días | Transacciones | Cuentas | Lavado | Tamaño estimado del CSV |
+|---|---|---|---|---|---|
+| HI-Medium | 16 | ~32 M | ~2,08 M | 1 de cada ~905 (~35 mil) | ~3,0 GB |
+| LI-Medium | 16 | ~31 M | ~2,03 M | 1 de cada ~1.948 (~16 mil) | ~2,9 GB |
+
+El tamaño sale de los bytes por fila de Small (94 por transacción, 66 por cuenta). Los
+archivos de cuentas pesarían ~140 MB cada uno y los de patrones, pocos MB. En total son unos
+**6,3 GB de descarga**, más ~4 GB de base DuckDB. En el disco E hay 480 GB libres.
+
+### Protocolo
+
+1. **Base aparte** (`data/aml_medium.duckdb`, esquemas `hi_m` y `li_m`), con la misma ingesta.
+   La base de Small no se toca.
+2. **Partición, fijada antes de mirar:** el día 1 se usa solo como historia, si muestra el
+   mismo arranque. La cola se excluye con una regla fijada de antemano: los días finales con
+   menos del 1 % del volumen diario mediano. Todo lo demás es prueba: no hay desarrollo ni
+   intentos puente.
+3. **Sin ajustes:** configuraciones, umbrales y esquemas congelados de los hitos 2 y 3. Los
+   umbrales de HI-Small van a HI-Medium y los de LI-Small, a LI-Medium. Los modelos ajustados
+   en Small (Isolation Forest, CoLES) y las tablas de percentiles de desarrollo se guardan
+   antes y se aplican tal cual. Hoy Isolation Forest y los percentiles se recalculan desde el
+   desarrollo de Small; habría que congelarlos primero en archivos.
+4. **Cifra principal:** el combinado estructural. Como referencia: cada detector, la regla
+   simple y las variantes con moneda y formato. Las mismas métricas: top-k (100, 500, 1.000 y
+   número de ilícitas), F1 de la clase ilícita y recall por tipo de patrón.
+5. **Una sola medición**, con un tag `medium-congelado` que fije código, parámetros y modelos
+   antes de abrir los archivos.
+6. **Secundario, marcado como tal:** recalibrar sin etiquetas Isolation Forest y percentiles
+   con los primeros días de Medium. Muestra cuánto se pierde por no adaptarse; no es la cifra
+   principal.
+
+### Memoria
+
+Con Small, el pico fue de 10,1 GB. Medium tiene unas 4,5 veces más transacciones y 2,9 veces
+más cuentas, y 16 días en lugar de 10. Si se procesara todo el período de una vez, el pico
+estimado (40 a 50 GB) quedaría al límite de los 63 GB de la máquina. La propuesta es
+**evaluar por bloques de 4 días** (cada uno con su historia previa), con un pico estimado de
+**25 a 35 GB**. Además, DuckDB se limitaría a 16 GB, con desborde a disco, para no competir con
+pandas. El tiempo estimado es de 4 a 6 horas por variante. La GPU podría acelerar la
+inferencia de CoLES, pero ese no es el cuello de botella.

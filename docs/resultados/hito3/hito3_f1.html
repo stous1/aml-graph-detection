@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"domainColor": "#c9c8c3", "gridColor": "#e6e5e1", "labelColor": "#52514e", "labelFontSize": 11, "titleColor": "#52514e", "titleFontSize": 11}, "background": "#fcfcfb", "header": {"labelColor": "#0b0b0b", "labelFontSize": 12, "titleColor": "#52514e"}, "legend": {"labelColor": "#0b0b0b", "orient": "top", "titleColor": "#52514e"}, "title": {"anchor": "start", "color": "#0b0b0b", "fontSize": 14}}, "data": {"name": "data-290c769a9f57dc500cffc7b859fe7fcf"}, "facet": {"column": {"field": "variante", "title": null, "type": "nominal"}}, "spec": {"layer": [{"mark": {"type": "bar", "cornerRadiusBottomRight": 4, "cornerRadiusTopRight": 4, "size": 10}, "encoding": {"color": {"field": "senales", "scale": {"domain": ["estructurales", "con sospechosas", "regla"], "range": ["#2a78d6", "#1baf7a", "#eb6834"]}, "title": "se\u00f1ales", "type": "nominal"}, "tooltip": [{"field": "variante", "type": "nominal"}, {"field": "etiqueta", "type": "nominal"}, {"field": "senales", "type": "nominal"}, {"field": "f1_tx", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".2f"}, "field": "f1_tx", "scale": {"domain": [0, 0.25]}, "title": "F1 il\u00edcita por transacci\u00f3n", "type": "quantitative"}, "y": {"axis": {"labelLimit": 320}, "field": "etiqueta", "sort": ["Regla simple", "Combinado estructural (hito 2)", "CoLES: huella at\u00edpica", "Combinado estructural + CoLES"], "title": null, "type": "nominal"}}}, {"mark": {"type": "text", "align": "left", "color": "#52514e", "dx": 4, "fontSize": 10}, "encoding": {"color": {"value": "#52514e"}, "text": {"field": "f1_tx", "format": ".2f", "type": "quantitative"}, "tooltip": [{"field": "variante", "type": "nominal"}, {"field": "etiqueta", "type": "nominal"}, {"field": "senales", "type": "nominal"}, {"field": "f1_tx", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".2f"}, "field": "f1_tx", "scale": {"domain": [0, 0.25]}, "title": "F1 il\u00edcita por transacci\u00f3n", "type": "quantitative"}, "y": {"axis": {"labelLimit": 320}, "field": "etiqueta", "sort": ["Regla simple", "Combinado estructural (hito 2)", "CoLES: huella at\u00edpica", "Combinado estructural + CoLES"], "title": null, "type": "nominal"}}}], "height": {"step": 18}, "width": 260}, "title": "F1 il\u00edcita por transacci\u00f3n por detector, per\u00edodo de prueba", "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-290c769a9f57dc500cffc7b859fe7fcf": [{"variante": "HI", "detector": "regla_simple", "etiqueta": "Regla simple", "senales": "regla", "precision_100": 0.01, "f1_tx": 0.0028391476030414776, "f1_cuenta": 0.02412561493362086}, {"variante": "HI", "detector": "coles_atipico", "etiqueta": "CoLES: huella at\u00edpica", "senales": "estructurales", "precision_100": 0.1, "f1_tx": 0.0026631376008888017, "f1_cuenta": 0.016414970453053186}, {"variante": "HI", "detector": "combinado_forma", "etiqueta": "Combinado estructural (hito 2)", "senales": "estructurales", "precision_100": 0.48, "f1_tx": 0.11815980629539952, "f1_cuenta": 0.1217948717948718}, {"variante": "HI", "detector": "combinado_forma_coles", "etiqueta": "Combinado estructural + CoLES", "senales": "estructurales", "precision_100": 0.48, "f1_tx": 0.004869152285748697, "f1_cuenta": 0.12149200710479574}, {"variante": "LI", "detector": "regla_simple", "etiqueta": "Regla simple", "senales": "regla", "precision_100": 0.02, "f1_tx": 0.003088797800173274, "f1_cuenta": 0.020557853861577116}, {"variante": "LI", "detector": "coles_atipico", "etiqueta": "CoLES: huella at\u00edpica", "senales": "estructurales", "precision_100": 0.07, "f1_tx": 0.0024143179551776623, "f1_cuenta": 0.013816925734024179}, {"variante": "LI", "detector": "combinado_forma", "etiqueta": "Combinado estructural (hito 2)", "senales": "estructurales", "precision_100": 0.04, "f1_tx": 0.0277602523659306, "f1_cuenta": 0.03589021815622801}, {"variante": "LI", "detector": "combinado_forma_coles", "etiqueta": "Combinado estructural + CoLES", "senales": "estructurales", "precision_100": 0.04, "f1_tx": 0.0277602523659306, "f1_cuenta": 0.03651685393258427}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
