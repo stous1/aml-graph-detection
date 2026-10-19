@@ -1,0 +1,152 @@
+{
+  "criterio": "redes: época por AP en el día 6; PyGOD: modelo por AP en desarrollo (HI); umbrales relativos: fracción de alertas del mejor F1 en desarrollo",
+  "redes": {
+    "gnn": {
+      "caracteristicas": "todas",
+      "usar_grafo": true,
+      "usar_atributos_tx": true,
+      "oculto": 64,
+      "capas": 2,
+      "abandono": 0.2,
+      "tasa": 0.003,
+      "max_epocas": 1500,
+      "cada": 5,
+      "paciencia": 10,
+      "negativos_por_positivo": 50,
+      "semilla": 20220902
+    },
+    "gnn_sin_coles": {
+      "caracteristicas": "estructurales",
+      "usar_grafo": true,
+      "usar_atributos_tx": true,
+      "oculto": 64,
+      "capas": 2,
+      "abandono": 0.2,
+      "tasa": 0.003,
+      "max_epocas": 1500,
+      "cada": 5,
+      "paciencia": 10,
+      "negativos_por_positivo": 50,
+      "semilla": 20220902
+    },
+    "mlp_sin_grafo": {
+      "caracteristicas": "todas",
+      "usar_grafo": false,
+      "usar_atributos_tx": true,
+      "oculto": 64,
+      "capas": 2,
+      "abandono": 0.2,
+      "tasa": 0.003,
+      "max_epocas": 1500,
+      "cada": 5,
+      "paciencia": 10,
+      "negativos_por_positivo": 50,
+      "semilla": 20220902
+    },
+    "coles_supervisado": {
+      "caracteristicas": "coles",
+      "usar_grafo": false,
+      "usar_atributos_tx": false,
+      "oculto": 64,
+      "capas": 2,
+      "abandono": 0.2,
+      "tasa": 0.003,
+      "max_epocas": 1500,
+      "cada": 5,
+      "paciencia": 10,
+      "negativos_por_positivo": 50,
+      "semilla": 20220902
+    }
+  },
+  "validacion_desde": "2022-09-06 00:00:00",
+  "fracciones": {
+    "hi": {
+      "gnn": {
+        "transaccion": 0.00047936503222987463,
+        "cuenta": 0.018511442279115185
+      },
+      "gnn_sin_coles": {
+        "transaccion": 0.000214229505554059,
+        "cuenta": 0.0059360803294697066
+      },
+      "mlp_sin_grafo": {
+        "transaccion": 0.00024180360032834383,
+        "cuenta": 0.004606631851568802
+      },
+      "coles_supervisado": {
+        "transaccion": 0.00026089335824900256,
+        "cuenta": 0.0048640300598649855
+      },
+      "pygod": {
+        "transaccion": 0.05548881418324122,
+        "cuenta": 0.027655712648070308
+      },
+      "combinado_forma": {
+        "transaccion": 0.000358631798143446,
+        "cuenta": 0.002566021313633083
+      },
+      "coles_atipico": {
+        "transaccion": 0.0005410599891883765,
+        "cuenta": 0.02018851101770475
+      }
+    },
+    "li": {
+      "gnn": {
+        "transaccion": 0.0008735199122128031,
+        "cuenta": 0.02187642487800619
+      },
+      "gnn_sin_coles": {
+        "transaccion": 0.0001461047540000062,
+        "cuenta": 0.016402953074826105
+      },
+      "mlp_sin_grafo": {
+        "transaccion": 0.0003637075791063985,
+        "cuenta": 0.006387333986554002
+      },
+      "coles_supervisado": {
+        "transaccion": 6.21722357446835e-06,
+        "cuenta": 0.010112632058906276
+      },
+      "pygod": {
+        "transaccion": 0.012266730677986563,
+        "cuenta": 0.03848892596940211
+      },
+      "combinado_forma": {
+        "transaccion": 8.21197853936275e-05,
+        "cuenta": 0.001839365923223935
+      },
+      "coles_atipico": {
+        "transaccion": 0.0008320769708046615,
+        "cuenta": 0.014819701394076387
+      }
+    }
+  },
+  "modelos": {
+    "hi": {
+      "gnn": "modelos/gnn_hi.pt",
+      "gnn_sin_coles": "modelos/gnn_sin_coles_hi.pt",
+      "mlp_sin_grafo": "modelos/mlp_sin_grafo_hi.pt",
+      "coles_supervisado": "modelos/coles_supervisado_hi.pt",
+      "pygod": "modelos/pygod_hi.pt"
+    },
+    "li": {
+      "gnn": "modelos/gnn_li.pt",
+      "gnn_sin_coles": "modelos/gnn_sin_coles_li.pt",
+      "mlp_sin_grafo": "modelos/mlp_sin_grafo_li.pt",
+      "coles_supervisado": "modelos/coles_supervisado_li.pt",
+      "pygod": "modelos/pygod_li.pt"
+    }
+  },
+  "estadisticas": {
+    "hi": "modelos/estadisticas_hi.npz",
+    "li": "modelos/estadisticas_li.npz"
+  },
+  "pygod": {
+    "modelo": "cola",
+    "oculto": 64,
+    "capas": 2,
+    "epocas": 100,
+    "semilla": 20220902
+  },
+  "modelo_final": "gnn_sin_coles"
+}

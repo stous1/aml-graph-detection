@@ -40,9 +40,9 @@ class ConfigGNN:
     capas: int = 2
     abandono: float = 0.2
     tasa: float = 0.003
-    max_epocas: int = 300
+    max_epocas: int = 1500
     cada: int = 5  # épocas entre validaciones
-    paciencia: int = 8  # validaciones sin mejorar antes de parar
+    paciencia: int = 10  # validaciones sin mejorar antes de parar
     negativos_por_positivo: int = 50
     semilla: int = 20220902
 

@@ -222,9 +222,16 @@ def desarrollar(
             con, v, "desarrollo", ca.ConfigColesAtipico(**params_h3["detector"]["config"]), cache
         )
         parametros["fracciones"][v]["coles_atipico"] = _fracciones(universo, p.tx, p.cuenta)
+    parametros["modelo_final"] = modelo_final(desarrollo, variantes[0])
     escribir_json(parametros, salida / "parametros.json")
     escribir_json(desarrollo, salida / "desarrollo.json")
     return parametros
+
+
+def modelo_final(desarrollo: dict, variante: str = "hi") -> str:
+    """Red con mejor AP en la validación (día 6) de HI: el modelo que irá a Medium."""
+    entrenamiento = desarrollo["entrenamiento"][variante]
+    return max(entrenamiento, key=lambda n: round(entrenamiento[n]["mejor_ap_validacion"], 4))
 
 
 def evaluar(

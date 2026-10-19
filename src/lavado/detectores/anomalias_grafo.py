@@ -109,8 +109,25 @@ def a_transacciones(universo: ev.Universo, puntaje_cuentas: np.ndarray) -> np.nd
 
 
 def guardar(detector, ruta) -> None:
-    """Guarda el detector ajustado completo (PyGOD no separa arquitectura y pesos)."""
-    torch.save(detector, ruta)
+    """Guarda el detector ajustado (PyGOD no separa arquitectura y pesos).
+
+    Se quitan los embeddings de nodo y los puntajes del grafo de entrenamiento: pesan cientos
+    de MB y no hacen falta para puntuar un grafo nuevo.
+    """
+    pesados = {
+        "emb": getattr(detector.model, "emb", None),
+        "decision_score_": detector.decision_score_,
+        "label_": detector.label_,
+    }
+    try:
+        detector.model.emb = None
+        detector.decision_score_ = None
+        detector.label_ = None
+        torch.save(detector, ruta)
+    finally:
+        detector.model.emb = pesados["emb"]
+        detector.decision_score_ = pesados["decision_score_"]
+        detector.label_ = pesados["label_"]
 
 
 def cargar(ruta):
