@@ -1,0 +1,1420 @@
+{
+  "advertencia": "cifras de desarrollo: optimistas, se usaron para elegir",
+  "rejilla_top": [
+    {
+      "ventana_horas": 96,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "unicidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.8021014063021725,
+      "precision": 0.45625,
+      "recall": 0.08732057416267942,
+      "f1": 0.14658634538152612
+    },
+    {
+      "ventana_horas": 96,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "unicidad",
+        "formato",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.8021014063021725,
+      "precision": 0.45625,
+      "recall": 0.08732057416267942,
+      "f1": 0.14658634538152612
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "novedad",
+        "unicidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.8021014063021725,
+      "precision": 0.4896551724137931,
+      "recall": 0.08492822966507177,
+      "f1": 0.14475025484199797
+    },
+    {
+      "ventana_horas": 96,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "novedad",
+        "unicidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.75,
+      "precision": 0.4147727272727273,
+      "recall": 0.08732057416267942,
+      "f1": 0.1442687747035573
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "unicidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.8021014063021725,
+      "precision": 0.3788659793814433,
+      "recall": 0.08791866028708134,
+      "f1": 0.14271844660194175
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "unicidad",
+        "homogeneidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.5575683790382763,
+      "precision": 0.6733668341708543,
+      "recall": 0.08014354066985646,
+      "f1": 0.14323890967397113
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "unicidad",
+        "formato",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.8021014063021725,
+      "precision": 0.3788659793814433,
+      "recall": 0.08791866028708134,
+      "f1": 0.14271844660194175
+    },
+    {
+      "ventana_horas": 96,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "unicidad",
+        "homogeneidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.4404035655783213,
+      "precision": 0.47619047619047616,
+      "recall": 0.08373205741626795,
+      "f1": 0.14242115971515767
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": false,
+      "variables": [
+        "novedad",
+        "formato",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.8021014063021725,
+      "precision": 0.6666666666666666,
+      "recall": 0.07535885167464115,
+      "f1": 0.1354110693175712
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "novedad",
+        "homogeneidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.5575683790382763,
+      "precision": 0.4281150159744409,
+      "recall": 0.08014354066985646,
+      "f1": 0.13501259445843827
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": false,
+      "variables": [
+        "unicidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.8021014063021725,
+      "precision": 0.586046511627907,
+      "recall": 0.07535885167464115,
+      "f1": 0.13354531001589826
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": false,
+      "variables": [
+        "novedad",
+        "unicidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.8021014063021725,
+      "precision": 0.6206896551724138,
+      "recall": 0.07535885167464115,
+      "f1": 0.1344
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": false,
+      "variables": [
+        "unicidad",
+        "formato",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.6301691895798908,
+      "precision": 0.6206896551724138,
+      "recall": 0.07535885167464115,
+      "f1": 0.1344
+    },
+    {
+      "ventana_horas": 48,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "novedad",
+        "unicidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.7180451390892102,
+      "precision": 0.44876325088339225,
+      "recall": 0.07595693779904306,
+      "f1": 0.129923273657289
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": false,
+      "variables": [
+        "formato",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.8021014063021725,
+      "precision": 0.45,
+      "recall": 0.07535885167464115,
+      "f1": 0.1290983606557377
+    },
+    {
+      "ventana_horas": 48,
+      "min_contrapartes": 3,
+      "por_formato": false,
+      "variables": [
+        "unicidad",
+        "formato",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.5283208335737187,
+      "precision": 0.5211864406779662,
+      "recall": 0.0735645933014354,
+      "f1": 0.1289308176100629
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "unicidad",
+        "mezcla_monedas",
+        "dispersion"
+      ],
+      "tamano": "log2",
+      "umbral": 0.6938095837274479,
+      "precision": 0.42474916387959866,
+      "recall": 0.07595693779904306,
+      "f1": 0.12886859462201927
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "homogeneidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.6231916292770181,
+      "precision": 0.3954983922829582,
+      "recall": 0.0735645933014354,
+      "f1": 0.12405446293494704
+    },
+    {
+      "ventana_horas": 48,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "unicidad",
+        "homogeneidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.5140875008090057,
+      "precision": 0.4798387096774194,
+      "recall": 0.07117224880382775,
+      "f1": 0.12395833333333332
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": false,
+      "variables": [
+        "unicidad",
+        "mezcla_monedas",
+        "dispersion"
+      ],
+      "tamano": "log2",
+      "umbral": 0.6533647667002495,
+      "precision": 0.5742574257425742,
+      "recall": 0.06937799043062201,
+      "f1": 0.12379935965848453
+    },
+    {
+      "ventana_horas": 72,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "homogeneidad",
+        "formato",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.6231916292770181,
+      "precision": 0.3954983922829582,
+      "recall": 0.0735645933014354,
+      "f1": 0.12405446293494704
+    },
+    {
+      "ventana_horas": 96,
+      "min_contrapartes": 3,
+      "por_formato": false,
+      "variables": [
+        "novedad",
+        "unicidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.8333333333333333,
+      "precision": 0.6041666666666666,
+      "recall": 0.06937799043062201,
+      "f1": 0.12446351931330472
+    },
+    {
+      "ventana_horas": 96,
+      "min_contrapartes": 3,
+      "por_formato": false,
+      "variables": [
+        "unicidad",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.8333333333333333,
+      "precision": 0.5,
+      "recall": 0.06937799043062201,
+      "f1": 0.12184873949579833
+    },
+    {
+      "ventana_horas": 96,
+      "min_contrapartes": 3,
+      "por_formato": true,
+      "variables": [
+        "unicidad",
+        "mezcla_monedas",
+        "dispersion"
+      ],
+      "tamano": "log2",
+      "umbral": 0.6807634074278022,
+      "precision": 0.3677811550151976,
+      "recall": 0.07236842105263158,
+      "f1": 0.12093953023488258
+    },
+    {
+      "ventana_horas": 96,
+      "min_contrapartes": 3,
+      "por_formato": false,
+      "variables": [
+        "unicidad",
+        "formato",
+        "mezcla_monedas"
+      ],
+      "tamano": "log2",
+      "umbral": 0.8616541669070521,
+      "precision": 0.6453488372093024,
+      "recall": 0.06638755980861244,
+      "f1": 0.12039045553145336
+    }
+  ],
+  "metricas": {
+    "hi": {
+      "detector": {
+        "periodo": "desarrollo",
+        "config": {
+          "ventana_horas": 96,
+          "min_contrapartes": 3,
+          "por_formato": true,
+          "variables": [
+            "unicidad",
+            "mezcla_monedas"
+          ],
+          "tamano": "log2"
+        },
+        "universo": {
+          "transacciones": 2088493,
+          "lavado": 1672,
+          "ignoradas_puente": 531,
+          "cuentas": 376848,
+          "cuentas_ilicitas": 2441,
+          "cuentas_ignoradas": 604
+        },
+        "estructuras_candidatas": 280920,
+        "estructuras_marcadas": 118,
+        "f1_transaccion": {
+          "umbral": 0.8021014063021725,
+          "tp": 146,
+          "fp": 174,
+          "fn": 1526,
+          "marcadas": 320,
+          "precision": 0.45625,
+          "recall": 0.08732057416267942,
+          "f1": 0.14658634538152612,
+          "f1_ic": [
+            0.0855146159524885,
+            0.2056845302459219
+          ]
+        },
+        "f1_cuenta": {
+          "umbral": 0.8021014063021725,
+          "tp": 166,
+          "fp": 177,
+          "fn": 2275,
+          "marcadas": 343,
+          "precision": 0.4839650145772595,
+          "recall": 0.0680049160180254,
+          "f1": 0.11925287356321838,
+          "f1_ic": [
+            0.10414076479781594,
+            0.13525476387738192
+          ]
+        },
+        "precision_k": [
+          {
+            "k": 100,
+            "aciertos": 94,
+            "precision": 0.94,
+            "ic_inf": 0.8752318455410406,
+            "ic_sup": 0.9722138760368118
+          },
+          {
+            "k": 500,
+            "aciertos": 167,
+            "precision": 0.334,
+            "ic_inf": 0.29406381245587715,
+            "ic_sup": 0.3764674685773583
+          },
+          {
+            "k": 1000,
+            "aciertos": 169,
+            "precision": 0.169,
+            "ic_inf": 0.14704962548581355,
+            "ic_sup": 0.193483688631624
+          },
+          {
+            "k": 2441,
+            "aciertos": 207,
+            "precision": 0.08480131093814011,
+            "ic_inf": 0.0743915746711714,
+            "ic_sup": 0.09651580965560054
+          }
+        ],
+        "recall_tipo": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 25,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 20,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 10,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 19,
+            "detectados": 9,
+            "recall": 0.47368421052631576,
+            "ic_inf": 0.2631578947368421,
+            "ic_sup": 0.6855263157894725
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 10,
+            "detectados": 1,
+            "recall": 0.1,
+            "ic_inf": 0.0,
+            "ic_sup": 0.3
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 14,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 12,
+            "detectados": 7,
+            "recall": 0.5833333333333334,
+            "ic_inf": 0.3333333333333333,
+            "ic_sup": 0.8333333333333334
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 990,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.003865263203300507
+          }
+        ],
+        "recall_tipo_min3": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 16,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 10,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 9,
+            "recall": 0.8181818181818182,
+            "ic_inf": 0.5454545454545454,
+            "ic_sup": 1.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 1,
+            "recall": 0.25,
+            "ic_inf": 0.0,
+            "ic_sup": 0.75
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 9,
+            "detectados": 7,
+            "recall": 0.7777777777777778,
+            "ic_inf": 0.4444444444444444,
+            "ic_sup": 1.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 990,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.003865263203300507
+          }
+        ],
+        "forma_por_tipo": [
+          {
+            "tipo": "FAN-OUT",
+            "entrada": 0.0,
+            "salida": 1.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "entrada": 0.0,
+            "salida": 1.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "entrada": 0.0,
+            "salida": 1.0
+          }
+        ]
+      },
+      "regla": {
+        "periodo": "desarrollo",
+        "config": {
+          "ventana_horas": 24,
+          "min_contrapartes": 3,
+          "por_formato": false,
+          "variables": [],
+          "tamano": "lineal"
+        },
+        "universo": {
+          "transacciones": 2088493,
+          "lavado": 1672,
+          "ignoradas_puente": 531,
+          "cuentas": 376848,
+          "cuentas_ilicitas": 2441,
+          "cuentas_ignoradas": 604
+        },
+        "estructuras_candidatas": 256566,
+        "estructuras_marcadas": 7,
+        "f1_transaccion": {
+          "umbral": 7280.0,
+          "tp": 132,
+          "fp": 83634,
+          "fn": 1540,
+          "marcadas": 83766,
+          "precision": 0.0015758183511209798,
+          "recall": 0.07894736842105263,
+          "f1": 0.003089959970973103,
+          "f1_ic": [
+            0.0,
+            0.00390641570955014
+          ]
+        },
+        "f1_cuenta": {
+          "umbral": 7280.0,
+          "tp": 260,
+          "fp": 20034,
+          "fn": 2181,
+          "marcadas": 20294,
+          "precision": 0.012811668473440426,
+          "recall": 0.10651372388365424,
+          "f1": 0.022872223444029033,
+          "f1_ic": [
+            0.020170470904280636,
+            0.0257309710672821
+          ]
+        },
+        "precision_k": [
+          {
+            "k": 100,
+            "aciertos": 2,
+            "precision": 0.02,
+            "ic_inf": 0.00550196755016235,
+            "ic_sup": 0.07001179072854388
+          },
+          {
+            "k": 500,
+            "aciertos": 7,
+            "precision": 0.014,
+            "ic_inf": 0.00679778979084349,
+            "ic_sup": 0.02861306913778529
+          },
+          {
+            "k": 1000,
+            "aciertos": 11,
+            "precision": 0.011,
+            "ic_inf": 0.006153174098086638,
+            "ic_sup": 0.019589395700786275
+          },
+          {
+            "k": 2441,
+            "aciertos": 29,
+            "precision": 0.01188037689471528,
+            "ic_inf": 0.008284594789478393,
+            "ic_sup": 0.01701007558580405
+          }
+        ],
+        "recall_tipo": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 25,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 20,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 10,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 19,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 10,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 14,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 12,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 990,
+            "detectados": 132,
+            "recall": 0.13333333333333333,
+            "ic_inf": 0.11356897070314328,
+            "ic_sup": 0.15593222231261036
+          }
+        ],
+        "recall_tipo_min3": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 16,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 10,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 11,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 9,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 990,
+            "detectados": 132,
+            "recall": 0.13333333333333333,
+            "ic_inf": 0.11356897070314328,
+            "ic_sup": 0.15593222231261036
+          }
+        ],
+        "forma_por_tipo": [
+          {
+            "tipo": "SIN_PATRON",
+            "entrada": 0.0,
+            "salida": 1.0
+          }
+        ]
+      }
+    },
+    "li": {
+      "detector": {
+        "periodo": "desarrollo",
+        "config": {
+          "ventana_horas": 96,
+          "min_contrapartes": 3,
+          "por_formato": true,
+          "variables": [
+            "unicidad",
+            "mezcla_monedas"
+          ],
+          "tamano": "log2"
+        },
+        "universo": {
+          "transacciones": 2849496,
+          "lavado": 1496,
+          "ignoradas_puente": 185,
+          "cuentas": 515395,
+          "cuentas_ilicitas": 2403,
+          "cuentas_ignoradas": 249
+        },
+        "estructuras_candidatas": 383117,
+        "estructuras_marcadas": 67,
+        "f1_transaccion": {
+          "umbral": 0.8021014063021725,
+          "tp": 62,
+          "fp": 142,
+          "fn": 1434,
+          "marcadas": 204,
+          "precision": 0.30392156862745096,
+          "recall": 0.04144385026737968,
+          "f1": 0.07294117647058823,
+          "f1_ic": [
+            0.01955485007553021,
+            0.13811262224038964
+          ]
+        },
+        "f1_cuenta": {
+          "umbral": 0.8021014063021725,
+          "tp": 70,
+          "fp": 128,
+          "fn": 2333,
+          "marcadas": 198,
+          "precision": 0.35353535353535354,
+          "recall": 0.029130253849354974,
+          "f1": 0.05382545174932718,
+          "f1_ic": [
+            0.04072780226783165,
+            0.06605552406628411
+          ]
+        },
+        "precision_k": [
+          {
+            "k": 100,
+            "aciertos": 60,
+            "precision": 0.6,
+            "ic_inf": 0.5020025867910618,
+            "ic_sup": 0.6905987135675411
+          },
+          {
+            "k": 500,
+            "aciertos": 70,
+            "precision": 0.14,
+            "ic_inf": 0.11232266018786358,
+            "ic_sup": 0.17316686494445405
+          },
+          {
+            "k": 1000,
+            "aciertos": 71,
+            "precision": 0.071,
+            "ic_inf": 0.056669695350451466,
+            "ic_sup": 0.08861366343015481
+          },
+          {
+            "k": 2403,
+            "aciertos": 80,
+            "precision": 0.033291718684977115,
+            "ic_inf": 0.026830960885991857,
+            "ic_sup": 0.041242263555211385
+          }
+        ],
+        "recall_tipo": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 4,
+            "recall": 0.5,
+            "ic_inf": 0.25,
+            "ic_sup": 0.875
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 2,
+            "detectados": 1,
+            "recall": 0.5,
+            "ic_inf": 0.0,
+            "ic_sup": 1.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 7,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 1,
+            "recall": 0.25,
+            "ic_inf": 0.0,
+            "ic_sup": 0.75
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 1222,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0031337321747869048
+          }
+        ],
+        "recall_tipo_min3": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 4,
+            "recall": 0.8,
+            "ic_inf": 0.4,
+            "ic_sup": 1.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 1,
+            "recall": 1.0,
+            "ic_inf": 1.0,
+            "ic_sup": 1.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 3,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 2,
+            "detectados": 1,
+            "recall": 0.5,
+            "ic_inf": 0.0,
+            "ic_sup": 1.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 1222,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0031337321747869048
+          }
+        ],
+        "forma_por_tipo": [
+          {
+            "tipo": "FAN-OUT",
+            "entrada": 0.0,
+            "salida": 1.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "entrada": 0.0,
+            "salida": 1.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "entrada": 0.0,
+            "salida": 1.0
+          }
+        ]
+      },
+      "regla": {
+        "periodo": "desarrollo",
+        "config": {
+          "ventana_horas": 24,
+          "min_contrapartes": 3,
+          "por_formato": false,
+          "variables": [],
+          "tamano": "lineal"
+        },
+        "universo": {
+          "transacciones": 2849496,
+          "lavado": 1496,
+          "ignoradas_puente": 185,
+          "cuentas": 515395,
+          "cuentas_ilicitas": 2403,
+          "cuentas_ignoradas": 249
+        },
+        "estructuras_candidatas": 350117,
+        "estructuras_marcadas": 5521,
+        "f1_transaccion": {
+          "umbral": 11.0,
+          "tp": 481,
+          "fp": 346332,
+          "fn": 1015,
+          "marcadas": 346813,
+          "precision": 0.0013869145620262217,
+          "recall": 0.321524064171123,
+          "f1": 0.002761915425670884,
+          "f1_ic": [
+            0.0025295269806872977,
+            0.0031070114724151125
+          ]
+        },
+        "f1_cuenta": {
+          "umbral": 11.0,
+          "tp": 808,
+          "fp": 88758,
+          "fn": 1595,
+          "marcadas": 89566,
+          "precision": 0.009021280396579059,
+          "recall": 0.33624635871826886,
+          "f1": 0.017571138100881817,
+          "f1_ic": [
+            0.016380128659319673,
+            0.018754444940929756
+          ]
+        },
+        "precision_k": [
+          {
+            "k": 100,
+            "aciertos": 1,
+            "precision": 0.01,
+            "ic_inf": 0.0017674320641406505,
+            "ic_sup": 0.054486196178705315
+          },
+          {
+            "k": 500,
+            "aciertos": 5,
+            "precision": 0.01,
+            "ic_inf": 0.004278753896590496,
+            "ic_sup": 0.023193099755730702
+          },
+          {
+            "k": 1000,
+            "aciertos": 7,
+            "precision": 0.007,
+            "ic_inf": 0.0033948684009907646,
+            "ic_sup": 0.014378315465766588
+          },
+          {
+            "k": 2403,
+            "aciertos": 24,
+            "precision": 0.009987515605493134,
+            "ic_inf": 0.006720763433258244,
+            "ic_sup": 0.014818444573444216
+          }
+        ],
+        "recall_tipo": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 6,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 2,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 7,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 4,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 8,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 1222,
+            "detectados": 471,
+            "recall": 0.38543371522094927,
+            "ic_inf": 0.35854516023501143,
+            "ic_sup": 0.4130403103124029
+          }
+        ],
+        "recall_tipo_min3": [
+          {
+            "tipo": "BIPARTITE",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "CYCLE",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-IN",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "FAN-OUT",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "GATHER-SCATTER",
+            "unidad": "intento",
+            "n": 1,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "RANDOM",
+            "unidad": "intento",
+            "n": 3,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "unidad": "intento",
+            "n": 2,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "STACK",
+            "unidad": "intento",
+            "n": 5,
+            "detectados": 0,
+            "recall": 0.0,
+            "ic_inf": 0.0,
+            "ic_sup": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "unidad": "transaccion",
+            "n": 1222,
+            "detectados": 471,
+            "recall": 0.38543371522094927,
+            "ic_inf": 0.35854516023501143,
+            "ic_sup": 0.4130403103124029
+          }
+        ],
+        "forma_por_tipo": [
+          {
+            "tipo": "FAN-IN",
+            "entrada": 0.0,
+            "salida": 1.0
+          },
+          {
+            "tipo": "SCATTER-GATHER",
+            "entrada": 1.0,
+            "salida": 0.0
+          },
+          {
+            "tipo": "SIN_PATRON",
+            "entrada": 0.2059447983014862,
+            "salida": 0.7940552016985138
+          }
+        ]
+      }
+    }
+  }
+}
