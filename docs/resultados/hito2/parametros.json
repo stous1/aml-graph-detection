@@ -1,0 +1,362 @@
+{
+  "criterio": "por detector: máximo F1 ilícita por transacción en HI desarrollo; empate a 3 decimales: primera configuración de la rejilla (de simple a compleja). Umbrales de transacción y de cuenta: máximo F1 en el desarrollo de cada variante.",
+  "detectores": {
+    "regla_simple": {
+      "descripcion": "contrapartes distintas en 24 h (solo tamaño)",
+      "sospechosas": false,
+      "config": {
+        "ventana_horas": 24,
+        "min_contrapartes": 3,
+        "por_formato": false,
+        "variables": [],
+        "tamano": "lineal",
+        "direccion": "ambas"
+      },
+      "configuraciones_evaluadas": 1,
+      "umbrales": {
+        "hi": {
+          "transaccion": 7280.0,
+          "cuenta": 628.0
+        },
+        "li": {
+          "transaccion": 11.0,
+          "cuenta": 921.0
+        }
+      }
+    },
+    "abanicos_h1": {
+      "descripcion": "abanicos del hito 1 congelados (unicidad × mezcla de monedas)",
+      "sospechosas": true,
+      "config": {
+        "ventana_horas": 96,
+        "min_contrapartes": 3,
+        "por_formato": true,
+        "variables": [
+          "unicidad",
+          "mezcla_monedas"
+        ],
+        "tamano": "log2",
+        "direccion": "ambas"
+      },
+      "configuraciones_evaluadas": 1,
+      "umbrales": {
+        "hi": {
+          "transaccion": 0.8021014063021725,
+          "cuenta": 0.8021014063021725
+        },
+        "li": {
+          "transaccion": 0.8021014063021725,
+          "cuenta": 0.8021014063021725
+        }
+      }
+    },
+    "abanicos_h1_sin_monedas": {
+      "descripcion": "ablación: hito 1 congelado sin mezcla de monedas (conserva el canal)",
+      "sospechosas": true,
+      "config": {
+        "ventana_horas": 96,
+        "min_contrapartes": 3,
+        "por_formato": true,
+        "variables": [
+          "unicidad"
+        ],
+        "tamano": "log2",
+        "direccion": "ambas"
+      },
+      "configuraciones_evaluadas": 1,
+      "umbrales": {
+        "hi": {
+          "transaccion": 2.321928094887362,
+          "cuenta": 2.584962500721156
+        },
+        "li": {
+          "transaccion": 2.321928094887362,
+          "cuenta": 2.5735877148613246
+        }
+      }
+    },
+    "abanicos_h1_forma_pura": {
+      "descripcion": "ablación: hito 1 sin mezcla de monedas ni canal",
+      "sospechosas": false,
+      "config": {
+        "ventana_horas": 96,
+        "min_contrapartes": 3,
+        "por_formato": false,
+        "variables": [
+          "unicidad"
+        ],
+        "tamano": "log2",
+        "direccion": "ambas"
+      },
+      "configuraciones_evaluadas": 1,
+      "umbrales": {
+        "hi": {
+          "transaccion": 3.308898490535989,
+          "cuenta": 2.321928094887362
+        },
+        "li": {
+          "transaccion": 2.1140971002783484,
+          "cuenta": 2.26418684256073
+        }
+      }
+    },
+    "abanicos_salida_forma": {
+      "descripcion": "abanicos de salida, forma pura",
+      "sospechosas": false,
+      "config": {
+        "ventana_horas": 48,
+        "min_contrapartes": 3,
+        "por_formato": false,
+        "variables": [
+          "novedad",
+          "unicidad",
+          "homogeneidad"
+        ],
+        "tamano": "ninguno",
+        "direccion": "salida"
+      },
+      "configuraciones_evaluadas": 200,
+      "umbrales": {
+        "hi": {
+          "transaccion": 0.5678217345415599,
+          "cuenta": 0.5678217345415599
+        },
+        "li": {
+          "transaccion": 0.5132765505157446,
+          "cuenta": 0.5132765505157446
+        }
+      }
+    },
+    "abanicos_entrada_forma": {
+      "descripcion": "abanicos de entrada, forma pura",
+      "sospechosas": false,
+      "config": {
+        "ventana_horas": 96,
+        "min_contrapartes": 3,
+        "por_formato": false,
+        "variables": [
+          "dispersion"
+        ],
+        "tamano": "log2",
+        "direccion": "entrada"
+      },
+      "configuraciones_evaluadas": 200,
+      "umbrales": {
+        "hi": {
+          "transaccion": 3.2457603196633382,
+          "cuenta": 3.0477508086783898
+        },
+        "li": {
+          "transaccion": 2.621354166666667,
+          "cuenta": 2.114728261419983
+        }
+      }
+    },
+    "abanicos_entrada_con": {
+      "descripcion": "abanicos de entrada con moneda y formato",
+      "sospechosas": true,
+      "config": {
+        "ventana_horas": 24,
+        "min_contrapartes": 3,
+        "por_formato": true,
+        "variables": [
+          "novedad",
+          "homogeneidad",
+          "dispersion"
+        ],
+        "tamano": "ninguno",
+        "direccion": "entrada"
+      },
+      "configuraciones_evaluadas": 1008,
+      "umbrales": {
+        "hi": {
+          "transaccion": 0.4169299003148276,
+          "cuenta": 0.4169299003148276
+        },
+        "li": {
+          "transaccion": 0.4975001249762598,
+          "cuenta": 0.4695174471160407
+        }
+      }
+    },
+    "ciclos": {
+      "descripcion": "ciclos temporales acotados con monto conservado",
+      "sospechosas": false,
+      "config": {
+        "delta_horas": 96,
+        "tolerancia": 0.2,
+        "duracion_horas": 96,
+        "max_saltos": 10,
+        "min_saltos": 2,
+        "puntaje": "longitud_consistencia"
+      },
+      "configuraciones_evaluadas": 16,
+      "umbrales": {
+        "hi": {
+          "transaccion": 1.7051536960803533,
+          "cuenta": 1.6735488517146466
+        },
+        "li": {
+          "transaccion": 1.7606526663600905,
+          "cuenta": 1.668836818003652
+        }
+      }
+    },
+    "cadenas": {
+      "descripcion": "cadenas de paso con monto conservado",
+      "sospechosas": false,
+      "config": {
+        "delta_horas": 96,
+        "tolerancia": 0.2,
+        "max_saltos": 12
+      },
+      "configuraciones_evaluadas": 4,
+      "umbrales": {
+        "hi": {
+          "transaccion": 6.0,
+          "cuenta": 5.0
+        },
+        "li": {
+          "transaccion": 7.0,
+          "cuenta": 5.0
+        }
+      }
+    },
+    "dispersion_concentracion": {
+      "descripcion": "S → varias intermediarias → T",
+      "sospechosas": false,
+      "config": {
+        "delta_horas": 96,
+        "tolerancia": 0.2,
+        "min_intermediarias": 2
+      },
+      "configuraciones_evaluadas": 4,
+      "umbrales": {
+        "hi": {
+          "transaccion": 3.0,
+          "cuenta": 2.0
+        },
+        "li": {
+          "transaccion": 5.0,
+          "cuenta": 2.0
+        }
+      }
+    },
+    "concentracion_dispersion": {
+      "descripcion": "junta de varias y reparte a varias",
+      "sospechosas": false,
+      "config": {
+        "ventana_horas": 96,
+        "min_lado": 2,
+        "puntaje": "tamano_balance_unicidad"
+      },
+      "configuraciones_evaluadas": 6,
+      "umbrales": {
+        "hi": {
+          "transaccion": 0.6681650664728531,
+          "cuenta": 0.4807942907732803
+        },
+        "li": {
+          "transaccion": 0.5179335761731305,
+          "cuenta": 0.49546147210217534
+        }
+      }
+    },
+    "aislamiento_forma": {
+      "descripcion": "Isolation Forest, variables estructurales",
+      "sospechosas": false,
+      "config": {
+        "sospechosas": false,
+        "agregacion": "min",
+        "n_arboles": 200
+      },
+      "configuraciones_evaluadas": 2,
+      "umbrales": {
+        "hi": {
+          "transaccion": 0.6297349946738781,
+          "cuenta": 0.6208637305740755
+        },
+        "li": {
+          "transaccion": 0.6390805630355421,
+          "cuenta": 0.61975328088631
+        }
+      }
+    },
+    "aislamiento_con": {
+      "descripcion": "Isolation Forest con monedas y formatos",
+      "sospechosas": true,
+      "config": {
+        "sospechosas": true,
+        "agregacion": "min",
+        "n_arboles": 200
+      },
+      "configuraciones_evaluadas": 2,
+      "umbrales": {
+        "hi": {
+          "transaccion": 0.6008547093555946,
+          "cuenta": 0.601468164078177
+        },
+        "li": {
+          "transaccion": 0.6009476019780634,
+          "cuenta": 0.5911127769420045
+        }
+      }
+    }
+  },
+  "combinados": {
+    "combinado_forma": {
+      "componentes": [
+        "abanicos_salida_forma",
+        "abanicos_entrada_forma",
+        "ciclos",
+        "cadenas",
+        "dispersion_concentracion",
+        "concentracion_dispersion",
+        "aislamiento_forma"
+      ],
+      "umbrales": {
+        "hi": {
+          "transaccion": 0.9999463864464937,
+          "cuenta": 0.9996264425675317
+        },
+        "li": {
+          "transaccion": 0.9999891215893989,
+          "cuenta": 0.9998002497847353
+        }
+      },
+      "esquema": "max",
+      "f1_por_esquema_hi_desarrollo": {
+        "max": 0.18422139611730687,
+        "media": 0.08643815201192251,
+        "noisy_or": 0.17117117117117114
+      }
+    },
+    "combinado_con": {
+      "componentes": [
+        "abanicos_h1",
+        "abanicos_entrada_con",
+        "ciclos",
+        "cadenas",
+        "dispersion_concentracion",
+        "concentracion_dispersion",
+        "aislamiento_con"
+      ],
+      "umbrales": {
+        "hi": {
+          "transaccion": 0.9999463864464937,
+          "cuenta": 0.9996025984760977
+        },
+        "li": {
+          "transaccion": 0.9999891215893989,
+          "cuenta": 0.9998235216544747
+        }
+      },
+      "esquema": "max",
+      "f1_por_esquema_hi_desarrollo": {
+        "max": 0.20722269991401546,
+        "media": 0.08529945553539019,
+        "noisy_or": 0.18051575931232092
+      }
+    }
+  }
+}

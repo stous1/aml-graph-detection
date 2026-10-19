@@ -194,3 +194,25 @@ def test_flujo_hito2(con_rw, tmp_path: Path) -> None:
     # cada detector trae las métricas de la regla de evaluación
     for m in metricas["variantes"]["li"].values():
         assert {"f1_transaccion", "f1_cuenta", "precision_k", "recall_tipo"} <= set(m)
+
+
+def test_parametros_hito2_congelados_no_cambian() -> None:
+    """Si existe el tag, ``parametros.json`` del hito 2 debe ser idéntico al del tag."""
+    import json
+    import subprocess
+
+    from lavado.rutas import DOCS_RESULTADOS_HITO2, RAIZ
+
+    def git(*args: str) -> subprocess.CompletedProcess:
+        return subprocess.run(
+            ["git", *args], cwd=RAIZ, capture_output=True, text=True, encoding="utf-8"
+        )
+
+    if shutil.which("git") is None or git("rev-parse", "--git-dir").returncode != 0:
+        pytest.skip("sin git")
+    if git("rev-parse", "-q", "--verify", "refs/tags/hito2-congelado").returncode != 0:
+        pytest.skip("todavía no hay tag de congelamiento")
+    congelado = git("show", "hito2-congelado:docs/resultados/hito2/parametros.json")
+    assert congelado.returncode == 0
+    ruta = DOCS_RESULTADOS_HITO2 / "parametros.json"
+    assert json.loads(congelado.stdout) == json.loads(ruta.read_text(encoding="utf-8"))
