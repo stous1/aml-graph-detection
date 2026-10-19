@@ -13,6 +13,9 @@ Trae, con semilla fija y sin depender del reloj:
   con una transferencia más en la cola (día 12).
 - Un **ciclo puente** (días 6 y 7) y una transferencia de lavado sin patrón (día 4).
 - Dos transferencias de lavado idénticas dentro del abanico de salida.
+- Con monto conservado: una **dispersión-concentración** (prueba, día 9: ``SG_ORIGEN`` reparte
+  entre tres intermediarias que reenvían a ``SG_DESTINO``), una **cadena** de cuatro saltos
+  (desarrollo, día 4) y un **ciclo** de tres cuentas (desarrollo, día 5).
 """
 
 from dataclasses import dataclass
@@ -93,7 +96,21 @@ def generar(directorio: Path, prefijo: str = "HI", semilla: int = 7) -> MiniAMLw
     hojas_salida = [_cuenta(200 + i, "US Dollar") for i in range(6)]
     hojas_entrada = [_cuenta(300 + i, "US Dollar") for i in range(9)]
     clientes = [_cuenta(400 + i, "US Dollar") for i in range(20)]
-    todas = fondo + list(esp.values()) + hojas_salida + hojas_entrada + clientes
+    esp |= {"SG_ORIGEN": _cuenta(500, "US Dollar"), "SG_DESTINO": _cuenta(501, "US Dollar")}
+    intermediarias = [_cuenta(502 + i, "US Dollar") for i in range(3)]
+    cadena = [_cuenta(510 + i, "US Dollar") for i in range(5)]
+    anillo = [_cuenta(520 + i, "US Dollar") for i in range(3)]
+    esp |= {"CADENA_0": cadena[0], "ANILLO_0": anillo[0]}
+    todas = (
+        fondo
+        + list(esp.values())
+        + hojas_salida
+        + hojas_entrada
+        + clientes
+        + intermediarias
+        + cadena[1:]
+        + anillo[1:]
+    )
 
     txs: list[Tx] = []
     for dia in range(10):
@@ -217,6 +234,63 @@ def generar(directorio: Path, prefijo: str = "HI", semilla: int = 7) -> MiniAMLw
         ),
     ]
     patrones.append(("CYCLE", "Max 3 hops", ciclo))
+    sg = []
+    for i, m in enumerate(intermediarias):
+        monto = 4000.0 + 300 * i
+        sg.append(
+            Tx(
+                inicio + timedelta(days=8, hours=1 + i),
+                esp["SG_ORIGEN"],
+                m,
+                monto,
+                "US Dollar",
+                "US Dollar",
+                "ACH",
+                1,
+            )
+        )
+        sg.append(
+            Tx(
+                inicio + timedelta(days=8, hours=6 + i),
+                m,
+                esp["SG_DESTINO"],
+                round(monto * 0.99, 2),
+                "US Dollar",
+                "US Dollar",
+                "ACH",
+                1,
+            )
+        )
+    patrones.append(("SCATTER-GATHER", "", sg))
+    tramo = [
+        Tx(
+            inicio + timedelta(days=3, hours=2 + i),
+            cadena[i],
+            cadena[i + 1],
+            2500.0 - 10 * i,
+            "US Dollar",
+            "US Dollar",
+            "ACH",
+            1,
+        )
+        for i in range(4)
+    ]
+    patrones.append(("RANDOM", "Max 4 hops", tramo))
+    vuelta = [
+        Tx(
+            inicio + timedelta(days=4, hours=3 + 2 * i),
+            anillo[i],
+            anillo[(i + 1) % 3],
+            3000.0 - 20 * i,
+            "US Dollar",
+            "US Dollar",
+            "ACH",
+            1,
+        )
+        for i in range(3)
+    ]
+    patrones.append(("CYCLE", "Max 3 hops", vuelta))
+    txs += sg + tramo + vuelta
     sin_patron = Tx(
         inicio + timedelta(days=3, hours=5),
         fondo[1],

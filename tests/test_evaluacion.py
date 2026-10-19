@@ -81,4 +81,5 @@ def test_universo_excluye_cuentas_solo_puente(con) -> None:
     ).fetchone()[0]
     fila = u.cuentas.set_index("cuenta_id").loc[ciclo_c]
     assert bool(fila.ignorada) and not bool(fila.y)
-    assert int(u.cuentas.y.sum()) == 9  # 8 hojas del abanico de entrada + el centro
+    # 8 hojas del abanico de entrada + su centro + 5 cuentas de la dispersión-concentración
+    assert int(u.cuentas.y.sum()) == 14

@@ -9,9 +9,10 @@ from lavado import ingesta, patrones, sintetico, tasas
 
 def test_conteos_basicos(con: duckdb.DuckDBPyConnection) -> None:
     n, lavado = con.execute("SELECT count(*), sum(es_lavado::INT) FROM hi.transacciones").fetchone()
-    # 400 de fondo + 50 autotransferencias + 45 de especiales + 40 del comercio + 7 + 9 + 3 + 1
-    assert n == 555
-    assert lavado == 20
+    # 400 de fondo + 50 autotransferencias + 57 de especiales + 40 del comercio
+    # + lavado: 7 + 9 + 3 (ciclo puente) + 6 (dispersión) + 4 (cadena) + 3 (ciclo) + 1
+    assert n == 580
+    assert lavado == 33
 
 
 def test_columnas_account_duplicadas_se_separan(con: duckdb.DuckDBPyConnection) -> None:
@@ -44,9 +45,9 @@ def test_todos_los_patrones_cruzan(con: duckdb.DuckDBPyConnection) -> None:
     sin_cruce, n = con.execute(
         "SELECT sum((tx_id IS NULL)::INT), count(*) FROM hi.patrones"
     ).fetchone()
-    assert (sin_cruce, n) == (0, 19)
+    assert (sin_cruce, n) == (0, 32)
     # las dos líneas idénticas del abanico de salida se emparejan con transacciones distintas
-    assert con.execute("SELECT count(DISTINCT tx_id) FROM hi.patrones").fetchone()[0] == 19
+    assert con.execute("SELECT count(DISTINCT tx_id) FROM hi.patrones").fetchone()[0] == 32
 
 
 def test_tasas_recuperan_las_del_generador(con: duckdb.DuckDBPyConnection) -> None:

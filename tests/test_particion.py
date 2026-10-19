@@ -22,12 +22,9 @@ def test_periodo_sql_coincide_con_python(con: duckdb.DuckDBPyConnection) -> None
 
 
 def test_ciclo_es_puente_y_sus_tx_se_ignoran(con: duckdb.DuckDBPyConnection) -> None:
-    intentos = con.execute("SELECT tipo, es_puente FROM hi.intentos ORDER BY tipo").df()
-    assert dict(zip(intentos.tipo, intentos.es_puente, strict=True)) == {
-        "CYCLE": True,
-        "FAN-IN": False,
-        "FAN-OUT": False,
-    }
+    puentes = con.execute("SELECT tipo, detalle FROM hi.intentos WHERE es_puente").fetchall()
+    assert puentes == [("CYCLE", "Max 3 hops")]
+    assert con.execute("SELECT count(*) FROM hi.intentos").fetchone()[0] == 6
     ign = con.execute(
         "SELECT tipo, count(*) FROM hi.etiquetas WHERE ignorada GROUP BY tipo"
     ).fetchall()
@@ -48,3 +45,5 @@ def test_conteo_intentos(con: duckdb.DuckDBPyConnection) -> None:
     assert c.loc["FAN-OUT", "desarrollo"] == 1
     assert c.loc["FAN-IN", "prueba"] == 1
     assert c.loc["CYCLE", "puente"] == 1
+    assert c.loc["CYCLE", "desarrollo"] == 1
+    assert c.loc["SCATTER-GATHER", "prueba"] == 1
