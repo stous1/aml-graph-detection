@@ -13,6 +13,7 @@ dependencies = [
     "python-igraph",
     "altair",
     "vl-convert-python",
+    "scikit-learn>=1.9.1",
 ]
 
 [dependency-groups]
