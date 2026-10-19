@@ -15,7 +15,8 @@ dependencies = [
     "vl-convert-python",
     "scikit-learn>=1.9.1",
     "pytorch-lifestream>=0.7.0",
-    "torch>=2.14.1",
+    "torch-geometric",
+    "pygod",
 ]
 
 [dependency-groups]
@@ -24,6 +25,10 @@ dev = [
     "ruff",
     "ipykernel",
 ]
+# torch en dos variantes excluyentes: "cpu" (predeterminada, la usa CI) y "gpu" (CUDA 13,
+# opcional para la RTX 4080 local). Ver CLAUDE.md.
+cpu = ["torch>=2.14.1"]
+gpu = ["torch>=2.14.1"]
 
 [build-system]
 requires = ["hatchling"]
@@ -45,12 +50,24 @@ markers = [
     "integracion: pruebas del flujo completo (más lentas)",
 ]
 
-# torch solo en su variante CPU (en Linux, PyPI trae la variante CUDA de ~2,5 GB): mismo
-# resultado en la máquina local y en CI.
+[tool.uv]
+default-groups = ["dev", "cpu"]
+conflicts = [[{ group = "cpu" }, { group = "gpu" }]]
+
+# torch de los índices de PyTorch: CPU por defecto (en Linux, PyPI trae la variante CUDA de
+# ~2,5 GB) y CUDA 13 solo con el grupo "gpu".
 [tool.uv.sources]
-torch = { index = "pytorch-cpu" }
+torch = [
+    { index = "pytorch-cpu", group = "cpu" },
+    { index = "pytorch-cu130", group = "gpu" },
+]
 
 [[tool.uv.index]]
 name = "pytorch-cpu"
 url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
 explicit = true
