@@ -1,0 +1,42 @@
+{
+ "hi_ciclos": {
+  "False": [
+   7,
+   7
+  ],
+  "True": [
+   0,
+   11
+  ]
+ },
+ "hi_dispersion_concentracion": {
+  "False": [
+   0,
+   3
+  ],
+  "True": [
+   3,
+   16
+  ]
+ },
+ "li_ciclos": {
+  "False": [
+   2,
+   2
+  ],
+  "True": [
+   0,
+   5
+  ]
+ },
+ "li_dispersion_concentracion": {
+  "False": [
+   0,
+   3
+  ],
+  "True": [
+   0,
+   2
+  ]
+ }
+}

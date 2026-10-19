@@ -7,14 +7,18 @@ portafolio de ciencia de datos aplicada a banca.
 
 ## En un minuto
 
+- **Hito 2, detectores estructurales** ([página](hito2.md)). La ablación muestra que el
+  detector del hito 1 dependía de la mezcla de monedas, una huella del simulador: sin ella
+  cae de 0,91 a 0,01 en el top-100. Reconstruido con forma pura conserva 0,72. Ciclos y
+  dispersión-concentración con monto conservado, que solo usan tiempo, montos y topología,
+  encuentran tipos que los abanicos no ven. La combinación da el mejor F1 (0,151 en HI y 0,049
+  en LI).
 - **Hito 1, abanicos por forma** ([página](hito1.md)). En el período de prueba de HI, 91 de
   las 100 primeras alertas son cuentas ilícitas, contra 1 de 100 con la regla que solo cuenta
   contrapartes. El F1 ilícito por transacción es 0,143 contra 0,003. En LI la ventaja se
   achica: 0,19 contra 0,02 en el top-100.
-- Lo que separa es la **forma**: una transferencia por contraparte y monedas mezcladas, no el
-  tamaño.
-- Cobertura honesta: encuentra abanicos de salida (FAN-OUT, SCATTER-GATHER), pero no abanicos
-  de entrada, ciclos ni lavado sin patrón. Eso es lo que sigue.
+- En el hito 1 separaban una transferencia por contraparte y las **monedas mezcladas**. El
+  hito 2 mostró que la segunda es una huella del simulador.
 
 | Prueba (días 7–10) | Top-100 | Top-500 | F1 tx |
 |---|---|---|---|
@@ -28,7 +32,7 @@ portafolio de ciencia de datos aplicada a banca.
 ## Hitos
 
 1. [Ingesta, exploración, grafo temporal y abanicos](hito1.md) ✔
-2. Ciclos, dispersión-concentración, variables por cuenta e Isolation Forest
+2. [Ciclos, dispersión-concentración, variables por cuenta e Isolation Forest](hito2.md) ✔
 3. Huella de comportamiento con CoLES
 4. PyGOD y redes neuronales sobre grafos
 5. Visualización con Cosmograph
