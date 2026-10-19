@@ -11,3 +11,4 @@
 *.jpg binary
 *.parquet binary
 *.duckdb binary
+*.pt binary

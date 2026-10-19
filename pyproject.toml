@@ -14,6 +14,8 @@ dependencies = [
     "altair",
     "vl-convert-python",
     "scikit-learn>=1.9.1",
+    "pytorch-lifestream>=0.7.0",
+    "torch>=2.14.1",
 ]
 
 [dependency-groups]
@@ -42,3 +44,13 @@ testpaths = ["tests"]
 markers = [
     "integracion: pruebas del flujo completo (más lentas)",
 ]
+
+# torch solo en su variante CPU (en Linux, PyPI trae la variante CUDA de ~2,5 GB): mismo
+# resultado en la máquina local y en CI.
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
