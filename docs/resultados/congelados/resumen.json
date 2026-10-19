@@ -1,0 +1,37 @@
+{
+  "variantes": {
+    "hi": {
+      "componentes": [
+        "abanicos_entrada_con",
+        "abanicos_entrada_forma",
+        "abanicos_h1",
+        "abanicos_salida_forma",
+        "aislamiento_con",
+        "aislamiento_forma",
+        "cadenas",
+        "ciclos",
+        "coles_atipico",
+        "concentracion_dispersion",
+        "dispersion_concentracion"
+      ],
+      "cuentas_ref_coles": 66302
+    },
+    "li": {
+      "componentes": [
+        "abanicos_entrada_con",
+        "abanicos_entrada_forma",
+        "abanicos_h1",
+        "abanicos_salida_forma",
+        "aislamiento_con",
+        "aislamiento_forma",
+        "cadenas",
+        "ciclos",
+        "coles_atipico",
+        "concentracion_dispersion",
+        "dispersion_concentracion"
+      ],
+      "cuentas_ref_coles": 90593
+    }
+  },
+  "origen": "desarrollo de Small (días 2 a 6)"
+}

@@ -58,7 +58,9 @@ def puntuar(
             )
         return cache[clave]
 
-    modelo = ajustar(variables_de("desarrollo"), config)
+    # Un bosque congelado (``congelados.cargar_small``) evita reajustar con desarrollo.
+    congelado = cache.get(("if_modelo", esquema, config.sospechosas))
+    modelo = congelado if congelado is not None else ajustar(variables_de("desarrollo"), config)
     vp = variables_de(periodo)
     total = comun.n_cuentas(con, esquema)
     cuenta = np.zeros(total)

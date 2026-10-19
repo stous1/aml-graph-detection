@@ -1,0 +1,130 @@
+{
+ "hi": {
+  "abanicos_salida_forma": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.011309305477744891
+  },
+  "abanicos_entrada_forma": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.0005638693656448979
+  },
+  "ciclos": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.0
+  },
+  "cadenas": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.0
+  },
+  "dispersion_concentracion": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.0
+  },
+  "concentracion_dispersion": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.00906477728580235
+  },
+  "aislamiento_forma": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.00028761998254181464
+  },
+  "abanicos_h1": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.0052469959149341605
+  },
+  "abanicos_entrada_con": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.0
+  },
+  "aislamiento_con": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.0003538867090539105
+  },
+  "coles_atipico": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.02215375585596968
+  },
+  "combinado_forma": {
+   "tx_marcadas": 830,
+   "tx_distintas": 0,
+   "cuentas_marcadas": 1058,
+   "cuentas_distintas": 0
+  },
+  "combinado_con": {
+   "tx_marcadas": 805,
+   "tx_distintas": 0,
+   "cuentas_marcadas": 1085,
+   "cuentas_distintas": 0
+  },
+  "combinado_forma_coles": {
+   "tx_marcadas": 950,
+   "tx_distintas": 0,
+   "cuentas_marcadas": 1194,
+   "cuentas_distintas": 0
+  }
+ },
+ "li": {
+  "abanicos_salida_forma": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.010902272748441466
+  },
+  "abanicos_entrada_forma": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.000599917311476017
+  },
+  "ciclos": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.0
+  },
+  "cadenas": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.0
+  },
+  "dispersion_concentracion": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.0
+  },
+  "concentracion_dispersion": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.005664778960339789
+  },
+  "aislamiento_forma": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.0003709541188470118
+  },
+  "abanicos_h1": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.0025165325780067693
+  },
+  "abanicos_entrada_con": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 8.475557039533399e-06
+  },
+  "aislamiento_con": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.0005186826062129127
+  },
+  "coles_atipico": {
+   "max_dif_tx_altos": 0.0,
+   "max_dif_tx": 0.013111976630720001
+  },
+  "combinado_forma": {
+   "tx_marcadas": 247,
+   "tx_distintas": 0,
+   "cuentas_marcadas": 975,
+   "cuentas_distintas": 0
+  },
+  "combinado_con": {
+   "tx_marcadas": 249,
+   "tx_distintas": 0,
+   "cuentas_marcadas": 958,
+   "cuentas_distintas": 0
+  },
+  "combinado_forma_coles": {
+   "tx_marcadas": 346,
+   "tx_distintas": 0,
+   "cuentas_marcadas": 1079,
+   "cuentas_distintas": 0
+  }
+ }
+}

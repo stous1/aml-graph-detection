@@ -89,7 +89,10 @@ def puntuar(
 ) -> comun.Puntajes:
     """Requiere el codificador de la variante en ``cache[("coles_modelo", esquema)]``."""
     codificador = cache[("coles_modelo", esquema)]
-    _, ref = embeddings(con, esquema, "desarrollo", config.min_eventos, codificador, cache)
+    # Referencia congelada (``congelados.cargar_small``) o recalculada con desarrollo.
+    ref = cache.get(("coles_ref", esquema, config.min_eventos))
+    if ref is None:
+        _, ref = embeddings(con, esquema, "desarrollo", config.min_eventos, codificador, cache)
     cuentas, emb = embeddings(con, esquema, periodo, config.min_eventos, codificador, cache)
     clave = ("coles_rareza", esquema, periodo, config.metodo, config.min_eventos, config.k)
     if clave not in cache:
