@@ -3,13 +3,17 @@
 Detección de lavado de activos en redes de transferencias con AMLworld (caso 2 del
 portafolio de banca). Cada hito deja aquí todas sus cifras, supuestos y limitaciones.
 
-**Cifra principal del proyecto: el combinado estructural** del hito 2, que solo usa tiempo,
+**Sin etiquetas, la cifra principal es el combinado estructural** del hito 2, que solo usa tiempo,
 montos y topología. En el período de prueba: F1 ilícita por transacción 0,118 en HI y 0,028 en
 LI; precisión en el top-100 de 0,48 y 0,04 (regla simple: F1 0,003 y top-100 de 0,01 y 0,02).
 Las versiones que usan moneda o formato de pago (hasta F1 0,151 en HI) dependen de una huella
 del simulador (ver la ablación del hito 2) y se muestran solo como referencia.
 El hito 3 (CoLES) no mejoró esa cifra: la huella de comportamiento contiene información sobre
 el lavado, pero sin etiquetas no se aprovecha.
+
+**Modelo final (hito 4, supervisado con etiquetas de desarrollo): GNN solo con variables
+estructurales.** En el período de prueba: F1 0,276 en HI y 0,045 en LI; precisión en el top-100
+de 0,98 y 0,29. Será el que se evalúe una sola vez en Medium.
 
 ## Hito 1: ingesta, exploración y abanicos por forma
 
@@ -642,6 +646,168 @@ estimado (40 a 50 GB) quedaría al límite de los 63 GB de la máquina. La propu
 **25 a 35 GB**. Además, DuckDB se limitaría a 16 GB, con desborde a disco, para no competir con
 pandas. El tiempo estimado es de 4 a 6 horas por variante. La GPU podría acelerar la
 inferencia de CoLES, pero ese no es el cuello de botella.
+
+## Hito 4: redes sobre grafos (fase supervisada) y anomalías con PyGOD
+
+**Respuesta corta:** una GNN entrenada con las etiquetas de desarrollo, **solo con variables
+estructurales**, es el mejor detector del proyecto. En HI prueba logra F1 0,276 y 98 de las
+100 primeras alertas son cuentas ilícitas; en LI, F1 0,045 y top-100 de 0,29. Agregarle los
+embeddings de CoLES la empeora. PyGOD, sin etiquetas, no sirve en estos datos. Es el **modelo
+final** que irá a la prueba con Medium.
+
+El período de prueba (días 7 a 10) es el mismo de los hitos 1 a 3. Este hito lo midió una sola
+vez, con modelos, estadísticas y fracciones de alertas congelados (tag `hito4-congelado`).
+
+### Antes del hito: artefactos congelados y una corrección de reproducibilidad
+
+- **Artefactos de Small en archivos** (`docs/resultados/congelados/`, 54 MB): los Isolation
+  Forest ajustados, las tablas de percentiles de desarrollo de cada componente de las
+  combinaciones (exactas por encima del percentil ~0,95, interpoladas debajo, donde no opera
+  ningún umbral) y los embeddings de referencia de CoLES. En desarrollo reproducen exactamente
+  las mismas transferencias y cuentas marcadas que el recálculo
+  (`verificacion_desarrollo.json`). La prueba con Medium no necesitará los datos de Small.
+- **Determinismo de DuckDB.** Al verificar los congelados apareció una diferencia de 9 cuentas
+  en la cima de una combinación. La causa: DuckDB suma en paralelo y el último bit de sumas,
+  promedios y desviaciones cambia entre corridas, lo que rompe empates exactos entre puntajes.
+  Las sumas en USD ahora se redondean a centavos y las variables derivadas a 6 decimales
+  (`detectores/comun.redondear`). Cuatro corridas seguidas dan resultados idénticos bit a bit,
+  y las marcas de desarrollo de las combinaciones no cambiaron (830 transferencias y 1.058
+  cuentas en HI). Las cifras de prueba de los hitos 2 y 3 se calcularon antes de la corrección;
+  la evaluación de este hito las recalcula con los congelados y el combinado estructural da
+  exactamente lo mismo en HI (F1 0,118) y en LI (0,028).
+
+### Grafo y modelos
+
+- **Grafo de cada período:** las cuentas activas en la ventana de 5 días que termina con el
+  período (377 mil en HI desarrollo). Por cuenta: las 12 variables estructurales del hito 2
+  (volumen, grado, unicidad, dinero de paso, velocidad, balance, contrapartes nuevas, montos)
+  y, en las variantes con CoLES, su embedding de 64 dimensiones y un indicador de cobertura.
+  Aristas de mensajes: los pares dirigidos con transferencias en la ventana (482 mil en HI).
+  Se clasifica cada transferencia del período con atributos estructurales: log del monto,
+  hora, primera transferencia entre las cuentas y si es parte de un par de paso. **Nada de
+  moneda ni formato**; una prueba lo verifica.
+- **GNN:** GraphSAGE con dos rondas, que agrega por separado lo que cada cuenta recibe y lo que
+  envía, con conexión residual (64 dimensiones). Una cabeza MLP clasifica cada transferencia
+  con los estados de sus dos cuentas y sus atributos.
+- **Entrenamiento (supervisado):** etiquetas de desarrollo, sin intentos puente. Se entrena
+  con los días 2 a 5 (1.373 transferencias de lavado en HI), con todos los positivos y 50
+  negativos por positivo en cada época. La época se elige por **precisión promedio** (una
+  métrica de ranking) en el día 6 (299 de lavado en HI), con parada temprana y tope de 1.500
+  épocas. Una red por variante, con la misma arquitectura.
+- **Variantes:** GNN con estructurales + CoLES (la pedida); GNN solo estructurales; red sin
+  grafo (estructurales + CoLES, sin paso de mensajes); CoLES supervisado (solo embeddings,
+  sin grafo ni atributos).
+- **Modelo final (regla fijada antes de medir prueba):** la red con mejor AP de validación en
+  HI. Fue la **GNN solo estructurales** (AP 0,230, contra 0,168 con CoLES, 0,150 sin grafo y
+  0,074 CoLES solo).
+- **PyGOD, sin etiquetas:** CoLA, OCGNN y GAE (que reconstruye solo características), con el
+  grafo completo en un lote. DOMINANT y AnomalyDAE no se usan porque reconstruyen la
+  adyacencia densa (unos 580 GB con 377 mil cuentas). Además, el muestreo de vecindarios de
+  PyGOD exige extensiones compiladas sin ruedas para torch 2.14, así que se reemplazó por el
+  grafo completo, que cabe en la GPU. En HI desarrollo, la AP fue 0,00105 (CoLA), 0,00095
+  (OCGNN) y 0,00088 (GAE), contra una tasa base de 0,0008: **casi azar**. Se eligió CoLA.
+- **GPU y CPU:** se entrenó en la RTX 4080 SUPER (torch 2.14.1+cu130): unos 30 segundos por red
+  en HI. La evaluación carga los pesos y puntúa en CPU, que es determinista. En GPU, las
+  agregaciones de PyTorch Geometric usan sumas atómicas sin orden garantizado: dos
+  entrenamientos pueden diferir en los últimos decimales y, con eso, en la época elegida.
+  Por eso los pesos se congelan.
+
+### Umbrales relativos (lección del hito 3)
+
+Ningún detector nuevo usa un valor absoluto de puntaje. En desarrollo se fija la **fracción de
+transferencias (y de cuentas) a marcar** que dio el mejor F1, y en prueba se marca esa misma
+fracción de los puntajes más altos. Para las redes, la fracción sale del día 6, que no se usó
+para entrenar.
+
+El combinado estructural del hito 2 se reporta de las dos formas:
+
+- **HI:** con umbral absoluto o relativo da lo mismo (F1 0,118).
+- **LI:** el umbral relativo empeora (F1 0,006 contra 0,028). La fracción de desarrollo de LI
+  (0,008 % de las transferencias) era demasiado chica para prueba.
+
+Los umbrales relativos no son mejores en todos los casos; lo que los hace preferibles es que
+no dependen de la escala del puntaje. Las métricas de ranking (top-k) no dependen del umbral.
+
+### Resultados en prueba (medidos una vez)
+
+**HI** (1.422 transacciones de lavado evaluables, 2.072 cuentas ilícitas):
+
+| Detector | Etiquetas | F1 tx (IC 95 %) | Top-100 (IC) | Top-500 | Top-1.000 | F1 cuenta |
+|---|---|---|---|---|---|---|
+| Regla simple | no | 0,003 | 0,01 (0,00–0,05) | 0,01 | 0,02 | 0,024 |
+| Combinado estructural (hito 2) | no | 0,118 (0,079–0,159) | 0,48 (0,38–0,58) | 0,29 | 0,18 | 0,122 |
+| CoLES, huella atípica (hito 3) | no | 0,003 | 0,10 | 0,04 | 0,03 | 0,022 |
+| PyGOD (CoLA) | no | 0,003 | 0,16 (0,10–0,24) | 0,04 | 0,04 | 0,026 |
+| CoLES supervisado | sí | 0,026 | 0,20 | 0,07 | 0,04 | 0,033 |
+| Red sin grafo (estructurales + CoLES) | sí | 0,167 (0,132–0,205) | 0,72 (0,63–0,80) | 0,42 | 0,26 | 0,171 |
+| GNN, estructurales + CoLES | sí | 0,158 (0,132–0,186) | 0,77 (0,68–0,84) | 0,35 | 0,26 | 0,129 |
+| **GNN, solo estructurales (modelo final)** | sí | **0,276** (0,217–0,335) | **0,98** (0,93–0,99) | **0,62** | **0,40** | **0,229** |
+
+**LI** (1.212 transacciones de lavado evaluables, 1.991 cuentas ilícitas):
+
+| Detector | Etiquetas | F1 tx (IC 95 %) | Top-100 (IC) | Top-500 | Top-1.000 | F1 cuenta |
+|---|---|---|---|---|---|---|
+| Regla simple | no | 0,003 | 0,02 (0,01–0,07) | 0,02 | 0,02 | 0,021 |
+| Combinado estructural (hito 2) | no | 0,028 (0,016–0,043) | 0,04 (0,02–0,10) | 0,07 | 0,06 | 0,036 |
+| CoLES, huella atípica (hito 3) | no | 0,002 | 0,07 | 0,03 | 0,02 | 0,014 |
+| PyGOD (CoLA) | no | 0,003 | 0,18 (0,12–0,27) | 0,04 | 0,03 | 0,019 |
+| CoLES supervisado | sí | 0,000 | 0,08 | 0,04 | 0,04 | 0,020 |
+| Red sin grafo (estructurales + CoLES) | sí | 0,012 | 0,08 | 0,06 | 0,04 | 0,052 |
+| GNN, estructurales + CoLES | sí | 0,034 (0,024–0,043) | 0,14 (0,09–0,22) | 0,07 | 0,06 | 0,065 |
+| **GNN, solo estructurales (modelo final)** | sí | **0,045** (0,030–0,062) | **0,29** (0,21–0,39) | **0,14** | **0,10** | **0,081** |
+
+![Top-100, hito 4](docs/resultados/hito4/hito4_top100.png)
+
+**Recall por tipo, GNN solo estructurales:**
+- **HI:** CYCLE 10/18, SCATTER-GATHER 10/19, RANDOM 6/17, FAN-OUT 5/19, GATHER-SCATTER
+  4/20, STACK 3/15, BIPARTITE 1/18, FAN-IN 1/17 y 5 de 750 transacciones sin patrón. El
+  combinado estructural encontraba 6, 9, 2, 3, 3, 2, 2 y 2.
+- **LI:** CYCLE 4/7, RANDOM 3/6 y 16 de 1.034 sin patrón.
+
+### Lectura
+
+1. **Las etiquetas valen mucho.** Con las mismas señales estructurales que el combinado no
+   supervisado, la GNN supervisada duplica su F1 en HI (0,276 contra 0,118) y lleva el top-100
+   de 0,48 a 0,98. En LI la mejora también existe (F1 0,045 contra 0,028; top-100 0,29 contra
+   0,04), pero desde un piso mucho más bajo. La pregunta del portafolio ("cuánto pierdo sin
+   etiquetas") tiene aquí una primera respuesta: en HI, la mitad del F1 y la mitad del top-100.
+2. **CoLES empeora la GNN.** Con los embeddings, el F1 de HI cae de 0,276 a 0,158 y el de LI,
+   de 0,045 a 0,034. Pasó lo mismo en la validación de desarrollo (AP 0,168 contra 0,230), así
+   que no es un accidente de prueba. Una explicación posible, coherente con la deriva del
+   hito 3, es que los embeddings de desarrollo provienen de las mismas secuencias con que se
+   entrenó CoLES y los de prueba no: la red aprende sobre una distribución que no se repite.
+   No está verificada. La sonda del hito 3 mostraba información en los embeddings dentro de
+   desarrollo; esa información no se traslada a prueba.
+3. **¿Cuánto aporta el grafo?** La comparación limpia (con y sin grafo, con las mismas
+   características) solo existe con CoLES incluido: 0,158 con grafo contra 0,167 sin grafo en
+   HI, y 0,034 contra 0,012 en LI. No es concluyente, y falta la variante sin grafo y sin
+   CoLES. Queda como pendiente.
+4. **PyGOD no sirve aquí.** Sin etiquetas, sus anomalías de nodo están cerca del azar en
+   desarrollo y en prueba. En el top-100 de prueba (0,16 y 0,18) supera a la regla, pero muy
+   por debajo de los demás.
+5. **Lo que sigue sin verse:** abanicos de entrada, capas bipartitas y lavado sin patrón
+   (el modelo final encuentra menos del 2 % del sin patrón; la GNN con CoLES, el 2,7 % en HI
+   y el 4 % en LI, a costa de más falsas alarmas).
+
+### Limitaciones del hito 4
+
+- El período de prueba se mira por cuarta vez. El modelo final se eligió con una regla de
+  desarrollo fijada antes de medir, pero las decisiones de diseño (variables, ventanas)
+  vienen de hitos que ya vieron prueba. Medium es la prueba que lo resuelve.
+- La validación de las redes es un solo día (299 positivos en HI, menos en LI): la época y la
+  fracción de alertas de LI son ruidosas.
+- Una red por variante y una sola semilla; no hay intervalos por variación de entrenamiento.
+- Pico de memoria: 9,3 GB en desarrollo y 10,8 GB en la evaluación.
+
+### Actualización de la propuesta de Medium
+
+El modelo que se evaluará una sola vez en Medium es la **GNN solo estructurales**, con sus
+pesos, estadísticas de estandarización y fracciones de alertas congelados en
+`docs/resultados/hito4/modelos/` y `parametros.json` (de HI-Small para HI-Medium y de LI-Small
+para LI-Medium). No necesita CoLES. Como referencia, en la misma pasada: el combinado
+estructural (con los artefactos de `docs/resultados/congelados/`) y la regla simple. El
+protocolo aprobado se mantiene: bloques de 4 días con su historia previa, DuckDB limitado a
+16 GB con desborde a disco, una sola medición y un tag previo.
 
 ## Trabajo futuro
 

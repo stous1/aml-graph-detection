@@ -1,5 +1,17 @@
 # Cambios
 
+## Hito 4 (2026-10-19)
+
+- Artefactos de Small congelados en archivos (Isolation Forest, percentiles, referencia de
+  CoLES) para la prueba con Medium, verificados en desarrollo.
+- Redondeo determinista de variables que DuckDB suma en paralelo.
+- torch en dos grupos de uv: CPU (predeterminado, CI) y CUDA 13 (opcional, RTX 4080).
+- Grafo con variables estructurales y CoLES; GNN supervisada (GraphSAGE en dos direcciones),
+  variantes sin grafo y sin CoLES; PyGOD (CoLA, OCGNN, GAE) sin etiquetas.
+- Umbrales relativos (fracción de alertas de desarrollo) en lugar de valores absolutos.
+- Modelo final para Medium: GNN solo estructurales. Congelado en hito4-congelado; prueba
+  medida una vez.
+
 ## Hito 3 (2026-10-19)
 
 - La cifra principal pasa a ser el combinado estructural; las variantes con moneda o formato

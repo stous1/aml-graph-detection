@@ -8,7 +8,21 @@ aporta cada parte contra una regla simple. Todo corre local con DuckDB.
 Página del proyecto: <https://stous1.github.io/aml-graph-detection/> · Detalle con todas
 las cifras: [INFORME_TECNICO.md](INFORME_TECNICO.md)
 
-## Cifra principal: combinado estructural
+## Modelo final: GNN con variables estructurales (supervisada)
+
+Período de prueba (días 7 a 10). Una red sobre el grafo de transferencias, entrenada con las
+etiquetas de desarrollo y **solo con señales que existirían en cualquier banco** (tiempo,
+montos y topología; nada de moneda ni formato de pago).
+
+| | F1 ilícita por tx | Precisión top-100 | Top-1.000 |
+|---|---|---|---|
+| **HI, GNN estructural** | **0,276** | **0,98** | **0,40** |
+| **LI, GNN estructural** | **0,045** | **0,29** | **0,10** |
+
+Se evaluará una sola vez en **HI-Medium y LI-Medium**, una prueba fresca que nadie ha mirado.
+Detalle en el [hito 4](docs/hito4.md).
+
+## Sin etiquetas: combinado estructural
 
 Período de prueba (días 7 a 10). Solo usa señales que existirían en cualquier banco
 (**tiempo, montos y topología**), sin moneda ni formato de pago.
@@ -72,6 +86,8 @@ uv run python scripts/hito1.py explorar
 uv run python scripts/hito1.py desarrollar && uv run python scripts/hito1.py evaluar
 uv run python scripts/hito2.py desarrollar && uv run python scripts/hito2.py evaluar
 uv run python scripts/hito3.py desarrollar && uv run python scripts/hito3.py evaluar
+uv run python scripts/hito4.py desarrollar && uv run python scripts/hito4.py evaluar
+# GPU opcional: uv sync --no-group cpu --group gpu, y luego uv run --no-sync ...
 uv run pytest            # pruebas sobre un mini-AMLworld sintético
 ```
 

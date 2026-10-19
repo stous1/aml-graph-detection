@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"domainColor": "#c9c8c3", "gridColor": "#e6e5e1", "labelColor": "#52514e", "labelFontSize": 11, "titleColor": "#52514e", "titleFontSize": 11}, "background": "#fcfcfb", "header": {"labelColor": "#0b0b0b", "labelFontSize": 12, "titleColor": "#52514e"}, "legend": {"labelColor": "#0b0b0b", "orient": "top", "titleColor": "#52514e"}, "title": {"anchor": "start", "color": "#0b0b0b", "fontSize": 14}}, "data": {"name": "data-c1fea02bbf3e092e1f53f4434a63af61"}, "facet": {"column": {"field": "variante", "title": null, "type": "nominal"}}, "spec": {"layer": [{"mark": {"type": "bar", "cornerRadiusBottomRight": 4, "cornerRadiusTopRight": 4, "size": 10}, "encoding": {"color": {"field": "senales", "scale": {"domain": ["sin etiquetas", "con etiquetas", "regla"], "range": ["#2a78d6", "#1baf7a", "#eb6834"]}, "title": null, "type": "nominal"}, "tooltip": [{"field": "variante", "type": "nominal"}, {"field": "etiqueta", "type": "nominal"}, {"field": "senales", "type": "nominal"}, {"field": "f1_tx", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".2f"}, "field": "f1_tx", "scale": {"domain": [0, 0.3310803324099723]}, "title": "F1 il\u00edcita por transacci\u00f3n", "type": "quantitative"}, "y": {"axis": {"labelLimit": 320}, "field": "etiqueta", "sort": ["Regla simple", "Combinado estructural (umbral absoluto)", "Combinado estructural (umbral relativo)", "CoLES, huella at\u00edpica (sin etiquetas)", "PyGOD (sin etiquetas)", "CoLES supervisado (sin grafo)", "Red sin grafo (estructurales + CoLES)", "GNN (solo estructurales)", "GNN (estructurales + CoLES)"], "title": null, "type": "nominal"}}}, {"mark": {"type": "text", "align": "left", "color": "#52514e", "dx": 4, "fontSize": 10}, "encoding": {"color": {"value": "#52514e"}, "text": {"field": "f1_tx", "format": ".2f", "type": "quantitative"}, "tooltip": [{"field": "variante", "type": "nominal"}, {"field": "etiqueta", "type": "nominal"}, {"field": "senales", "type": "nominal"}, {"field": "f1_tx", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".2f"}, "field": "f1_tx", "scale": {"domain": [0, 0.3310803324099723]}, "title": "F1 il\u00edcita por transacci\u00f3n", "type": "quantitative"}, "y": {"axis": {"labelLimit": 320}, "field": "etiqueta", "sort": ["Regla simple", "Combinado estructural (umbral absoluto)", "Combinado estructural (umbral relativo)", "CoLES, huella at\u00edpica (sin etiquetas)", "PyGOD (sin etiquetas)", "CoLES supervisado (sin grafo)", "Red sin grafo (estructurales + CoLES)", "GNN (solo estructurales)", "GNN (estructurales + CoLES)"], "title": null, "type": "nominal"}}}], "height": {"step": 18}, "width": 260}, "title": "F1 il\u00edcita por transacci\u00f3n por detector, per\u00edodo de prueba", "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-c1fea02bbf3e092e1f53f4434a63af61": [{"variante": "HI", "detector": "regla_simple", "etiqueta": "Regla simple", "senales": "regla", "precision_100": 0.01, "precision_1000": 0.016, "f1_tx": 0.0028391476030414776, "f1_cuenta": 0.02412561493362086}, {"variante": "HI", "detector": "combinado_forma_absoluto", "etiqueta": "Combinado estructural (umbral absoluto)", "senales": "sin etiquetas", "precision_100": 0.48, "precision_1000": 0.185, "f1_tx": 0.11815980629539952, "f1_cuenta": 0.1217948717948718}, {"variante": "HI", "detector": "combinado_forma", "etiqueta": "Combinado estructural (umbral relativo)", "senales": "sin etiquetas", "precision_100": 0.48, "precision_1000": 0.185, "f1_tx": 0.11815980629539952, "f1_cuenta": 0.11993620414673047}, {"variante": "HI", "detector": "coles_atipico", "etiqueta": "CoLES, huella at\u00edpica (sin etiquetas)", "senales": "sin etiquetas", "precision_100": 0.1, "precision_1000": 0.025, "f1_tx": 0.0027091410154607876, "f1_cuenta": 0.021727665858031854}, {"variante": "HI", "detector": "gnn", "etiqueta": "GNN (estructurales + CoLES)", "senales": "con etiquetas", "precision_100": 0.77, "precision_1000": 0.261, "f1_tx": 0.15789473684210525, "f1_cuenta": 0.12927241962774957}, {"variante": "HI", "detector": "gnn_sin_coles", "etiqueta": "GNN (solo estructurales)", "senales": "con etiquetas", "precision_100": 0.98, "precision_1000": 0.4, "f1_tx": 0.27590027700831027, "f1_cuenta": 0.2291764705882353}, {"variante": "HI", "detector": "mlp_sin_grafo", "etiqueta": "Red sin grafo (estructurales + CoLES)", "senales": "con etiquetas", "precision_100": 0.72, "precision_1000": 0.261, "f1_tx": 0.16711590296495957, "f1_cuenta": 0.17065390749601275}, {"variante": "HI", "detector": "coles_supervisado", "etiqueta": "CoLES supervisado (sin grafo)", "senales": "con etiquetas", "precision_100": 0.2, "precision_1000": 0.043, "f1_tx": 0.026455026455026457, "f1_cuenta": 0.03293028042191922}, {"variante": "HI", "detector": "pygod", "etiqueta": "PyGOD (sin etiquetas)", "senales": "sin etiquetas", "precision_100": 0.16, "precision_1000": 0.035, "f1_tx": 0.0027832750472162734, "f1_cuenta": 0.026184436625480728}, {"variante": "LI", "detector": "regla_simple", "etiqueta": "Regla simple", "senales": "regla", "precision_100": 0.02, "precision_1000": 0.017, "f1_tx": 0.003088797800173274, "f1_cuenta": 0.020557853861577116}, {"variante": "LI", "detector": "combinado_forma_absoluto", "etiqueta": "Combinado estructural (umbral absoluto)", "senales": "sin etiquetas", "precision_100": 0.04, "precision_1000": 0.055, "f1_tx": 0.0277602523659306, "f1_cuenta": 0.03589021815622801}, {"variante": "LI", "detector": "combinado_forma", "etiqueta": "Combinado estructural (umbral relativo)", "senales": "sin etiquetas", "precision_100": 0.04, "precision_1000": 0.055, "f1_tx": 0.005582693649685973, "f1_cuenta": 0.03709069834830484}, {"variante": "LI", "detector": "coles_atipico", "etiqueta": "CoLES, huella at\u00edpica (sin etiquetas)", "senales": "sin etiquetas", "precision_100": 0.07, "precision_1000": 0.02, "f1_tx": 0.002420415680084188, "f1_cuenta": 0.013589553031107338}, {"variante": "LI", "detector": "gnn", "etiqueta": "GNN (estructurales + CoLES)", "senales": "con etiquetas", "precision_100": 0.14, "precision_1000": 0.061, "f1_tx": 0.03409090909090909, "f1_cuenta": 0.06514356282803334}, {"variante": "LI", "detector": "gnn_sin_coles", "etiqueta": "GNN (solo estructurales)", "senales": "con etiquetas", "precision_100": 0.29, "precision_1000": 0.095, "f1_tx": 0.04461440407903123, "f1_cuenta": 0.08068938503721113}, {"variante": "LI", "detector": "mlp_sin_grafo", "etiqueta": "Red sin grafo (estructurales + CoLES)", "senales": "con etiquetas", "precision_100": 0.08, "precision_1000": 0.045, "f1_tx": 0.012380952380952381, "f1_cuenta": 0.05161787365177196}, {"variante": "LI", "detector": "coles_supervisado", "etiqueta": "CoLES supervisado (sin grafo)", "senales": "con etiquetas", "precision_100": 0.08, "precision_1000": 0.036, "f1_tx": 0.0, "f1_cuenta": 0.019737769632031582}, {"variante": "LI", "detector": "pygod", "etiqueta": "PyGOD (sin etiquetas)", "senales": "sin etiquetas", "precision_100": 0.18, "precision_1000": 0.026, "f1_tx": 0.0030499596653884827, "f1_cuenta": 0.01898317827271873}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

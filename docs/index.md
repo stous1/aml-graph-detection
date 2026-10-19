@@ -5,7 +5,14 @@ temporal de AMLworld (IBM, sintético), evaluados con partición temporal contra
 y los patrones del generador, y siempre comparados con una regla simple. Caso 2 de un
 portafolio de ciencia de datos aplicada a banca.
 
-## Cifra principal: combinado estructural
+## Modelo final: GNN estructural (supervisada)
+
+Una red sobre el grafo, entrenada con las etiquetas de desarrollo, solo con tiempo, montos y
+topología. Período de prueba, días 7 a 10: **F1 0,276 en HI** (98 de las 100 primeras alertas
+son cuentas ilícitas) y **0,045 en LI** (top-100 de 0,29). Se evaluará una vez en Medium.
+[Hito 4 →](hito4.md)
+
+## Sin etiquetas: combinado estructural
 
 Solo con señales que existirían en cualquier banco (**tiempo, montos y topología**), sin
 moneda ni formato de pago. Período de prueba, días 7 a 10:
@@ -21,6 +28,9 @@ moneda ni formato de pago. Período de prueba, días 7 a 10:
 
 ## En un minuto
 
+- **Hito 4, grafos** ([página](hito4.md)). La GNN supervisada con variables estructurales
+  duplica el F1 del combinado no supervisado en HI. CoLES la empeora y PyGOD, sin etiquetas,
+  queda cerca del azar.
 - **Hito 3, CoLES** ([página](hito3.md)). La huella de comportamiento aprendida sin etiquetas
   no mejora el combinado estructural, y "no te pareces a ti mismo" no es viable con 10 días.
   Pero los embeddings sí contienen información sobre el lavado (AUC 0,78 a 0,81 con
@@ -41,7 +51,7 @@ moneda ni formato de pago. Período de prueba, días 7 a 10:
 1. [Ingesta, exploración, grafo temporal y abanicos](hito1.md) ✔
 2. [Ciclos, dispersión-concentración, variables por cuenta e Isolation Forest](hito2.md) ✔
 3. [Huella de comportamiento con CoLES](hito3.md) ✔
-4. PyGOD y redes neuronales sobre grafos
+4. [PyGOD y redes neuronales sobre grafos](hito4.md) ✔
 5. Visualización con Cosmograph
 
 El período de prueba es el mismo en todos los hitos: cada hito lo mide una sola vez, con
