@@ -210,15 +210,16 @@ def detectores(tabla: pd.DataFrame, orden: list[str], medida: str, titulo: str) 
 
     ``tabla``: variante, etiqueta, senales y la columna ``medida``.
     """
+    tope = 1.0 if medida.startswith("precision") else max(0.25, float(tabla[medida].max()) * 1.2)
     barras = (
         alt.Chart(tabla)
         .mark_bar(size=10, cornerRadiusTopRight=4, cornerRadiusBottomRight=4)
         .encode(
-            y=alt.Y("etiqueta:N", sort=orden, title=None),
+            y=alt.Y("etiqueta:N", sort=orden, title=None, axis=alt.Axis(labelLimit=320)),
             x=alt.X(
                 f"{medida}:Q",
                 title=titulo,
-                scale=alt.Scale(domain=[0, 1]),
+                scale=alt.Scale(domain=[0, tope]),
                 axis=alt.Axis(format="%" if medida.startswith("precision") else ".2f"),
             ),
             color=alt.Color("senales:N", scale=COLOR_SENALES, title="señales"),
