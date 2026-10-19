@@ -12,14 +12,30 @@ from lavado.rutas import (
     DOCS_RESULTADOS_HITO1,
     DOCS_RESULTADOS_HITO2,
     DOCS_RESULTADOS_HITO3,
+    DOCS_RESULTADOS_HITO4,
     REPORTS_HITO1,
     REPORTS_HITO2,
     REPORTS_HITO3,
+    REPORTS_HITO4,
 )
 
 PARAMETROS = ("parametros.json", "desarrollo.json")
 # Los modelos de CoLES se congelan junto con los parámetros del hito 3.
-MODELOS = {"3": ("modelos/coles_hi.pt", "modelos/coles_li.pt")}
+MODELOS = {
+    "3": ("modelos/coles_hi.pt", "modelos/coles_li.pt"),
+    "4": tuple(
+        f"modelos/{n}_{v}.{e}"
+        for v in ("hi", "li")
+        for n, e in (
+            ("gnn", "pt"),
+            ("gnn_sin_coles", "pt"),
+            ("mlp_sin_grafo", "pt"),
+            ("coles_supervisado", "pt"),
+            ("pygod", "pt"),
+            ("estadisticas", "npz"),
+        )
+    ),
+}
 RESULTADOS = {
     "1": (
         "exploracion.json",
@@ -32,6 +48,13 @@ RESULTADOS = {
         "precision_k.png",
         "recall_tipo.html",
         "recall_tipo.png",
+    ),
+    "4": (
+        "metricas.json",
+        "hito4_top100.html",
+        "hito4_top100.png",
+        "hito4_f1.html",
+        "hito4_f1.png",
     ),
     "3": (
         "metricas.json",
@@ -52,6 +75,7 @@ RUTAS = {
     "1": (REPORTS_HITO1, DOCS_RESULTADOS_HITO1),
     "2": (REPORTS_HITO2, DOCS_RESULTADOS_HITO2),
     "3": (REPORTS_HITO3, DOCS_RESULTADOS_HITO3),
+    "4": (REPORTS_HITO4, DOCS_RESULTADOS_HITO4),
 }
 
 
