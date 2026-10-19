@@ -36,6 +36,7 @@ import numpy as np
 import pandas as pd
 
 from lavado import particion
+from lavado.detectores import comun
 
 VARIABLES_FORMA: tuple[str, ...] = (
     "novedad",
@@ -201,7 +202,8 @@ def calcular_candidatas(
         ORDER BY k.centro, k.direccion, k.canal, k.desfase, k.b
         """
     )
-    estructuras = con.execute("SELECT * FROM ab_estructuras").df()
+    estructuras = comun.redondear(con.execute("SELECT * FROM ab_estructuras").df(), VARIABLES_FORMA)
+    estructuras["monto_usd"] = estructuras.monto_usd.round(2)
     estructuras["idx"] = np.arange(len(estructuras), dtype=np.int64)
     con.register("ab_idx", estructuras[["centro", "direccion", "canal", "desfase", "b", "idx"]])
     mapa = con.execute(

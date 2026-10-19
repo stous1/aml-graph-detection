@@ -18,6 +18,7 @@ import numpy as np
 import pandas as pd
 
 from lavado import paso
+from lavado.detectores import comun
 
 DELTA_PASO_HORAS = 96
 TOLERANCIA_PASO = 0.2
@@ -108,7 +109,9 @@ def calcular(
     df["unicidad_out"] = np.where(df.n_out > 0, df.grado_out / df.n_out.clip(lower=1), 1.0)
     df["frac_paso"] = np.where(df.n_in > 0, df.n_in_paso / df.n_in.clip(lower=1), 0.0)
     df["velocidad_horas"] = df.velocidad_horas.fillna(float(DELTA_PASO_HORAS))
+    # sumas a centavos antes de derivar: el orden de la suma en paralelo no cambia el resultado
+    df["usd_in"], df["usd_out"] = df.usd_in.round(2), df.usd_out.round(2)
     mayor = np.maximum(df.usd_in, df.usd_out)
     df["balance"] = np.where(mayor > 0, np.minimum(df.usd_in, df.usd_out) / mayor, 0.0)
     df["frac_nuevas"] = df.frac_nuevas.fillna(1.0)
-    return df
+    return comun.redondear(df, [*ESTRUCTURALES, *SOSPECHOSAS])

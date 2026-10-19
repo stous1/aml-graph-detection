@@ -34,6 +34,21 @@ def n_cuentas(con: duckdb.DuckDBPyConnection, esquema: str) -> int:
     return int(con.execute(f"SELECT count(*) FROM {esquema}.cuentas").fetchone()[0])
 
 
+DECIMALES = 6
+
+
+def redondear(df: pd.DataFrame, columnas: list[str] | tuple[str, ...]) -> pd.DataFrame:
+    """Redondea variables de punto flotante calculadas por DuckDB.
+
+    DuckDB agrega en paralelo y el orden de las sumas cambia el último bit entre corridas.
+    Eso rompe empates exactos entre puntajes (y con ellos percentiles y umbrales). Redondear a
+    ``DECIMALES`` decimales hace que el resultado no dependa del orden.
+    """
+    for c in columnas:
+        df[c] = df[c].astype(float).round(DECIMALES)
+    return df
+
+
 def cuentas_por_maximo(
     origen: np.ndarray, destino: np.ndarray, puntaje_tx: np.ndarray, total_cuentas: int
 ) -> np.ndarray:

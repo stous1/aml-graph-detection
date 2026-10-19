@@ -127,10 +127,14 @@ def concentracion_dispersion(
         ORDER BY centro, desfase, b
         """
     ).df()
+    # sumas a centavos antes de derivar (ver ``comun.redondear``)
+    estructuras["usd_in"] = estructuras.usd_in.round(2)
+    estructuras["usd_out"] = estructuras.usd_out.round(2)
     estructuras["balance"] = np.minimum(estructuras.usd_in, estructuras.usd_out) / np.maximum(
         estructuras.usd_in, estructuras.usd_out
     )
     estructuras["unicidad"] = (estructuras.n_in + estructuras.n_out) / estructuras.n_tx
+    comun.redondear(estructuras, ["balance", "unicidad"])
     tamano = np.log2(np.minimum(estructuras.n_in, estructuras.n_out))
     if config.puntaje == "tamano":
         estructuras["puntaje"] = tamano
