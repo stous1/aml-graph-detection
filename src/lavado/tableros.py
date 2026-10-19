@@ -16,6 +16,10 @@ TINTA = "#0b0b0b"
 TINTA_2 = "#52514e"
 SUPERFICIE = "#fcfcfb"
 
+AQUA = "#1baf7a"  # serie 3: detectores con señales sospechosas de artefacto
+COLOR_SENALES = alt.Scale(
+    domain=["estructurales", "con sospechosas", "regla"], range=[AZUL, AQUA, NARANJA]
+)
 COLOR_METODO = alt.Scale(domain=["Abanicos por forma", "Regla simple"], range=[AZUL, NARANJA])
 
 
@@ -198,4 +202,40 @@ def recall_tipo(tabla: pd.DataFrame) -> alt.Chart:
             column=alt.Column("variante:N", title=None),
         )
         .properties(title="Recall por tipo de patrón, período de prueba")
+    )
+
+
+def detectores(tabla: pd.DataFrame, orden: list[str], medida: str, titulo: str) -> alt.Chart:
+    """Barras horizontales por detector, coloreadas por el tipo de señales que usa.
+
+    ``tabla``: variante, etiqueta, senales y la columna ``medida``.
+    """
+    barras = (
+        alt.Chart(tabla)
+        .mark_bar(size=10, cornerRadiusTopRight=4, cornerRadiusBottomRight=4)
+        .encode(
+            y=alt.Y("etiqueta:N", sort=orden, title=None),
+            x=alt.X(
+                f"{medida}:Q",
+                title=titulo,
+                scale=alt.Scale(domain=[0, 1]),
+                axis=alt.Axis(format="%" if medida.startswith("precision") else ".2f"),
+            ),
+            color=alt.Color("senales:N", scale=COLOR_SENALES, title="señales"),
+            tooltip=[
+                "variante:N",
+                "etiqueta:N",
+                "senales:N",
+                alt.Tooltip(f"{medida}:Q", format=".3f"),
+            ],
+        )
+    )
+    texto = barras.mark_text(align="left", dx=4, color=TINTA_2, fontSize=10).encode(
+        text=alt.Text(f"{medida}:Q", format=".2f"), color=alt.value(TINTA_2)
+    )
+    return (
+        (barras + texto)
+        .properties(width=260, height=alt.Step(18))
+        .facet(column=alt.Column("variante:N", title=None))
+        .properties(title=f"{titulo[0].upper()}{titulo[1:]} por detector, período de prueba")
     )
