@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"domainColor": "#c9c8c3", "gridColor": "#e6e5e1", "labelColor": "#52514e", "labelFontSize": 11, "titleColor": "#52514e", "titleFontSize": 11}, "background": "#fcfcfb", "header": {"labelColor": "#0b0b0b", "labelFontSize": 12, "titleColor": "#52514e"}, "legend": {"labelColor": "#0b0b0b", "orient": "top", "titleColor": "#52514e"}, "title": {"anchor": "start", "color": "#0b0b0b", "fontSize": 14}}, "data": {"name": "data-9894c4d4211fc598a1ee2196b99d0876"}, "facet": {"column": {"field": "variante", "title": null, "type": "nominal"}}, "spec": {"mark": {"type": "bar", "color": "#2a78d6", "cornerRadiusTopLeft": 4, "cornerRadiusTopRight": 4, "size": 12}, "encoding": {"tooltip": [{"field": "variante", "type": "nominal"}, {"field": "rango", "title": "transferencias", "type": "nominal"}, {"field": "cuentas", "format": ",", "type": "quantitative"}], "x": {"field": "cubeta", "title": "transferencias por cuenta (cubeta log2: 1, 2\u20133, 4\u20137, \u2026)", "type": "ordinal"}, "y": {"field": "cuentas", "title": "cuentas", "type": "quantitative"}}, "height": 180, "width": 300}, "title": "Largo de la historia por cuenta (d\u00edas 1 a 10)", "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-9894c4d4211fc598a1ee2196b99d0876": [{"cubeta": 0, "desde": 1, "hasta": 1, "cuentas": 48237, "variante": "hi", "rango": "1\u20131"}, {"cubeta": 1, "desde": 2, "hasta": 3, "cuentas": 125578, "variante": "hi", "rango": "2\u20133"}, {"cubeta": 2, "desde": 4, "hasta": 7, "cuentas": 29477, "variante": "hi", "rango": "4\u20137"}, {"cubeta": 3, "desde": 8, "hasta": 15, "cuentas": 36163, "variante": "hi", "rango": "8\u201315"}, {"cubeta": 4, "desde": 16, "hasta": 31, "cuentas": 84493, "variante": "hi", "rango": "16\u201331"}, {"cubeta": 5, "desde": 32, "hasta": 63, "cuentas": 70083, "variante": "hi", "rango": "32\u201363"}, {"cubeta": 6, "desde": 64, "hasta": 127, "cuentas": 25815, "variante": "hi", "rango": "64\u2013127"}, {"cubeta": 7, "desde": 128, "hasta": 255, "cuentas": 2783, "variante": "hi", "rango": "128\u2013255"}, {"cubeta": 8, "desde": 264, "hasta": 308, "cuentas": 12, "variante": "hi", "rango": "264\u2013308"}, {"cubeta": 12, "desde": 6468, "hasta": 6468, "cuentas": 1, "variante": "hi", "rango": "6468\u20136468"}, {"cubeta": 13, "desde": 8337, "hasta": 14277, "cuentas": 7, "variante": "hi", "rango": "8337\u201314277"}, {"cubeta": 14, "desde": 16540, "hasta": 20647, "cuentas": 5, "variante": "hi", "rango": "16540\u201320647"}, {"cubeta": 16, "desde": 103671, "hasta": 103671, "cuentas": 1, "variante": "hi", "rango": "103671\u2013103671"}, {"cubeta": 17, "desde": 169756, "hasta": 169756, "cuentas": 1, "variante": "hi", "rango": "169756\u2013169756"}, {"cubeta": 0, "desde": 1, "hasta": 1, "cuentas": 65996, "variante": "li", "rango": "1\u20131"}, {"cubeta": 1, "desde": 2, "hasta": 3, "cuentas": 171548, "variante": "li", "rango": "2\u20133"}, {"cubeta": 2, "desde": 4, "hasta": 7, "cuentas": 39926, "variante": "li", "rango": "4\u20137"}, {"cubeta": 3, "desde": 8, "hasta": 15, "cuentas": 49116, "variante": "li", "rango": "8\u201315"}, {"cubeta": 4, "desde": 16, "hasta": 31, "cuentas": 115589, "variante": "li", "rango": "16\u201331"}, {"cubeta": 5, "desde": 32, "hasta": 63, "cuentas": 95745, "variante": "li", "rango": "32\u201363"}, {"cubeta": 6, "desde": 64, "hasta": 127, "cuentas": 35087, "variante": "li", "rango": "64\u2013127"}, {"cubeta": 7, "desde": 128, "hasta": 255, "cuentas": 3724, "variante": "li", "rango": "128\u2013255"}, {"cubeta": 8, "desde": 256, "hasta": 324, "cuentas": 24, "variante": "li", "rango": "256\u2013324"}, {"cubeta": 12, "desde": 7727, "hasta": 7801, "cuentas": 2, "variante": "li", "rango": "7727\u20137801"}, {"cubeta": 13, "desde": 8213, "hasta": 16362, "cuentas": 4, "variante": "li", "rango": "8213\u201316362"}, {"cubeta": 14, "desde": 18348, "hasta": 31025, "cuentas": 6, "variante": "li", "rango": "18348\u201331025"}, {"cubeta": 15, "desde": 42730, "hasta": 42730, "cuentas": 1, "variante": "li", "rango": "42730\u201342730"}, {"cubeta": 17, "desde": 139728, "hasta": 223590, "cuentas": 2, "variante": "li", "rango": "139728\u2013223590"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

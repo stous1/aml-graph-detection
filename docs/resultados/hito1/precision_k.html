@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"domainColor": "#c9c8c3", "gridColor": "#e6e5e1", "labelColor": "#52514e", "labelFontSize": 11, "titleColor": "#52514e", "titleFontSize": 11}, "background": "#fcfcfb", "header": {"labelColor": "#0b0b0b", "labelFontSize": 12, "titleColor": "#52514e"}, "legend": {"labelColor": "#0b0b0b", "orient": "top", "titleColor": "#52514e"}, "title": {"anchor": "start", "color": "#0b0b0b", "fontSize": 14}}, "data": {"name": "data-6a2b32e3d4f3fbddcb34733ea1a0441c"}, "facet": {"column": {"field": "k_etiqueta", "sort": ["k = 100", "k = 500", "k = 1000", "k = n.\u00ba de il\u00edcitas"], "title": null, "type": "nominal"}, "row": {"field": "variante", "title": null, "type": "nominal"}}, "spec": {"layer": [{"mark": {"type": "bar", "cornerRadiusTopLeft": 4, "cornerRadiusTopRight": 4, "size": 18}, "encoding": {"color": {"field": "metodo", "scale": {"domain": ["Abanicos por forma", "Regla simple"], "range": ["#2a78d6", "#eb6834"]}, "title": null, "type": "nominal"}, "tooltip": [{"field": "variante", "type": "nominal"}, {"field": "metodo", "type": "nominal"}, {"field": "k_etiqueta", "type": "nominal"}, {"field": "k", "title": "k", "type": "quantitative"}, {"field": "precision", "format": ".1%", "type": "quantitative"}, {"field": "ic_inf", "format": ".1%", "title": "IC 95 % inf.", "type": "quantitative"}, {"field": "ic_sup", "format": ".1%", "title": "IC 95 % sup.", "type": "quantitative"}], "x": {"axis": {"labels": false, "ticks": false}, "field": "metodo", "title": null, "type": "nominal"}, "y": {"axis": {"format": "%"}, "field": "precision", "scale": {"domain": [0, 1]}, "title": "precisi\u00f3n en el top-k", "type": "quantitative"}}}, {"mark": {"type": "rule", "color": "#52514e", "strokeWidth": 1.5}, "encoding": {"x": {"axis": {"labels": false, "ticks": false}, "field": "metodo", "title": null, "type": "nominal"}, "y": {"field": "ic_inf", "type": "quantitative"}, "y2": {"field": "ic_sup"}}}], "height": 200, "width": 70}, "title": "Precisi\u00f3n en el top-k de cuentas, per\u00edodo de prueba", "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-6a2b32e3d4f3fbddcb34733ea1a0441c": [{"variante": "HI", "metodo": "Abanicos por forma", "k_etiqueta": "k = 100", "k": 100, "aciertos": 91, "precision": 0.91, "ic_inf": 0.837737871472837, "ic_sup": 0.9519274599974348, "n_ilicitas": 2072}, {"variante": "HI", "metodo": "Abanicos por forma", "k_etiqueta": "k = 500", "k": 500, "aciertos": 145, "precision": 0.29, "ic_inf": 0.2519474198773656, "ic_sup": 0.33125480311648636, "n_ilicitas": 2072}, {"variante": "HI", "metodo": "Abanicos por forma", "k_etiqueta": "k = 1000", "k": 1000, "aciertos": 147, "precision": 0.147, "ic_inf": 0.12640395855176664, "ic_sup": 0.1702977329390353, "n_ilicitas": 2072}, {"variante": "HI", "metodo": "Abanicos por forma", "k_etiqueta": "k = n.\u00ba de il\u00edcitas", "k": 2072, "aciertos": 155, "precision": 0.07480694980694981, "ic_inf": 0.06424929450197157, "ic_sup": 0.08693829137416297, "n_ilicitas": 2072}, {"variante": "HI", "metodo": "Regla simple", "k_etiqueta": "k = 100", "k": 100, "aciertos": 1, "precision": 0.01, "ic_inf": 0.0017674320641406505, "ic_sup": 0.054486196178705315, "n_ilicitas": 2072}, {"variante": "HI", "metodo": "Regla simple", "k_etiqueta": "k = 500", "k": 500, "aciertos": 6, "precision": 0.012, "ic_inf": 0.005510995174027703, "ic_sup": 0.025930361116447292, "n_ilicitas": 2072}, {"variante": "HI", "metodo": "Regla simple", "k_etiqueta": "k = 1000", "k": 1000, "aciertos": 16, "precision": 0.016, "ic_inf": 0.009872242002277388, "ic_sup": 0.02583206021173997, "n_ilicitas": 2072}, {"variante": "HI", "metodo": "Regla simple", "k_etiqueta": "k = n.\u00ba de il\u00edcitas", "k": 2072, "aciertos": 33, "precision": 0.015926640926640926, "ic_inf": 0.011362941408306425, "ic_sup": 0.022281949208904653, "n_ilicitas": 2072}, {"variante": "LI", "metodo": "Abanicos por forma", "k_etiqueta": "k = 100", "k": 100, "aciertos": 19, "precision": 0.19, "ic_inf": 0.12514751509768735, "ic_sup": 0.27778845379064376, "n_ilicitas": 1991}, {"variante": "LI", "metodo": "Abanicos por forma", "k_etiqueta": "k = 500", "k": 500, "aciertos": 25, "precision": 0.05, "ic_inf": 0.034093745243849435, "ic_sup": 0.0727681611715476, "n_ilicitas": 1991}, {"variante": "LI", "metodo": "Abanicos por forma", "k_etiqueta": "k = 1000", "k": 1000, "aciertos": 27, "precision": 0.027, "ic_inf": 0.018621382774294995, "ic_sup": 0.03899873075304015, "n_ilicitas": 1991}, {"variante": "LI", "metodo": "Abanicos por forma", "k_etiqueta": "k = n.\u00ba de il\u00edcitas", "k": 1991, "aciertos": 28, "precision": 0.014063284781516826, "ic_inf": 0.009747725956941317, "ic_sup": 0.020250376677275576, "n_ilicitas": 1991}, {"variante": "LI", "metodo": "Regla simple", "k_etiqueta": "k = 100", "k": 100, "aciertos": 2, "precision": 0.02, "ic_inf": 0.00550196755016235, "ic_sup": 0.07001179072854388, "n_ilicitas": 1991}, {"variante": "LI", "metodo": "Regla simple", "k_etiqueta": "k = 500", "k": 500, "aciertos": 10, "precision": 0.02, "ic_inf": 0.010899183596210813, "ic_sup": 0.036420183246879345, "n_ilicitas": 1991}, {"variante": "LI", "metodo": "Regla simple", "k_etiqueta": "k = 1000", "k": 1000, "aciertos": 17, "precision": 0.017, "ic_inf": 0.010640689856816328, "ic_sup": 0.027055958840229925, "n_ilicitas": 1991}, {"variante": "LI", "metodo": "Regla simple", "k_etiqueta": "k = n.\u00ba de il\u00edcitas", "k": 1991, "aciertos": 25, "precision": 0.012556504269211451, "ic_inf": 0.00851948197553232, "ic_sup": 0.01847086283739532, "n_ilicitas": 1991}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

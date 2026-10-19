@@ -1,0 +1,798 @@
+{
+  "hi": {
+    "variante": "hi",
+    "totales": {
+      "transacciones": 5078345.0,
+      "lavado": 5177.0,
+      "autotransferencias": 591212.0,
+      "cuentas": 518581.0,
+      "aristas": 4486418.0
+    },
+    "por_periodo": [
+      {
+        "periodo": "arranque",
+        "transacciones": 1114921,
+        "lavado": 322.0,
+        "lavado_ignorado_puente": 4.0,
+        "lavado_sin_patron": 228.0
+      },
+      {
+        "periodo": "desarrollo",
+        "transacciones": 2134000,
+        "lavado": 2208.0,
+        "lavado_ignorado_puente": 531.0,
+        "lavado_sin_patron": 990.0
+      },
+      {
+        "periodo": "prueba",
+        "transacciones": 1828316,
+        "lavado": 1992.0,
+        "lavado_ignorado_puente": 570.0,
+        "lavado_sin_patron": 750.0
+      },
+      {
+        "periodo": "cola",
+        "transacciones": 1108,
+        "lavado": 655.0,
+        "lavado_ignorado_puente": 25.0,
+        "lavado_sin_patron": 0.0
+      }
+    ],
+    "por_dia": [
+      {
+        "dia": "2022-09-01",
+        "periodo": "arranque",
+        "transacciones": 1114921,
+        "lavado": 322.0,
+        "tasa_lavado": 0.0002888097004182359,
+        "autotransferencias": 507410.0
+      },
+      {
+        "dia": "2022-09-02",
+        "periodo": "desarrollo",
+        "transacciones": 754449,
+        "lavado": 408.0,
+        "tasa_lavado": 0.0005407920217271148,
+        "autotransferencias": 15480.0
+      },
+      {
+        "dia": "2022-09-03",
+        "periodo": "desarrollo",
+        "transacciones": 207382,
+        "lavado": 391.0,
+        "tasa_lavado": 0.0018854095340964981,
+        "autotransferencias": 4332.0
+      },
+      {
+        "dia": "2022-09-04",
+        "periodo": "desarrollo",
+        "transacciones": 207430,
+        "lavado": 407.0,
+        "tasa_lavado": 0.0019621076989827894,
+        "autotransferencias": 4364.0
+      },
+      {
+        "dia": "2022-09-05",
+        "periodo": "desarrollo",
+        "transacciones": 482650,
+        "lavado": 471.0,
+        "tasa_lavado": 0.0009758624261887496,
+        "autotransferencias": 10399.0
+      },
+      {
+        "dia": "2022-09-06",
+        "periodo": "desarrollo",
+        "transacciones": 482089,
+        "lavado": 531.0,
+        "tasa_lavado": 0.0011014563700893403,
+        "autotransferencias": 10401.0
+      },
+      {
+        "dia": "2022-09-07",
+        "periodo": "prueba",
+        "transacciones": 482751,
+        "lavado": 497.0,
+        "tasa_lavado": 0.001029516251649401,
+        "autotransferencias": 10390.0
+      },
+      {
+        "dia": "2022-09-08",
+        "periodo": "prueba",
+        "transacciones": 482773,
+        "lavado": 539.0,
+        "tasa_lavado": 0.0011164667452405169,
+        "autotransferencias": 10408.0
+      },
+      {
+        "dia": "2022-09-09",
+        "periodo": "prueba",
+        "transacciones": 654467,
+        "lavado": 514.0,
+        "tasa_lavado": 0.0007853719133279447,
+        "autotransferencias": 13244.0
+      },
+      {
+        "dia": "2022-09-10",
+        "periodo": "prueba",
+        "transacciones": 208325,
+        "lavado": 442.0,
+        "tasa_lavado": 0.002121684867394696,
+        "autotransferencias": 4391.0
+      },
+      {
+        "dia": "2022-09-11",
+        "periodo": "cola",
+        "transacciones": 396,
+        "lavado": 232.0,
+        "tasa_lavado": 0.5858585858585859,
+        "autotransferencias": 131.0
+      },
+      {
+        "dia": "2022-09-12",
+        "periodo": "cola",
+        "transacciones": 281,
+        "lavado": 170.0,
+        "tasa_lavado": 0.604982206405694,
+        "autotransferencias": 100.0
+      },
+      {
+        "dia": "2022-09-13",
+        "periodo": "cola",
+        "transacciones": 184,
+        "lavado": 106.0,
+        "tasa_lavado": 0.5760869565217391,
+        "autotransferencias": 69.0
+      },
+      {
+        "dia": "2022-09-14",
+        "periodo": "cola",
+        "transacciones": 121,
+        "lavado": 70.0,
+        "tasa_lavado": 0.5785123966942148,
+        "autotransferencias": 43.0
+      },
+      {
+        "dia": "2022-09-15",
+        "periodo": "cola",
+        "transacciones": 46,
+        "lavado": 28.0,
+        "tasa_lavado": 0.6086956521739131,
+        "autotransferencias": 18.0
+      },
+      {
+        "dia": "2022-09-16",
+        "periodo": "cola",
+        "transacciones": 46,
+        "lavado": 26.0,
+        "tasa_lavado": 0.5652173913043478,
+        "autotransferencias": 20.0
+      },
+      {
+        "dia": "2022-09-17",
+        "periodo": "cola",
+        "transacciones": 23,
+        "lavado": 15.0,
+        "tasa_lavado": 0.6521739130434783,
+        "autotransferencias": 9.0
+      },
+      {
+        "dia": "2022-09-18",
+        "periodo": "cola",
+        "transacciones": 11,
+        "lavado": 8.0,
+        "tasa_lavado": 0.7272727272727273,
+        "autotransferencias": 3.0
+      }
+    ],
+    "artefactos": {
+      "dia1": {
+        "transacciones": 1114921,
+        "frac_transacciones": 0.21954416251751308,
+        "tasa_lavado": 0.0002888097004182359,
+        "autotransferencias": 507410,
+        "frac_autotransferencias": 0.45510847853794123,
+        "media_diaria_dias_2_10": 440257.3333333333,
+        "tasa_lavado_dias_2_10": 0.0010599861293243648,
+        "frac_autotransferencias_dias_2_10": 0.02105056739543237
+      },
+      "cola": {
+        "dias": 8,
+        "transacciones": 1108,
+        "lavado": 655,
+        "tasa_lavado": 0.5911552346570397,
+        "intentos_que_tocan_cola": 109,
+        "intentos_solo_en_cola": 7
+      }
+    },
+    "historias": {
+      "cuentas_activas": 422656.0,
+      "cuentas_totales": 518581.0,
+      "media": 21.22964301938219,
+      "p10": 1.0,
+      "mediana": 10.0,
+      "p90": 53.0,
+      "p99": 116.0,
+      "maximo": 169756.0,
+      "frac_ge_5": 0.557931272713507,
+      "frac_ge_10": 0.5051176370381587,
+      "frac_ge_20": 0.3847904678982435,
+      "frac_ge_50": 0.11457544669897032
+    },
+    "grados": {
+      "salida": {
+        "mediana": 1.0,
+        "p99": 11.0,
+        "maximo": 14230
+      },
+      "entrada": {
+        "mediana": 2.0,
+        "p99": 10.0,
+        "maximo": 545
+      }
+    },
+    "intentos_por_periodo": [
+      {
+        "tipo": "BIPARTITE",
+        "solo_arranque": 0,
+        "desarrollo": 25,
+        "puente": 2,
+        "prueba": 18,
+        "solo_cola": 4,
+        "total": 49
+      },
+      {
+        "tipo": "CYCLE",
+        "solo_arranque": 1,
+        "desarrollo": 20,
+        "puente": 15,
+        "prueba": 18,
+        "solo_cola": 0,
+        "total": 54
+      },
+      {
+        "tipo": "FAN-IN",
+        "solo_arranque": 1,
+        "desarrollo": 10,
+        "puente": 12,
+        "prueba": 17,
+        "solo_cola": 0,
+        "total": 40
+      },
+      {
+        "tipo": "FAN-OUT",
+        "solo_arranque": 0,
+        "desarrollo": 19,
+        "puente": 10,
+        "prueba": 19,
+        "solo_cola": 0,
+        "total": 48
+      },
+      {
+        "tipo": "GATHER-SCATTER",
+        "solo_arranque": 1,
+        "desarrollo": 10,
+        "puente": 20,
+        "prueba": 20,
+        "solo_cola": 0,
+        "total": 51
+      },
+      {
+        "tipo": "RANDOM",
+        "solo_arranque": 0,
+        "desarrollo": 14,
+        "puente": 10,
+        "prueba": 17,
+        "solo_cola": 0,
+        "total": 41
+      },
+      {
+        "tipo": "SCATTER-GATHER",
+        "solo_arranque": 0,
+        "desarrollo": 12,
+        "puente": 13,
+        "prueba": 19,
+        "solo_cola": 0,
+        "total": 44
+      },
+      {
+        "tipo": "STACK",
+        "solo_arranque": 0,
+        "desarrollo": 11,
+        "puente": 14,
+        "prueba": 15,
+        "solo_cola": 3,
+        "total": 43
+      }
+    ],
+    "formato_desarrollo": [
+      {
+        "formato": "Cheque",
+        "transacciones": 863499,
+        "lavado": 146.0,
+        "tasa_lavado": 0.00016907952412220512
+      },
+      {
+        "formato": "Credit Card",
+        "transacciones": 623440,
+        "lavado": 97.0,
+        "tasa_lavado": 0.00015558834851790067
+      },
+      {
+        "formato": "ACH",
+        "transacciones": 277040,
+        "lavado": 1888.0,
+        "tasa_lavado": 0.006814900375397054
+      },
+      {
+        "formato": "Cash",
+        "transacciones": 228861,
+        "lavado": 45.0,
+        "tasa_lavado": 0.0001966258995634905
+      },
+      {
+        "formato": "Wire",
+        "transacciones": 79490,
+        "lavado": 0.0,
+        "tasa_lavado": 0.0
+      },
+      {
+        "formato": "Bitcoin",
+        "transacciones": 61670,
+        "lavado": 32.0,
+        "tasa_lavado": 0.0005188908707637425
+      }
+    ],
+    "patrones_desarrollo": [
+      {
+        "tipo": "BIPARTITE",
+        "intentos": 25,
+        "mediana_tx": 5.0,
+        "mediana_horas": 28.983333333333334,
+        "p90_horas": 40.71000000000001
+      },
+      {
+        "tipo": "CYCLE",
+        "intentos": 20,
+        "mediana_tx": 3.0,
+        "mediana_horas": 70.06666666666666,
+        "p90_horas": 88.63666666666666
+      },
+      {
+        "tipo": "FAN-IN",
+        "intentos": 10,
+        "mediana_tx": 3.0,
+        "mediana_horas": 80.15833333333333,
+        "p90_horas": 87.24166666666666
+      },
+      {
+        "tipo": "FAN-OUT",
+        "intentos": 19,
+        "mediana_tx": 7.0,
+        "mediana_horas": 65.05,
+        "p90_horas": 88.12333333333333
+      },
+      {
+        "tipo": "GATHER-SCATTER",
+        "intentos": 10,
+        "mediana_tx": 3.0,
+        "mediana_horas": 43.55,
+        "p90_horas": 112.35999999999999
+      },
+      {
+        "tipo": "RANDOM",
+        "intentos": 14,
+        "mediana_tx": 2.0,
+        "mediana_horas": 10.658333333333333,
+        "p90_horas": 83.86166666666668
+      },
+      {
+        "tipo": "SCATTER-GATHER",
+        "intentos": 12,
+        "mediana_tx": 9.0,
+        "mediana_horas": 85.425,
+        "p90_horas": 94.11166666666666
+      },
+      {
+        "tipo": "STACK",
+        "intentos": 11,
+        "mediana_tx": 4.0,
+        "mediana_horas": 69.15,
+        "p90_horas": 98.71666666666667
+      }
+    ]
+  },
+  "li": {
+    "variante": "li",
+    "totales": {
+      "transacciones": 6924049.0,
+      "lavado": 3565.0,
+      "autotransferencias": 804477.0,
+      "cuentas": 712688.0,
+      "aristas": 6119424.0
+    },
+    "por_periodo": [
+      {
+        "periodo": "arranque",
+        "transacciones": 1524807,
+        "lavado": 310.0,
+        "lavado_ignorado_puente": 0.0,
+        "lavado_sin_patron": 286.0
+      },
+      {
+        "periodo": "desarrollo",
+        "transacciones": 2908127,
+        "lavado": 1683.0,
+        "lavado_ignorado_puente": 185.0,
+        "lavado_sin_patron": 1222.0
+      },
+      {
+        "periodo": "prueba",
+        "transacciones": 2490892,
+        "lavado": 1438.0,
+        "lavado_ignorado_puente": 225.0,
+        "lavado_sin_patron": 1034.0
+      },
+      {
+        "periodo": "cola",
+        "transacciones": 223,
+        "lavado": 134.0,
+        "lavado_ignorado_puente": 7.0,
+        "lavado_sin_patron": 0.0
+      }
+    ],
+    "por_dia": [
+      {
+        "dia": "2022-09-01",
+        "periodo": "arranque",
+        "transacciones": 1524807,
+        "lavado": 310.0,
+        "tasa_lavado": 0.00020330441819849988,
+        "autotransferencias": 695685.0
+      },
+      {
+        "dia": "2022-09-02",
+        "periodo": "desarrollo",
+        "transacciones": 1027758,
+        "lavado": 350.0,
+        "tasa_lavado": 0.00034054709377110174,
+        "autotransferencias": 20178.0
+      },
+      {
+        "dia": "2022-09-03",
+        "periodo": "desarrollo",
+        "transacciones": 283326,
+        "lavado": 292.0,
+        "tasa_lavado": 0.0010306149100329657,
+        "autotransferencias": 5423.0
+      },
+      {
+        "dia": "2022-09-04",
+        "periodo": "desarrollo",
+        "transacciones": 282476,
+        "lavado": 291.0,
+        "tasa_lavado": 0.0010301760149534827,
+        "autotransferencias": 5447.0
+      },
+      {
+        "dia": "2022-09-05",
+        "periodo": "desarrollo",
+        "transacciones": 657397,
+        "lavado": 370.0,
+        "tasa_lavado": 0.0005628258114959454,
+        "autotransferencias": 13687.0
+      },
+      {
+        "dia": "2022-09-06",
+        "periodo": "desarrollo",
+        "transacciones": 657170,
+        "lavado": 380.0,
+        "tasa_lavado": 0.0005782369858636274,
+        "autotransferencias": 13711.0
+      },
+      {
+        "dia": "2022-09-07",
+        "periodo": "prueba",
+        "transacciones": 658504,
+        "lavado": 368.0,
+        "tasa_lavado": 0.0005588424671680051,
+        "autotransferencias": 13681.0
+      },
+      {
+        "dia": "2022-09-08",
+        "periodo": "prueba",
+        "transacciones": 657938,
+        "lavado": 402.0,
+        "tasa_lavado": 0.0006109998206517939,
+        "autotransferencias": 13692.0
+      },
+      {
+        "dia": "2022-09-09",
+        "periodo": "prueba",
+        "transacciones": 891573,
+        "lavado": 367.0,
+        "tasa_lavado": 0.000411632025644563,
+        "autotransferencias": 17433.0
+      },
+      {
+        "dia": "2022-09-10",
+        "periodo": "prueba",
+        "transacciones": 282877,
+        "lavado": 301.0,
+        "tasa_lavado": 0.001064066714508426,
+        "autotransferencias": 5465.0
+      },
+      {
+        "dia": "2022-09-11",
+        "periodo": "cola",
+        "transacciones": 77,
+        "lavado": 47.0,
+        "tasa_lavado": 0.6103896103896104,
+        "autotransferencias": 23.0
+      },
+      {
+        "dia": "2022-09-12",
+        "periodo": "cola",
+        "transacciones": 48,
+        "lavado": 27.0,
+        "tasa_lavado": 0.5625,
+        "autotransferencias": 16.0
+      },
+      {
+        "dia": "2022-09-13",
+        "periodo": "cola",
+        "transacciones": 48,
+        "lavado": 29.0,
+        "tasa_lavado": 0.6041666666666666,
+        "autotransferencias": 18.0
+      },
+      {
+        "dia": "2022-09-14",
+        "periodo": "cola",
+        "transacciones": 31,
+        "lavado": 18.0,
+        "tasa_lavado": 0.5806451612903226,
+        "autotransferencias": 12.0
+      },
+      {
+        "dia": "2022-09-15",
+        "periodo": "cola",
+        "transacciones": 9,
+        "lavado": 6.0,
+        "tasa_lavado": 0.6666666666666666,
+        "autotransferencias": 3.0
+      },
+      {
+        "dia": "2022-09-16",
+        "periodo": "cola",
+        "transacciones": 7,
+        "lavado": 5.0,
+        "tasa_lavado": 0.7142857142857143,
+        "autotransferencias": 2.0
+      },
+      {
+        "dia": "2022-09-17",
+        "periodo": "cola",
+        "transacciones": 3,
+        "lavado": 2.0,
+        "tasa_lavado": 0.6666666666666666,
+        "autotransferencias": 1.0
+      }
+    ],
+    "artefactos": {
+      "dia1": {
+        "transacciones": 1524807,
+        "frac_transacciones": 0.22021897880849775,
+        "tasa_lavado": 0.00020330441819849988,
+        "autotransferencias": 695685,
+        "frac_autotransferencias": 0.4562446263691077,
+        "media_diaria_dias_2_10": 599891.0,
+        "tasa_lavado_dias_2_10": 0.0005780679786457503,
+        "frac_autotransferencias_dias_2_10": 0.020136435896965725
+      },
+      "cola": {
+        "dias": 7,
+        "transacciones": 223,
+        "lavado": 134,
+        "tasa_lavado": 0.600896860986547,
+        "intentos_que_tocan_cola": 24,
+        "intentos_solo_en_cola": 1
+      }
+    },
+    "historias": {
+      "cuentas_activas": 576770.0,
+      "cuentas_totales": 712688.0,
+      "media": 21.219633476082322,
+      "p10": 1.0,
+      "mediana": 10.0,
+      "p90": 53.0,
+      "p99": 116.0,
+      "maximo": 223590.0,
+      "frac_ge_5": 0.557827210153094,
+      "frac_ge_10": 0.5049794545486069,
+      "frac_ge_20": 0.3855297605631361,
+      "frac_ge_50": 0.1150996064289058
+    },
+    "grados": {
+      "salida": {
+        "mediana": 1.0,
+        "p99": 11.0,
+        "maximo": 18942
+      },
+      "entrada": {
+        "mediana": 2.0,
+        "p99": 9.0,
+        "maximo": 785
+      }
+    },
+    "intentos_por_periodo": [
+      {
+        "tipo": "BIPARTITE",
+        "solo_arranque": 0,
+        "desarrollo": 6,
+        "puente": 2,
+        "prueba": 8,
+        "solo_cola": 0,
+        "total": 16
+      },
+      {
+        "tipo": "CYCLE",
+        "solo_arranque": 0,
+        "desarrollo": 1,
+        "puente": 4,
+        "prueba": 7,
+        "solo_cola": 0,
+        "total": 12
+      },
+      {
+        "tipo": "FAN-IN",
+        "solo_arranque": 0,
+        "desarrollo": 6,
+        "puente": 3,
+        "prueba": 3,
+        "solo_cola": 0,
+        "total": 12
+      },
+      {
+        "tipo": "FAN-OUT",
+        "solo_arranque": 0,
+        "desarrollo": 8,
+        "puente": 6,
+        "prueba": 5,
+        "solo_cola": 0,
+        "total": 19
+      },
+      {
+        "tipo": "GATHER-SCATTER",
+        "solo_arranque": 1,
+        "desarrollo": 3,
+        "puente": 4,
+        "prueba": 4,
+        "solo_cola": 0,
+        "total": 12
+      },
+      {
+        "tipo": "RANDOM",
+        "solo_arranque": 0,
+        "desarrollo": 7,
+        "puente": 2,
+        "prueba": 6,
+        "solo_cola": 0,
+        "total": 15
+      },
+      {
+        "tipo": "SCATTER-GATHER",
+        "solo_arranque": 0,
+        "desarrollo": 4,
+        "puente": 4,
+        "prueba": 5,
+        "solo_cola": 0,
+        "total": 13
+      },
+      {
+        "tipo": "STACK",
+        "solo_arranque": 0,
+        "desarrollo": 8,
+        "puente": 6,
+        "prueba": 3,
+        "solo_cola": 1,
+        "total": 18
+      }
+    ],
+    "formato_desarrollo": [
+      {
+        "formato": "Cheque",
+        "transacciones": 1159346,
+        "lavado": 187.0,
+        "tasa_lavado": 0.0001612978351587878
+      },
+      {
+        "formato": "Credit Card",
+        "transacciones": 838866,
+        "lavado": 128.0,
+        "tasa_lavado": 0.0001525869447563735
+      },
+      {
+        "formato": "ACH",
+        "transacciones": 367786,
+        "lavado": 1255.0,
+        "tasa_lavado": 0.003412310419646207
+      },
+      {
+        "formato": "Cash",
+        "transacciones": 305650,
+        "lavado": 56.0,
+        "tasa_lavado": 0.00018321609684279405
+      },
+      {
+        "formato": "Bitcoin",
+        "transacciones": 130899,
+        "lavado": 57.0,
+        "tasa_lavado": 0.00043545023262209795
+      },
+      {
+        "formato": "Wire",
+        "transacciones": 105580,
+        "lavado": 0.0,
+        "tasa_lavado": 0.0
+      }
+    ],
+    "patrones_desarrollo": [
+      {
+        "tipo": "BIPARTITE",
+        "intentos": 6,
+        "mediana_tx": 7.5,
+        "mediana_horas": 33.71666666666667,
+        "p90_horas": 39.233333333333334
+      },
+      {
+        "tipo": "CYCLE",
+        "intentos": 1,
+        "mediana_tx": 3.0,
+        "mediana_horas": 50.083333333333336,
+        "p90_horas": 50.083333333333336
+      },
+      {
+        "tipo": "FAN-IN",
+        "intentos": 6,
+        "mediana_tx": 7.0,
+        "mediana_horas": 82.925,
+        "p90_horas": 93.14166666666667
+      },
+      {
+        "tipo": "FAN-OUT",
+        "intentos": 8,
+        "mediana_tx": 3.0,
+        "mediana_horas": 69.21666666666667,
+        "p90_horas": 93.26166666666667
+      },
+      {
+        "tipo": "GATHER-SCATTER",
+        "intentos": 3,
+        "mediana_tx": 2.0,
+        "mediana_horas": 7.933333333333334,
+        "p90_horas": 108.30666666666669
+      },
+      {
+        "tipo": "RANDOM",
+        "intentos": 7,
+        "mediana_tx": 4.0,
+        "mediana_horas": 42.333333333333336,
+        "p90_horas": 82.14
+      },
+      {
+        "tipo": "SCATTER-GATHER",
+        "intentos": 4,
+        "mediana_tx": 7.0,
+        "mediana_horas": 61.625,
+        "p90_horas": 93.68833333333333
+      },
+      {
+        "tipo": "STACK",
+        "intentos": 8,
+        "mediana_tx": 6.0,
+        "mediana_horas": 56.541666666666664,
+        "p90_horas": 86.63833333333334
+      }
+    ]
+  }
+}
