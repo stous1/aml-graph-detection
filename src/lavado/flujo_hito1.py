@@ -174,41 +174,18 @@ def medir(
     tx = universo.transacciones
     if not np.array_equal(cand.mapa.tx_id.to_numpy(), tx.tx_id.to_numpy()):
         raise RuntimeError("El mapa del detector no coincide con el universo de evaluación")
-    ok = ~tx.ignorada.to_numpy()
-    y_tx = tx.y.to_numpy()
-
     n_cuentas = int(con.execute(f"SELECT count(*) FROM {esquema}.cuentas").fetchone()[0])
     p_cta_todas = ab.puntuar_cuentas(tx.origen.to_numpy(), tx.destino.to_numpy(), p_tx, n_cuentas)
-    cuentas = universo.cuentas[~universo.cuentas.ignorada]
-    ids = cuentas.cuenta_id.to_numpy()
-    p_cta, y_cta = p_cta_todas[ids], cuentas.y.to_numpy()
-    n_pos = int(y_cta.sum())
-
-    marcada = (p_tx >= umbral) & (p_tx > 0)
-    direccion = ab.direccion_dominante(cand, p_estr)
-    recall = ev.recall_por_tipo(universo, marcada)
-    recall_3 = ev.recall_por_tipo(universo, marcada, min_tx=3)
+    m = ev.metricas(
+        universo, p_tx, p_cta_todas, umbral, direccion=ab.direccion_dominante(cand, p_estr)
+    )
     return {
         "periodo": periodo,
         "config": config.como_dict(),
-        "universo": {
-            "transacciones": int(ok.sum()),
-            "lavado": int(y_tx[ok].sum()),
-            "ignoradas_puente": int((~ok).sum()),
-            "cuentas": len(cuentas),
-            "cuentas_ilicitas": n_pos,
-            "cuentas_ignoradas": int(universo.cuentas.ignorada.sum()),
-        },
+        "universo": m.pop("universo"),
         "estructuras_candidatas": len(cand.estructuras),
         "estructuras_marcadas": int((p_estr >= umbral).sum()),
-        "f1_transaccion": ev.f1_en_umbral(
-            p_tx[ok], y_tx[ok], umbral, grupos=tx.origen.to_numpy()[ok]
-        ),
-        "f1_cuenta": ev.f1_en_umbral(p_cta, y_cta, umbral, grupos=ids),
-        "precision_k": ev.precision_en_k(p_cta, y_cta, ids, [*ev.KS, n_pos]),
-        "recall_tipo": recall.to_dict(orient="records"),
-        "recall_tipo_min3": recall_3.to_dict(orient="records"),
-        "forma_por_tipo": ev.forma_por_tipo(universo, marcada, direccion).to_dict(orient="records"),
+        **m,
     }
 
 
@@ -219,6 +196,7 @@ def _config(d: dict) -> ab.ConfigAbanicos:
         por_formato=d["por_formato"],
         variables=tuple(d["variables"]),
         tamano=d["tamano"],
+        direccion=d.get("direccion", "ambas"),
     )
 
 

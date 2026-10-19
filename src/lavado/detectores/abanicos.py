@@ -58,6 +58,7 @@ class ConfigAbanicos:
     por_formato: bool = False
     variables: tuple[str, ...] = VARIABLES_FORMA
     tamano: str = "log2"  # "log2", "lineal" o "ninguno"
+    direccion: str = "ambas"  # "ambas", "salida" o "entrada"
 
     def como_dict(self) -> dict:
         return asdict(self) | {"variables": list(self.variables)}
@@ -248,6 +249,10 @@ def puntuar_estructuras(estructuras: pd.DataFrame, config: ConfigAbanicos) -> np
             raise ValueError(f"variable desconocida: {var}")
         puntaje = puntaje * np.maximum(estructuras[var].to_numpy(dtype=float), PISO)
     puntaje[n < config.min_contrapartes] = 0.0
+    if config.direccion != "ambas":
+        if config.direccion not in ("salida", "entrada"):
+            raise ValueError(f"direccion inválida: {config.direccion}")
+        puntaje[estructuras["direccion"].to_numpy() != config.direccion] = 0.0
     return puntaje
 
 

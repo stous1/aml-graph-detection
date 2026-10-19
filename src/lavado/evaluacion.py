@@ -251,3 +251,52 @@ def forma_por_tipo(universo: Universo, marcada: np.ndarray, direccion: np.ndarra
         if col not in tabla:
             tabla[col] = 0.0
     return tabla[["entrada", "salida"]].reset_index()
+
+
+def metricas(
+    universo: Universo,
+    puntaje_tx: np.ndarray,
+    puntaje_cuentas: np.ndarray,
+    umbral_tx: float,
+    umbral_cuenta: float | None = None,
+    direccion: np.ndarray | None = None,
+) -> dict:
+    """Todas las métricas de un detector en un período.
+
+    ``puntaje_tx`` está alineado con ``universo.transacciones``; ``puntaje_cuentas`` se indexa
+    por ``cuenta_id``. Los umbrales vienen de desarrollo; ``umbral_cuenta`` por defecto es el
+    de transacciones.
+    """
+    tx = universo.transacciones
+    if len(puntaje_tx) != len(tx):
+        raise ValueError("El puntaje no está alineado con el universo de evaluación")
+    umbral_cuenta = umbral_tx if umbral_cuenta is None else umbral_cuenta
+    ok = ~tx.ignorada.to_numpy()
+    y_tx = tx.y.to_numpy()
+    cuentas = universo.cuentas[~universo.cuentas.ignorada]
+    ids = cuentas.cuenta_id.to_numpy()
+    p_cta, y_cta = np.asarray(puntaje_cuentas)[ids], cuentas.y.to_numpy()
+    n_pos = int(y_cta.sum())
+    marcada = (puntaje_tx >= umbral_tx) & (puntaje_tx > 0)
+    salida = {
+        "universo": {
+            "transacciones": int(ok.sum()),
+            "lavado": int(y_tx[ok].sum()),
+            "ignoradas_puente": int((~ok).sum()),
+            "cuentas": len(cuentas),
+            "cuentas_ilicitas": n_pos,
+            "cuentas_ignoradas": int(universo.cuentas.ignorada.sum()),
+        },
+        "f1_transaccion": f1_en_umbral(
+            puntaje_tx[ok], y_tx[ok], umbral_tx, grupos=tx.origen.to_numpy()[ok]
+        ),
+        "f1_cuenta": f1_en_umbral(p_cta, y_cta, umbral_cuenta, grupos=ids),
+        "precision_k": precision_en_k(p_cta, y_cta, ids, [*KS, n_pos]),
+        "recall_tipo": recall_por_tipo(universo, marcada).to_dict(orient="records"),
+        "recall_tipo_min3": recall_por_tipo(universo, marcada, min_tx=3).to_dict(orient="records"),
+    }
+    if direccion is not None:
+        salida["forma_por_tipo"] = forma_por_tipo(universo, marcada, direccion).to_dict(
+            orient="records"
+        )
+    return salida
