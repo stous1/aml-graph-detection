@@ -8,9 +8,18 @@ Uso:
 import argparse
 import shutil
 
-from lavado.rutas import DOCS_RESULTADOS_HITO1, DOCS_RESULTADOS_HITO2, REPORTS_HITO1, REPORTS_HITO2
+from lavado.rutas import (
+    DOCS_RESULTADOS_HITO1,
+    DOCS_RESULTADOS_HITO2,
+    DOCS_RESULTADOS_HITO3,
+    REPORTS_HITO1,
+    REPORTS_HITO2,
+    REPORTS_HITO3,
+)
 
 PARAMETROS = ("parametros.json", "desarrollo.json")
+# Los modelos de CoLES se congelan junto con los parámetros del hito 3.
+MODELOS = {"3": ("modelos/coles_hi.pt", "modelos/coles_li.pt")}
 RESULTADOS = {
     "1": (
         "exploracion.json",
@@ -24,6 +33,13 @@ RESULTADOS = {
         "recall_tipo.html",
         "recall_tipo.png",
     ),
+    "3": (
+        "metricas.json",
+        "hito3_top100.html",
+        "hito3_top100.png",
+        "hito3_f1.html",
+        "hito3_f1.png",
+    ),
     "2": (
         "metricas.json",
         "detectores_top100.html",
@@ -32,7 +48,11 @@ RESULTADOS = {
         "detectores_f1.png",
     ),
 }
-RUTAS = {"1": (REPORTS_HITO1, DOCS_RESULTADOS_HITO1), "2": (REPORTS_HITO2, DOCS_RESULTADOS_HITO2)}
+RUTAS = {
+    "1": (REPORTS_HITO1, DOCS_RESULTADOS_HITO1),
+    "2": (REPORTS_HITO2, DOCS_RESULTADOS_HITO2),
+    "3": (REPORTS_HITO3, DOCS_RESULTADOS_HITO3),
+}
 
 
 def main() -> None:
@@ -42,7 +62,9 @@ def main() -> None:
     args = parser.parse_args()
 
     origen, destino = RUTAS[args.hito]
-    archivos = PARAMETROS if args.solo_parametros else PARAMETROS + RESULTADOS[args.hito]
+    archivos = PARAMETROS + MODELOS.get(args.hito, ())
+    if not args.solo_parametros:
+        archivos += RESULTADOS[args.hito]
     destino.mkdir(parents=True, exist_ok=True)
     faltan = [a for a in archivos if not (origen / a).exists()]
     if faltan:
@@ -51,6 +73,13 @@ def main() -> None:
         if nombre == "parametros.json" and (destino / nombre).exists() and not args.solo_parametros:
             # los parámetros congelados no se pisan al publicar el resto
             continue
+        if (
+            nombre.startswith("modelos/")
+            and (destino / nombre).exists()
+            and not args.solo_parametros
+        ):
+            continue  # los modelos congelados tampoco se pisan
+        (destino / nombre).parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(origen / nombre, destino / nombre)
         print(f"{origen / nombre} -> {destino / nombre}")
 
