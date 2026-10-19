@@ -55,6 +55,12 @@ uv run python scripts/publicar_resultados.py --hito 1   # o 2, 3: reports/hitoN 
 - `data/raw/`: los seis archivos Small de AMLworld (HI y LI: `_Trans.csv`, `_Patterns.txt`,
   `_accounts.csv`). **No se versionan.** Las variantes Medium y Large **no se descargan ni se
   procesan sin preguntarle antes al usuario.**
+- **Medium (aprobado como prueba fresca final, después del hito 4):** el usuario descarga los
+  archivos cuando se lo pidan. Se evalúa una sola vez el modelo final con artefactos congelados
+  de Small (`docs/resultados/congelados/`), sin ajustes, por bloques de 4 días y con DuckDB
+  limitado a 16 GB con desborde a disco. Ver la propuesta en `INFORME_TECNICO.md`.
+- **Large:** no por ahora. Trabajo futuro: "no te pareces a ti mismo" con una muestra de
+  cuentas y sus 97 días, filtrada sin cargar el archivo completo.
 - Cada variante vive en su esquema de DuckDB (`hi`, `li`): `cuentas`, `transacciones`,
   `patrones`, `tasas`, `intentos`, `etiquetas`, `aristas` y `estructuras`.
 - Cuenta = banco (entero, sin ceros a la izquierda) + número. El CSV repite la columna

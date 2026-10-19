@@ -642,3 +642,17 @@ estimado (40 a 50 GB) quedaría al límite de los 63 GB de la máquina. La propu
 **25 a 35 GB**. Además, DuckDB se limitaría a 16 GB, con desborde a disco, para no competir con
 pandas. El tiempo estimado es de 4 a 6 horas por variante. La GPU podría acelerar la
 inferencia de CoLES, pero ese no es el cuello de botella.
+
+## Trabajo futuro
+
+- **"No te pareces a ti mismo" con historia larga (Large).** Con 10 días no es viable
+  (hito 3). La variante Large de AMLworld cubre 97 días. La idea es tomar una muestra de
+  cuentas (por ejemplo, unas decenas de miles, estratificada por actividad) y filtrar sus
+  transacciones **sin cargar el archivo completo** (~16 GB). DuckDB puede leer el CSV en
+  streaming con un filtro por la lista de cuentas y escribir solo esas filas a Parquet.
+  Después: huella histórica de varias semanas contra la huella reciente, con el mismo
+  criterio de viabilidad fijado antes de medir. Large no se descarga sin aprobación.
+- **Agente investigador:** toma las alertas, usa `consultas.py` como herramientas,
+  investiga, decide y redacta el caso.
+- **Calibración de rareza que se traslade:** referencia en una ventana que el modelo no vio
+  al entrenar, o directamente rankings y umbrales relativos (hito 4).
