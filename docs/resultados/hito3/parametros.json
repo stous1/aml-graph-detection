@@ -1,0 +1,66 @@
+{
+  "coles": {
+    "min_eventos": 20,
+    "oculto": 64,
+    "epocas": 10,
+    "tasa": 0.002,
+    "lote": 128,
+    "cortes": 5,
+    "corte_min": 10,
+    "corte_max": 60,
+    "max_eventos": 500,
+    "semilla": 20220902
+  },
+  "criterio": "detector CoLES: máximo F1 ilícita por transacción en HI desarrollo, empate a la primera configuración; umbrales y esquema de combinación en desarrollo",
+  "detector": {
+    "config": {
+      "metodo": "knn",
+      "agregacion": "max",
+      "min_eventos": 20,
+      "k": 10
+    },
+    "umbrales": {
+      "hi": {
+        "transaccion": 1.901634442806244,
+        "cuenta": 1.5726183533668519
+      },
+      "li": {
+        "transaccion": 1.8232774257659912,
+        "cuenta": 1.5356801867485046
+      }
+    }
+  },
+  "combinado": {
+    "componentes": [
+      "abanicos_salida_forma",
+      "abanicos_entrada_forma",
+      "ciclos",
+      "cadenas",
+      "dispersion_concentracion",
+      "concentracion_dispersion",
+      "aislamiento_forma",
+      "coles_atipico"
+    ],
+    "umbrales": {
+      "hi": {
+        "transaccion": 0.9999463864464937,
+        "cuenta": 0.9996264425675317
+      },
+      "li": {
+        "transaccion": 0.9999891215893989,
+        "cuenta": 0.9998002497847353
+      }
+    },
+    "esquema": "max",
+    "f1_por_esquema_hi_desarrollo": {
+      "max": 0.17552144824872098,
+      "media": 0.08943445857080229,
+      "noisy_or": 0.17132386623912046
+    }
+  },
+  "modelos": {
+    "hi": "modelos/coles_hi.pt",
+    "li": "modelos/coles_li.pt"
+  },
+  "no_te_pareces_viable": false
+}
