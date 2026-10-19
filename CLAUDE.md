@@ -26,7 +26,10 @@ Trabajo futuro (no se implementa aún): agente investigador. Por eso las consult
 
 - Python 3.12, manejado por **uv** (`.python-version` fija 3.12).
 - **DuckDB** local (`data/aml.duckdb`), sin servicios externos.
-- pandas, numpy, python-igraph; Altair + vl-convert para gráficos HTML y PNG.
+- pandas, numpy, python-igraph, scikit-learn; Altair + vl-convert para gráficos HTML y PNG.
+- pytorch-lifestream (CoLES) sobre torch **CPU**: el índice de PyTorch CPU está fijado en
+  `pyproject.toml` para que local y CI usen la misma variante. La máquina tiene una GPU
+  (RTX 4080 SUPER) que hoy no se usa; si un hito la necesita, se agrega aparte sin romper CI.
 - **pytest** para pruebas y **ruff** para lint y formato.
 
 ## Comandos
@@ -42,7 +45,9 @@ uv run python scripts/hito1.py desarrollar    # rejilla en HI desarrollo -> repo
 uv run python scripts/hito1.py evaluar        # prueba, con docs/resultados/hito1/parametros.json
 uv run python scripts/hito2.py desarrollar    # selección en HI desarrollo -> reports/hito2/ (~45 min)
 uv run python scripts/hito2.py evaluar        # prueba, con docs/resultados/hito2/parametros.json
-uv run python scripts/publicar_resultados.py --hito 1   # o 2: reports/hitoN -> docs/resultados/hitoN
+uv run python scripts/hito3.py desarrollar    # entrena CoLES (CPU, ~20 min por variante)
+uv run python scripts/hito3.py evaluar        # prueba, con docs/resultados/hito3 (congelado)
+uv run python scripts/publicar_resultados.py --hito 1   # o 2, 3: reports/hitoN -> docs/resultados/hitoN
 ```
 
 ## Datos
@@ -75,6 +80,13 @@ uv run python scripts/publicar_resultados.py --hito 1   # o 2: reports/hitoN -> 
     `detectores/aislamiento.py` (Isolation Forest), `combinacion.py` (percentiles congelados
     de desarrollo) y `flujo_hito2.py` (registro de detectores, selección, ablación,
     diagnóstico de LI). Congelado en `hito2-congelado` con `docs/resultados/hito2/parametros.json`.
+  - Hito 3: `secuencias.py` (eventos por cuenta, sin moneda ni formato), `coles.py` (CoLES de
+    pytorch-lifestream, determinista en CPU), `detectores/coles_atipico.py` (rareza de la huella)
+    y `flujo_hito3.py` (cobertura, entrenamiento con el desarrollo de cada variante, combinado
+    estructural + CoLES, viabilidad de "no te pareces a ti mismo"). Congelado en
+    `hito3-congelado` con `docs/resultados/hito3/parametros.json` y los modelos
+    `docs/resultados/hito3/modelos/coles_{hi,li}.pt` (versionados; `evaluar` los carga, no
+    reentrena).
   - `evaluacion.py`: **el único módulo que lee la verdad.**
   - `sintetico.py`: mini-AMLworld para pruebas y CI.
   - `flujo_hito1.py`: preparar, explorar, desarrollar y evaluar.
