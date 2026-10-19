@@ -40,7 +40,9 @@ uv run python scripts/hito1.py preparar       # CSV de data/raw -> data/aml.duck
 uv run python scripts/hito1.py explorar       # -> reports/hito1/exploracion.json y gráficos
 uv run python scripts/hito1.py desarrollar    # rejilla en HI desarrollo -> reports/hito1/
 uv run python scripts/hito1.py evaluar        # prueba, con docs/resultados/hito1/parametros.json
-uv run python scripts/publicar_resultados.py --hito 1   # reports/hito1 -> docs/resultados/hito1
+uv run python scripts/hito2.py desarrollar    # selección en HI desarrollo -> reports/hito2/ (~45 min)
+uv run python scripts/hito2.py evaluar        # prueba, con docs/resultados/hito2/parametros.json
+uv run python scripts/publicar_resultados.py --hito 1   # o 2: reports/hitoN -> docs/resultados/hitoN
 ```
 
 ## Datos
@@ -67,6 +69,12 @@ uv run python scripts/publicar_resultados.py --hito 1   # reports/hito1 -> docs/
     **No leen etiquetas** (lo verifica `tests/test_consultas.py`) y aceptan `hasta`.
   - `detectores/abanicos.py`: abanicos de entrada y salida puntuados por forma; la regla
     simple es el mismo código sin variables de forma.
+  - Hito 2: `paso.py` (pares de paso: recibe y reenvía un monto parecido dentro de Δ),
+    `detectores/ciclos.py`, `detectores/cadenas.py`, `detectores/dispersion.py`
+    (dispersión-concentración y concentración-dispersión), `variables_cuenta.py` +
+    `detectores/aislamiento.py` (Isolation Forest), `combinacion.py` (percentiles congelados
+    de desarrollo) y `flujo_hito2.py` (registro de detectores, selección, ablación,
+    diagnóstico de LI). Congelado en `hito2-congelado` con `docs/resultados/hito2/parametros.json`.
   - `evaluacion.py`: **el único módulo que lee la verdad.**
   - `sintetico.py`: mini-AMLworld para pruebas y CI.
   - `flujo_hito1.py`: preparar, explorar, desarrollar y evaluar.
@@ -116,6 +124,16 @@ uv run python scripts/publicar_resultados.py --hito 1   # reports/hito1 -> docs/
   de lavado sin patrón, por transacción) y **F1 de la clase ilícita**. **Nunca exactitud.**
 - Siempre en **HI y en LI**, y siempre contra la **regla simple** (contrapartes en 24 h).
 - Los anillos se detectan por su **forma** y no solo por su tamaño.
+- **Señales sospechosas de artefacto** del generador: moneda (mezcla de monedas, número de
+  monedas) y formato de pago (participación de formatos, abanicos por canal). Se prefieren
+  las estructurales (tiempo, montos, topología). Cada detector se declara con o sin
+  sospechosas (`flujo_hito2.Detector.sospechosas`, verificado por `tests/test_hito2.py`) y se
+  reporta con y sin ellas. La ablación del hito 1 mostró que sin mezcla de monedas el
+  detector de abanicos no funciona.
+- **El período de prueba (días 7 a 10) se evalúa en varios hitos.** Cada hito lo mide una
+  sola vez, al final y con sus parámetros congelados, pero ya no es una prueba virgen: las
+  decisiones de un hito pueden estar influidas por lo que se vio en prueba en hitos
+  anteriores. Se anota en el informe de cada hito.
 
 ## Regla de procesos (para Claude y cualquier subagente)
 
