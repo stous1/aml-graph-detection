@@ -335,11 +335,16 @@ def graficar_resultados(metricas: dict, salida: Path) -> None:
             m = res[nombre]
             n_pos = m["universo"]["cuentas_ilicitas"]
             for i, pk in enumerate(m["precision_k"]):
-                etiqueta = f"k = {pk['k']}" if i < len(ev.KS) else f"k = positivos ({n_pos})"
+                etiqueta = f"k = {pk['k']}" if i < len(ev.KS) else "k = n.º de ilícitas"
                 filas_k.append(
-                    {"variante": v.upper(), "metodo": METODOS[nombre], "k_etiqueta": etiqueta} | pk
+                    {"variante": v.upper(), "metodo": METODOS[nombre], "k_etiqueta": etiqueta}
+                    | pk
+                    | {"n_ilicitas": n_pos}
                 )
             for r in m["recall_tipo"]:
-                filas_r.append({"variante": v.upper(), "metodo": METODOS[nombre]} | r)
+                tipo = "SIN PATRÓN (por tx)" if r["tipo"] == "SIN_PATRON" else r["tipo"]
+                filas_r.append(
+                    {"variante": v.upper(), "metodo": METODOS[nombre]} | r | {"tipo": tipo}
+                )
     tableros.guardar(tableros.precision_k(pd.DataFrame(filas_k)), salida, "precision_k")
     tableros.guardar(tableros.recall_tipo(pd.DataFrame(filas_r)), salida, "recall_tipo")

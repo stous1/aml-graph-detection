@@ -68,7 +68,7 @@ def por_dia(dias: pd.DataFrame, titulo: str) -> alt.Chart:
         alt.value(GRIS),
     )
     volumen = (
-        base.mark_bar(size=14, cornerRadiusTopLeft=4, cornerRadiusTopRight=4)
+        base.mark_point(filled=True, size=90, opacity=1)
         .encode(
             y=alt.Y("transacciones:Q", title="transacciones", scale=alt.Scale(type="log")),
             color=medidos,
@@ -76,7 +76,7 @@ def por_dia(dias: pd.DataFrame, titulo: str) -> alt.Chart:
         .properties(width=420, height=150, title="Transacciones por día (gris: no se mide)")
     )
     tasa = (
-        base.mark_bar(size=14, cornerRadiusTopLeft=4, cornerRadiusTopRight=4)
+        base.mark_point(filled=True, size=90, opacity=1)
         .encode(
             y=alt.Y(
                 "tasa_lavado:Q",
@@ -130,7 +130,6 @@ def precision_k(tabla: pd.DataFrame) -> alt.Chart:
     """
     base = alt.Chart(tabla).encode(
         x=alt.X("metodo:N", title=None, axis=alt.Axis(labels=False, ticks=False)),
-        color=alt.Color("metodo:N", scale=COLOR_METODO, title=None),
     )
     barras = base.mark_bar(size=18, cornerRadiusTopLeft=4, cornerRadiusTopRight=4).encode(
         y=alt.Y(
@@ -139,10 +138,12 @@ def precision_k(tabla: pd.DataFrame) -> alt.Chart:
             scale=alt.Scale(domain=[0, 1]),
             axis=alt.Axis(format="%"),
         ),
+        color=alt.Color("metodo:N", scale=COLOR_METODO, title=None),
         tooltip=[
             "variante:N",
             "metodo:N",
             "k_etiqueta:N",
+            alt.Tooltip("k:Q", title="k"),
             alt.Tooltip("precision:Q", format=".1%"),
             alt.Tooltip("ic_inf:Q", format=".1%", title="IC 95 % inf."),
             alt.Tooltip("ic_sup:Q", format=".1%", title="IC 95 % sup."),
@@ -151,11 +152,12 @@ def precision_k(tabla: pd.DataFrame) -> alt.Chart:
     barras_error = base.mark_rule(color=TINTA_2, strokeWidth=1.5).encode(
         y="ic_inf:Q", y2="ic_sup:Q"
     )
+    orden_k = list(dict.fromkeys(tabla.k_etiqueta))
     return (
         (barras + barras_error)
         .properties(width=70, height=200)
         .facet(
-            column=alt.Column("k_etiqueta:N", title=None, sort=None),
+            column=alt.Column("k_etiqueta:N", title=None, sort=orden_k),
             row=alt.Row("variante:N", title=None),
         )
         .properties(title="Precisión en el top-k de cuentas, período de prueba")
@@ -169,12 +171,12 @@ def recall_tipo(tabla: pd.DataFrame) -> alt.Chart:
     """
     base = alt.Chart(tabla).encode(
         y=alt.Y("metodo:N", title=None, axis=alt.Axis(labels=False, ticks=False)),
-        color=alt.Color("metodo:N", scale=COLOR_METODO, title=None),
     )
     barras = base.mark_bar(size=10, cornerRadiusTopRight=4, cornerRadiusBottomRight=4).encode(
         x=alt.X(
             "recall:Q", title="recall", scale=alt.Scale(domain=[0, 1]), axis=alt.Axis(format="%")
         ),
+        color=alt.Color("metodo:N", scale=COLOR_METODO, title=None),
         tooltip=[
             "variante:N",
             "tipo:N",

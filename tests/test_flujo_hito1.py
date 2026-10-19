@@ -70,7 +70,9 @@ def test_patrones_detectados_lee_estructuras(tmp_path: Path, ruta_base: Path) ->
 
 
 def _git(*args: str) -> subprocess.CompletedProcess:
-    return subprocess.run(["git", *args], cwd=RAIZ, capture_output=True, text=True)
+    return subprocess.run(
+        ["git", *args], cwd=RAIZ, capture_output=True, text=True, encoding="utf-8"
+    )
 
 
 def test_parametros_congelados_no_cambian() -> None:
