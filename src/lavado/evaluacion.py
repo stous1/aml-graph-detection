@@ -300,3 +300,32 @@ def metricas(
             orient="records"
         )
     return salida
+
+
+def fraccion_marcada(puntaje: np.ndarray, umbral: float) -> float:
+    """Fracción de observaciones con ``puntaje >= umbral`` (y positivo)."""
+    puntaje = np.asarray(puntaje)
+    if len(puntaje) == 0:
+        return 0.0
+    return float(((puntaje >= umbral) & (puntaje > 0)).mean())
+
+
+def umbral_relativo(puntaje: np.ndarray, fraccion: float) -> float:
+    """Umbral que marca la ``fraccion`` de puntajes más altos (umbral relativo).
+
+    Se traslada mejor entre períodos que un valor absoluto de rareza: en prueba se marca la
+    misma proporción de alertas que en desarrollo, sin importar la escala del puntaje.
+    """
+    puntaje = np.asarray(puntaje, dtype=float)
+    k = int(round(fraccion * len(puntaje)))
+    if k <= 0:
+        return float("inf")
+    return float(np.sort(puntaje)[::-1][min(k, len(puntaje)) - 1])
+
+
+def precision_promedio(puntaje: np.ndarray, y: np.ndarray) -> float:
+    """Precisión promedio (área bajo la curva precisión-recall): métrica de ranking."""
+    from sklearn.metrics import average_precision_score
+
+    y = np.asarray(y, dtype=bool)
+    return float(average_precision_score(y, puntaje)) if y.any() else 0.0

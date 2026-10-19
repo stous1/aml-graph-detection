@@ -205,7 +205,18 @@ def recall_tipo(tabla: pd.DataFrame) -> alt.Chart:
     )
 
 
-def detectores(tabla: pd.DataFrame, orden: list[str], medida: str, titulo: str) -> alt.Chart:
+COLOR_ETIQUETAS = alt.Scale(
+    domain=["sin etiquetas", "con etiquetas", "regla"], range=[AZUL, AQUA, NARANJA]
+)
+
+
+def detectores(
+    tabla: pd.DataFrame,
+    orden: list[str],
+    medida: str,
+    titulo: str,
+    colores: alt.Scale = COLOR_SENALES,
+) -> alt.Chart:
     """Barras horizontales por detector, coloreadas por el tipo de señales que usa.
 
     ``tabla``: variante, etiqueta, senales y la columna ``medida``.
@@ -222,7 +233,7 @@ def detectores(tabla: pd.DataFrame, orden: list[str], medida: str, titulo: str) 
                 scale=alt.Scale(domain=[0, tope]),
                 axis=alt.Axis(format="%" if medida.startswith("precision") else ".2f"),
             ),
-            color=alt.Color("senales:N", scale=COLOR_SENALES, title="señales"),
+            color=alt.Color("senales:N", scale=colores, title=None),
             tooltip=[
                 "variante:N",
                 "etiqueta:N",
