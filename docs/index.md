@@ -5,29 +5,32 @@ temporal de AMLworld (IBM, sintético), evaluados con partición temporal contra
 y los patrones del generador, y siempre comparados con una regla simple. Caso 2 de un
 portafolio de ciencia de datos aplicada a banca.
 
+## Cifra principal: combinado estructural
+
+Solo con señales que existirían en cualquier banco (**tiempo, montos y topología**), sin
+moneda ni formato de pago. Período de prueba, días 7 a 10:
+
+| | F1 ilícita por tx | Top-100 | Top-1.000 |
+|---|---|---|---|
+| **HI, combinado estructural** | **0,118** | **0,48** | **0,18** |
+| HI, regla simple | 0,003 | 0,01 | 0,02 |
+| **LI, combinado estructural** | **0,028** | **0,04** | **0,06** |
+| LI, regla simple | 0,003 | 0,02 | 0,02 |
+
+![F1 por detector](resultados/hito2/detectores_f1.png)
+
 ## En un minuto
 
-- **Hito 2, detectores estructurales** ([página](hito2.md)). La ablación muestra que el
-  detector del hito 1 dependía de la mezcla de monedas, una huella del simulador: sin ella
-  cae de 0,91 a 0,01 en el top-100. Reconstruido con forma pura conserva 0,72. Ciclos y
-  dispersión-concentración con monto conservado, que solo usan tiempo, montos y topología,
-  encuentran tipos que los abanicos no ven. La combinación da el mejor F1 (0,151 en HI y 0,049
-  en LI).
-- **Hito 1, abanicos por forma** ([página](hito1.md)). En el período de prueba de HI, 91 de
-  las 100 primeras alertas son cuentas ilícitas, contra 1 de 100 con la regla que solo cuenta
-  contrapartes. El F1 ilícito por transacción es 0,143 contra 0,003. En LI la ventaja se
-  achica: 0,19 contra 0,02 en el top-100.
-- En el hito 1 separaban una transferencia por contraparte y las **monedas mezcladas**. El
-  hito 2 mostró que la segunda es una huella del simulador.
-
-| Prueba (días 7–10) | Top-100 | Top-500 | F1 tx |
-|---|---|---|---|
-| **HI, abanicos por forma** | **0,91** | **0,29** | **0,143** |
-| HI, regla simple | 0,01 | 0,01 | 0,003 |
-| **LI, abanicos por forma** | **0,19** | **0,05** | **0,025** |
-| LI, regla simple | 0,02 | 0,02 | 0,003 |
-
-![Precisión en el top-k](resultados/hito1/precision_k.png)
+- **Hito 2, detectores estructurales** ([página](hito2.md)). Ciclos y dispersión-concentración
+  con monto conservado, abanicos por forma pura e Isolation Forest sobre variables de
+  comportamiento. Combinados, superan a la regla simple por amplio margen en HI. En LI la
+  ganancia es chica: el 82 % de su lavado son transferencias sueltas, sin patrón.
+- **La ablación de monedas** mostró que el detector del hito 1 dependía de una huella del
+  simulador: el centro de un abanico de lavado paga en varias monedas. Sin esa señal cae de
+  0,91 a 0,01 en el top-100. Las cifras con moneda y formato (hasta 0,151 de F1) se muestran
+  solo como referencia.
+- **Hito 1, ingesta y abanicos** ([página](hito1.md)): DuckDB, partición temporal, artefactos
+  del generador (día 1 y cola) y el primer detector.
 
 ## Hitos
 
@@ -36,6 +39,9 @@ portafolio de ciencia de datos aplicada a banca.
 3. Huella de comportamiento con CoLES
 4. PyGOD y redes neuronales sobre grafos
 5. Visualización con Cosmograph
+
+El período de prueba es el mismo en todos los hitos: cada hito lo mide una sola vez, con
+parámetros congelados, pero ya no es una prueba virgen.
 
 [Código en GitHub](https://github.com/stous1/aml-graph-detection) ·
 [Informe técnico](https://github.com/stous1/aml-graph-detection/blob/main/INFORME_TECNICO.md)

@@ -3,6 +3,12 @@
 Detección de lavado de activos en redes de transferencias con AMLworld (caso 2 del
 portafolio de banca). Cada hito deja aquí todas sus cifras, supuestos y limitaciones.
 
+**Cifra principal del proyecto: el combinado estructural** del hito 2, que solo usa tiempo,
+montos y topología. En el período de prueba: F1 ilícita por transacción 0,118 en HI y 0,028 en
+LI; precisión en el top-100 de 0,48 y 0,04 (regla simple: F1 0,003 y top-100 de 0,01 y 0,02).
+Las versiones que usan moneda o formato de pago (hasta F1 0,151 en HI) dependen de una huella
+del simulador (ver la ablación del hito 2) y se muestran solo como referencia.
+
 ## Hito 1: ingesta, exploración y abanicos por forma
 
 ### Datos
@@ -415,6 +421,10 @@ porque el día 1 queda como historia. La caída de dispersión-concentración (7
    desarrollado en HI.
 
 ### 6. Lectura
+
+**La cifra principal del hito es la del combinado estructural** (F1 0,118 en HI y 0,028 en LI).
+Las variantes con moneda o formato quedan como referencia: su ventaja viene de plantillas del
+generador.
 
 - **Los detectores estructurales funcionan sin artefactos, cada uno sobre su tipo.** Ciclos y
   dispersión-concentración, que solo usan tiempo, montos y topología, encuentran lo que

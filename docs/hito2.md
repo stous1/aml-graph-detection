@@ -30,16 +30,24 @@ prueba lo verifica.
 
 ![F1 por detector](resultados/hito2/detectores_f1.png)
 
+**Cifra principal: combinado estructural** (sin moneda ni formato).
+
 | Prueba, HI / LI | F1 tx | Top-100 | Top-1.000 |
 |---|---|---|---|
-| Regla simple | 0,003 / 0,003 | 0,01 / 0,02 | 0,02 / 0,02 |
-| Abanicos hito 1 (moneda y canal) | 0,143 / 0,025 | **0,91** / 0,19 | 0,15 / 0,03 |
+| **Combinado estructural** | **0,118** / **0,028** | **0,48** / **0,04** | **0,18** / **0,06** |
 | Abanicos de salida, forma | 0,098 / 0,013 | 0,72 / 0,14 | 0,13 / 0,02 |
 | Ciclos | 0,076 / 0,023 | 0,39 / 0,18 | 0,07 / 0,06 |
 | Dispersión-concentración | 0,068 / 0,000 | 0,38 / 0,01 | 0,06 / 0,03 |
 | Isolation Forest, forma | 0,011 / 0,003 | 0,32 / 0,18 | 0,09 / 0,04 |
-| Combinado, forma | 0,118 / 0,028 | 0,48 / 0,04 | 0,18 / 0,06 |
-| Combinado con moneda y formato | **0,151** / **0,049** | 0,47 / **0,23** | **0,22** / **0,08** |
+| Regla simple | 0,003 / 0,003 | 0,01 / 0,02 | 0,02 / 0,02 |
+
+**Referencia, con señales de moneda y formato.** Dependen de una huella del simulador y no se
+trasladarían a un banco de una sola moneda:
+
+| Prueba, HI / LI | F1 tx | Top-100 | Top-1.000 |
+|---|---|---|---|
+| Abanicos hito 1 (moneda y canal) | 0,143 / 0,025 | 0,91 / 0,19 | 0,15 / 0,03 |
+| Combinado con moneda y formato | 0,151 / 0,049 | 0,47 / 0,23 | 0,22 / 0,08 |
 
 - **Cada detector estructural encuentra su tipo:** los ciclos encuentran los 7 ciclos de HI
   que se cierran dentro de la ventana. Los otros 11 siguen después del día 10 y no pueden
