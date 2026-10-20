@@ -24,6 +24,7 @@ dev = [
     "pytest",
     "ruff",
     "ipykernel",
+    "playwright>=1.64.0",
 ]
 # torch en dos variantes excluyentes: "cpu" (predeterminada, la usa CI) y "gpu" (CUDA 13,
 # opcional para la RTX 4080 local). Ver CLAUDE.md.
