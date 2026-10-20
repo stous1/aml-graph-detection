@@ -12,6 +12,7 @@ comportamiento: nada de moneda ni formato.
 """
 
 import json
+from dataclasses import replace
 from datetime import datetime
 from pathlib import Path
 
@@ -351,3 +352,136 @@ def graficar(metricas: dict, salida: Path) -> None:
         salida,
         "hito4_f1",
     )
+
+
+# --- Diagnóstico: ¿aporta el grafo o el mérito es de las variables? -------------------------
+
+RED_FINAL = "gnn_sin_coles"
+SIN_GRAFO = "mlp_sin_coles"
+
+
+def config_sin_grafo(config_final: gnn.ConfigGNN) -> gnn.ConfigGNN:
+    """La red final sin paso de mensajes: mismas variables, mismos atributos, misma cabeza."""
+    return replace(config_final, usar_grafo=False)
+
+
+def diagnostico_grafo(
+    con: duckdb.DuckDBPyConnection,
+    variantes: tuple[str, ...],
+    dir_h4: Path,
+    salida: Path,
+    semillas: tuple[int, ...] = (1, 2, 3, 4, 5),
+) -> dict:
+    """Compara, solo con la validación de desarrollo (día 6), la GNN final congelada contra
+    la misma red sin grafo. Entrena y guarda la red sin grafo; no mira prueba."""
+    params = _leer(dir_h4 / "parametros.json")
+    _, params_h3 = parametros_previos()
+    cfg_final = gnn.ConfigGNN(**params["redes"][RED_FINAL])
+    cfg_sin = config_sin_grafo(cfg_final)
+    resultado: dict = {
+        "config_sin_grafo": cfg_sin.como_dict(),
+        "variantes": {},
+        "modelos": {},
+        "fracciones": {},
+    }
+    (salida / "modelos").mkdir(parents=True, exist_ok=True)
+    for v in variantes:
+        cache: dict = {}
+        est = np.load(dir_h4 / params["estadisticas"][v])
+        g, _, _ = grafo_estandarizado(
+            con,
+            v,
+            "desarrollo",
+            codificador_coles(v, params_h3),
+            cache,
+            est["medias"],
+            est["desvios"],
+        )
+        universo = ev.cargar_universo(con, v, "desarrollo")
+        tx = universo.transacciones
+        y, ign = tx.y.to_numpy(), tx.ignorada.to_numpy()
+        ts = _tiempos(con, v, g.tx_id)
+        entrena = ~ign & (ts < np.datetime64(VALIDACION_DESDE))
+        valida = ~ign & ~entrena
+        final = gnn.cargar(dir_h4 / params["modelos"][v][RED_FINAL], g, cfg_final)
+        sin, historial = gnn.entrenar(g, y, entrena, valida, cfg_sin)
+        gnn.guardar(sin, salida / "modelos" / f"{SIN_GRAFO}_{v}.pt")
+        resultado["modelos"][v] = f"modelos/{SIN_GRAFO}_{v}.pt"
+        p_final, p_sin = gnn.puntuar(final, g), gnn.puntuar(sin, g)
+        total = comun.n_cuentas(con, v)
+        p_val = np.where(valida, p_sin, 0.0)
+        resultado["fracciones"][v] = _fracciones(
+            universo, p_val, _cuentas(universo, p_val, total), valida
+        )
+        comparacion = ev.diferencia_ap(
+            p_final[valida], p_sin[valida], y[valida], tx.origen.to_numpy()[valida]
+        )
+        semillas_res = []
+        for s in semillas:
+            fila = {"semilla": s}
+            for nombre, cfg in ((RED_FINAL, cfg_final), (SIN_GRAFO, cfg_sin)):
+                _, h = gnn.entrenar(g, y, entrena, valida, replace(cfg, semilla=s))
+                fila[nombre] = h["mejor_ap_validacion"]
+            semillas_res.append(fila)
+        ap_f = np.array([f[RED_FINAL] for f in semillas_res])
+        ap_s = np.array([f[SIN_GRAFO] for f in semillas_res])
+        resultado["variantes"][v] = {
+            "validacion": {"transacciones": int(valida.sum()), "lavado": int((valida & y).sum())},
+            "entrenamiento_sin_grafo": historial,
+            "gnn_final_contra_sin_grafo": comparacion,
+            "semillas": semillas_res,
+            "resumen_semillas": {
+                "ap_gnn_media": float(ap_f.mean()),
+                "ap_gnn_desvio": float(ap_f.std(ddof=1)),
+                "ap_sin_grafo_media": float(ap_s.mean()),
+                "ap_sin_grafo_desvio": float(ap_s.std(ddof=1)),
+                "gnn_mejor_en": int((ap_f > ap_s).sum()),
+                "de": len(semillas),
+            },
+        }
+    escribir_json(resultado, salida / "diagnostico_grafo_desarrollo.json")
+    return resultado
+
+
+def diagnostico_grafo_prueba(
+    con: duckdb.DuckDBPyConnection,
+    variantes: tuple[str, ...],
+    dir_h4: Path,
+    dir_diag: Path,
+    salida: Path,
+) -> dict:
+    """Solo diagnóstico: la misma comparación en prueba, con los modelos ya guardados."""
+    params = _leer(dir_h4 / "parametros.json")
+    diag = _leer(dir_diag / "diagnostico_grafo_desarrollo.json")
+    _, params_h3 = parametros_previos()
+    cfg_final = gnn.ConfigGNN(**params["redes"][RED_FINAL])
+    cfg_sin = gnn.ConfigGNN(**diag["config_sin_grafo"])
+    resultado: dict = {"advertencia": "diagnóstico: no cambia ninguna decisión", "variantes": {}}
+    for v in variantes:
+        cache: dict = {}
+        est = np.load(dir_h4 / params["estadisticas"][v])
+        g, _, _ = grafo_estandarizado(
+            con, v, "prueba", codificador_coles(v, params_h3), cache, est["medias"], est["desvios"]
+        )
+        universo = ev.cargar_universo(con, v, "prueba")
+        tx = universo.transacciones
+        ok, y = ~tx.ignorada.to_numpy(), tx.y.to_numpy()
+        total = comun.n_cuentas(con, v)
+        p_final = gnn.puntuar(gnn.cargar(dir_h4 / params["modelos"][v][RED_FINAL], g, cfg_final), g)
+        p_sin = gnn.puntuar(gnn.cargar(dir_diag / diag["modelos"][v], g, cfg_sin), g)
+        resultado["variantes"][v] = {
+            "gnn_final_contra_sin_grafo": ev.diferencia_ap(
+                p_final[ok], p_sin[ok], y[ok], tx.origen.to_numpy()[ok]
+            ),
+            RED_FINAL: metricas_relativas(
+                universo,
+                p_final,
+                _cuentas(universo, p_final, total),
+                params["fracciones"][v][RED_FINAL],
+            ),
+            SIN_GRAFO: metricas_relativas(
+                universo, p_sin, _cuentas(universo, p_sin, total), diag["fracciones"][v]
+            ),
+        }
+    escribir_json(resultado, salida / "diagnostico_grafo_prueba.json")
+    return resultado

@@ -329,3 +329,42 @@ def precision_promedio(puntaje: np.ndarray, y: np.ndarray) -> float:
 
     y = np.asarray(y, dtype=bool)
     return float(average_precision_score(y, puntaje)) if y.any() else 0.0
+
+
+def diferencia_ap(
+    puntaje_a: np.ndarray,
+    puntaje_b: np.ndarray,
+    y: np.ndarray,
+    grupos: np.ndarray,
+    n_boot: int = 1000,
+    semilla: int = 20220907,
+) -> dict:
+    """AP(a) − AP(b) con intervalo bootstrap pareado por grupos (p. ej., cuenta de origen).
+
+    En cada réplica se remuestrean grupos completos con reemplazo y se calcula la diferencia con
+    las mismas observaciones para los dos puntajes.
+    """
+    from sklearn.metrics import average_precision_score
+
+    y = np.asarray(y, dtype=bool)
+    codigos, inverso = np.unique(grupos, return_inverse=True)
+    miembros = np.split(np.argsort(inverso, kind="stable"), np.cumsum(np.bincount(inverso))[:-1])
+    rng = np.random.default_rng(semilla)
+    difs = []
+    for _ in range(n_boot):
+        elegidos = rng.integers(0, len(codigos), len(codigos))
+        idx = np.concatenate([miembros[g] for g in elegidos])
+        if y[idx].any():
+            difs.append(
+                average_precision_score(y[idx], puntaje_a[idx])
+                - average_precision_score(y[idx], puntaje_b[idx])
+            )
+    ap_a, ap_b = precision_promedio(puntaje_a, y), precision_promedio(puntaje_b, y)
+    return {
+        "ap_a": ap_a,
+        "ap_b": ap_b,
+        "diferencia": ap_a - ap_b,
+        "ic": [float(np.quantile(difs, 0.025)), float(np.quantile(difs, 0.975))],
+        "frac_replicas_a_mayor": float(np.mean(np.array(difs) > 0)),
+        "n_boot": len(difs),
+    }

@@ -159,3 +159,15 @@ def test_hito4_congelado_no_cambia() -> None:
             assert (
                 _git("show", f"hito4-congelado:{r}", binario=True).stdout == (RAIZ / r).read_bytes()
             )
+
+
+def test_diferencia_ap_pareada() -> None:
+    rng = np.random.default_rng(0)
+    y = rng.random(400) < 0.1
+    grupos = np.arange(400) // 4
+    ruido = rng.random(400)
+    iguales = ev.diferencia_ap(ruido, ruido, y, grupos, n_boot=200)
+    assert iguales["diferencia"] == 0 and iguales["ic"] == [0.0, 0.0]
+    mejor = ev.diferencia_ap(y + 0.1 * ruido, ruido, y, grupos, n_boot=200)
+    assert mejor["diferencia"] > 0.5 and mejor["ic"][0] > 0
+    assert mejor["frac_replicas_a_mayor"] == 1.0

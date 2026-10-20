@@ -177,6 +177,16 @@ uv run python scripts/publicar_resultados.py --hito 1   # o 2, 3, 4: reports/hit
   decisiones de un hito pueden estar influidas por lo que se vio en prueba en hitos
   anteriores. Se anota en el informe de cada hito.
 
+## Regla de pruebas antes de un commit (para Claude y cualquier subagente)
+
+- **Nunca encadenar pytest (ni ruff) con tuberías que oculten el código de salida**, como
+  `uv run pytest | tail -1 && git commit`: el código que ve `&&` es el de `tail`, no el de
+  pytest, y un fallo pasa como éxito. En el hito 4 así se hizo un commit con una prueba
+  fallando.
+- Antes de cada commit, ejecutar las pruebas sin tubería (o redirigir a un archivo) y
+  **verificar el código de salida real** (`echo $?` en bash, `$LASTEXITCODE` en PowerShell).
+  Solo se hace el commit si es 0.
+
 ## Regla de procesos (para Claude y cualquier subagente)
 
 - **Nunca terminar procesos que no hayas iniciado tú.** Nada de `taskkill /IM`, `pkill`,
