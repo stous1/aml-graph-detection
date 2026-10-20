@@ -1,0 +1,245 @@
+{
+  "titulo": "Preregistro de la prueba fresca con AMLworld HI-Medium y LI-Medium",
+  "documento": "docs/preregistro_medium.md",
+  "estado": "preregistrado, pendiente de ejecutar (v1.1)",
+  "configuracion_modelo_final": {
+    "caracteristicas": "estructurales",
+    "usar_grafo": true,
+    "usar_atributos_tx": true,
+    "oculto": 64,
+    "capas": 2,
+    "abandono": 0.2,
+    "tasa": 0.003,
+    "max_epocas": 1500,
+    "cada": 5,
+    "paciencia": 10,
+    "negativos_por_positivo": 50,
+    "semilla": 20220902
+  },
+  "configuracion_red_sin_grafo": {
+    "caracteristicas": "estructurales",
+    "usar_grafo": false,
+    "usar_atributos_tx": true,
+    "oculto": 64,
+    "capas": 2,
+    "abandono": 0.2,
+    "tasa": 0.003,
+    "max_epocas": 1500,
+    "cada": 5,
+    "paciencia": 10,
+    "negativos_por_positivo": 50,
+    "semilla": 20220902
+  },
+  "variantes": {
+    "hi_medium": {
+      "parametros_de": "HI-Small",
+      "modelo_final": {
+        "nombre": "gnn_sin_coles",
+        "pesos": "modelos/gnn_sin_coles_hi.pt",
+        "estadisticas": "modelos/estadisticas_hi.npz",
+        "fraccion_alertas": {
+          "transaccion": 0.000214229505554059,
+          "cuenta": 0.0059360803294697066
+        }
+      },
+      "red_sin_grafo": {
+        "pesos": "modelos/mlp_sin_coles_hi.pt",
+        "fraccion_alertas": {
+          "transaccion": 0.0006681415272230554,
+          "cuenta": 0.00834553984630408
+        }
+      },
+      "combinado_estructural": {
+        "umbral_absoluto": {
+          "transaccion": 0.9999463864464937,
+          "cuenta": 0.9996264425675317
+        },
+        "fraccion_alertas": {
+          "transaccion": 0.000358631798143446,
+          "cuenta": 0.002566021313633083
+        }
+      },
+      "regla_simple": {
+        "umbral_absoluto": {
+          "transaccion": 7280.0,
+          "cuenta": 628.0
+        }
+      },
+      "abanicos_h1_referencia": {
+        "umbral_absoluto": {
+          "transaccion": 0.8021014063021725,
+          "cuenta": 0.8021014063021725
+        }
+      }
+    },
+    "li_medium": {
+      "parametros_de": "LI-Small",
+      "modelo_final": {
+        "nombre": "gnn_sin_coles",
+        "pesos": "modelos/gnn_sin_coles_li.pt",
+        "estadisticas": "modelos/estadisticas_li.npz",
+        "fraccion_alertas": {
+          "transaccion": 0.0001461047540000062,
+          "cuenta": 0.016402953074826105
+        }
+      },
+      "red_sin_grafo": {
+        "pesos": "modelos/mlp_sin_coles_li.pt",
+        "fraccion_alertas": {
+          "transaccion": 0.0008066847587872684,
+          "cuenta": 0.0067443417184877615
+        }
+      },
+      "combinado_estructural": {
+        "umbral_absoluto": {
+          "transaccion": 0.9999891215893989,
+          "cuenta": 0.9998002497847353
+        },
+        "fraccion_alertas": {
+          "transaccion": 8.21197853936275e-05,
+          "cuenta": 0.001839365923223935
+        }
+      },
+      "regla_simple": {
+        "umbral_absoluto": {
+          "transaccion": 11.0,
+          "cuenta": 921.0
+        }
+      },
+      "abanicos_h1_referencia": {
+        "umbral_absoluto": {
+          "transaccion": 0.8021014063021725,
+          "cuenta": 0.8021014063021725
+        }
+      }
+    }
+  },
+  "metricas": {
+    "precision_k_cuentas": [
+      100,
+      500,
+      1000,
+      "numero_de_ilicitas"
+    ],
+    "f1_ilicita": [
+      "transaccion",
+      "cuenta"
+    ],
+    "precision_promedio_transaccion": true,
+    "recall_por_tipo": "intento detectado si al menos la mitad de sus transferencias evaluadas quedan marcadas; sin patrón, por transacción",
+    "intervalos": {
+      "precision_k": "Wilson",
+      "f1": "bootstrap de Poisson por cuenta de origen (500)",
+      "recall_tipo": "bootstrap por intento (1.000)",
+      "diferencia_ap": "bootstrap pareado por cuenta de origen (1.000)"
+    },
+    "nunca": "exactitud global"
+  },
+  "comparaciones": [
+    {
+      "id": "H1",
+      "a": "modelo_final",
+      "b": "regla_simple",
+      "medidas": [
+        "precision_promedio_transaccion",
+        "precision_100"
+      ]
+    },
+    {
+      "id": "H2",
+      "a": "modelo_final",
+      "b": "combinado_estructural",
+      "medidas": [
+        "precision_promedio_transaccion",
+        "precision_100",
+        "f1_transaccion"
+      ]
+    },
+    {
+      "id": "H3",
+      "a": "modelo_final",
+      "b": "red_sin_grafo",
+      "medidas": [
+        "diferencia_ap"
+      ],
+      "lectura": "el grafo aporta si el IC 95 % de la diferencia de AP queda por encima de 0 en las dos variantes; empeora si queda por debajo en las dos; en otro caso, no hay evidencia de aporte"
+    }
+  ],
+  "particion": {
+    "dia_1": "solo historia, nunca se mide",
+    "cola": "se excluyen los días finales con menos del 1 % del volumen diario mediano de los días 2 en adelante",
+    "evaluacion": "todos los demás días; sin desarrollo ni intentos puente",
+    "bloques": "de 4 días desde el día 2, cada uno con su historia previa; el último bloque puede ser más corto",
+    "umbrales_relativos_por_bloque": "en cada bloque se marca la fracción congelada de sus transferencias y de sus cuentas"
+  },
+  "recursos": {
+    "duckdb_memory_limit": "16GB",
+    "desborde": "data/duckdb_tmp",
+    "base": "data/aml_medium.duckdb (la de Small no se toca)"
+  },
+  "huellas": "SHA-256; en archivos de texto, con fin de línea LF",
+  "artefactos_sha256": {
+    "docs/resultados/congelados/hi/coles_ref_20.npz": "0f1f8ddca4503679766772b25d9c25b2887cfc55990c0bd33946e6fa7cb3e942",
+    "docs/resultados/congelados/hi/if_con.joblib": "c9d28941e29757d75e0bc13ddb9da1d46f42df0156d938e16c82bee70aab5dde",
+    "docs/resultados/congelados/hi/if_forma.joblib": "53dcbe16c5115154d5f426a514dfca13e2e040686d859ad67ce1d55060bddced",
+    "docs/resultados/congelados/hi/percentiles/abanicos_entrada_con_cuenta.npz": "191be6aa2f5c5146591b58cdbdc5df7282e1d1209da4c45dbb6f838f4597f7dc",
+    "docs/resultados/congelados/hi/percentiles/abanicos_entrada_con_tx.npz": "0c6e79929dc385b332e70d20689483ab5d9b1c25a402a3b36e0e8cb480a0f72a",
+    "docs/resultados/congelados/hi/percentiles/abanicos_entrada_forma_cuenta.npz": "4005d4d61113aef51fb9b86a7c4b38e34ea0bb65ac15bc620563f20fe558835c",
+    "docs/resultados/congelados/hi/percentiles/abanicos_entrada_forma_tx.npz": "00867ab741ec11e7fb96f204b7d5eb34d20eab3aab985df4fbf1ed5dac60ca02",
+    "docs/resultados/congelados/hi/percentiles/abanicos_h1_cuenta.npz": "a94cce1d7dde308c2a6905ee5f9918add1e54fcbed90dd868ff8f133182e06b1",
+    "docs/resultados/congelados/hi/percentiles/abanicos_h1_tx.npz": "cf52ca8dab284bffd84c54edfa4b064f29fa7b4b74ae787d701f9fafd5682076",
+    "docs/resultados/congelados/hi/percentiles/abanicos_salida_forma_cuenta.npz": "15a42a1adcd9a5bd6217a5d88b4c2f61a1f1e8b1fb61d867f1fb9326f9f488b4",
+    "docs/resultados/congelados/hi/percentiles/abanicos_salida_forma_tx.npz": "97a261a0758263210f1d4b642f6daf7b4e21925bec9253eabb037dabc9cbc776",
+    "docs/resultados/congelados/hi/percentiles/aislamiento_con_cuenta.npz": "b230eab570e745a9b487a4e32daad832784e20fd94a6a70fdf58eb007c2d9417",
+    "docs/resultados/congelados/hi/percentiles/aislamiento_con_tx.npz": "8b77cc786c08ba6a8332bca6025a58b40b74e1d572a02dbe3889299887170091",
+    "docs/resultados/congelados/hi/percentiles/aislamiento_forma_cuenta.npz": "e01d4d2db4c8f3280da343bbba38a93078b17805a20107a05184312601581fc1",
+    "docs/resultados/congelados/hi/percentiles/aislamiento_forma_tx.npz": "277eb54df8e091d009c5a046820731d9b26036c66f427db69dfd311860be0cc9",
+    "docs/resultados/congelados/hi/percentiles/cadenas_cuenta.npz": "2f941e131821232a5f3a7419ab9467ee4695f7dc0ea7d85b69641d7764742aa5",
+    "docs/resultados/congelados/hi/percentiles/cadenas_tx.npz": "702efc0af48de3ffc2a797c97119673550d9558cc882e13da2a63014721eef1d",
+    "docs/resultados/congelados/hi/percentiles/ciclos_cuenta.npz": "1bf6c96bda0ef1b248ccd02f550bc87d036c923acf090b94c64f0624316b945b",
+    "docs/resultados/congelados/hi/percentiles/ciclos_tx.npz": "ba8b9ccbdffd9456975e9e4256e9dbb93657ef3883925ccc2d2c57bf164b9d4f",
+    "docs/resultados/congelados/hi/percentiles/coles_atipico_cuenta.npz": "1f7931d080de70a3df7e73630302c271f4dce0f7540ff36941b6dbaec47bab58",
+    "docs/resultados/congelados/hi/percentiles/coles_atipico_tx.npz": "4fab2b1ce95b768ca9e15e8b57f0c655d8ea661949e739b774a6917c96dd3446",
+    "docs/resultados/congelados/hi/percentiles/concentracion_dispersion_cuenta.npz": "b3858930d79dc820dddfed8fce68ce96df4bb2c7a2ca7098db3264d915688d91",
+    "docs/resultados/congelados/hi/percentiles/concentracion_dispersion_tx.npz": "c57d7bbc87f3107e8d6de95f480b4ef22ff07b9bb25d579f1bb22322d6f77be9",
+    "docs/resultados/congelados/hi/percentiles/dispersion_concentracion_cuenta.npz": "ff4eb2c5d7bcedd764be6986ffd448465f732e10366e8942a2d0cda485e5cccf",
+    "docs/resultados/congelados/hi/percentiles/dispersion_concentracion_tx.npz": "80073dce06f3448f1d3f10dbed39d6bcb1a771e4d948663dd667b95f365012c2",
+    "docs/resultados/congelados/li/coles_ref_20.npz": "a7a851821c9dcb946d308b348d561cf573d6dcdffc820a887418298d5be3ce3f",
+    "docs/resultados/congelados/li/if_con.joblib": "50128fe4cbd7dab3b20d3ee33f6ad2d5936a1e2ffdb782ed151212b914f80d9c",
+    "docs/resultados/congelados/li/if_forma.joblib": "764acf0b4d15fc3271d45ed465a929ad1f10fb9652cdd7397dd76a87e3a24f1c",
+    "docs/resultados/congelados/li/percentiles/abanicos_entrada_con_cuenta.npz": "a5d3fc4929df0db690e56363b6dadf6c3c95b3dd26cc922b33e652df647d482a",
+    "docs/resultados/congelados/li/percentiles/abanicos_entrada_con_tx.npz": "860b4129a95b022bf7e01497dea07c6d5088088b86e2fc01740305192cfd780a",
+    "docs/resultados/congelados/li/percentiles/abanicos_entrada_forma_cuenta.npz": "d7fd70bcc5c249bb84f5eab71003d034a3115b8b43b6267368a39b37f6b54de2",
+    "docs/resultados/congelados/li/percentiles/abanicos_entrada_forma_tx.npz": "ebf2bc6c77843fb2e938830a8747a7033aeb70bf7ac9acea80650ed80716e3d9",
+    "docs/resultados/congelados/li/percentiles/abanicos_h1_cuenta.npz": "dc1cade9f80b0f7f0db23933c70f4fad77981d7fbb01ec1d0c02c0e535892746",
+    "docs/resultados/congelados/li/percentiles/abanicos_h1_tx.npz": "5919db64d27a0a3dbfffa85a5a58c17f2ee9488bb933e49452130b7c47438dea",
+    "docs/resultados/congelados/li/percentiles/abanicos_salida_forma_cuenta.npz": "7234a627b08e62c3d902080aad8fbe795af5042abf980985300e1392b8a6af16",
+    "docs/resultados/congelados/li/percentiles/abanicos_salida_forma_tx.npz": "9b42a36b4177174b17b71b6555afb3fd72213ab6b89442e9738c628738c78e6e",
+    "docs/resultados/congelados/li/percentiles/aislamiento_con_cuenta.npz": "801716b8bb2b79b615c3f2b39ae7a282b7856cd55d9aa4eb3b2552a5b2c51efb",
+    "docs/resultados/congelados/li/percentiles/aislamiento_con_tx.npz": "a6ae763f15b3df2660507f2b15265fc01e391d4a0b7da53954d187eb404c5909",
+    "docs/resultados/congelados/li/percentiles/aislamiento_forma_cuenta.npz": "2d555069e068def2257edf06fb907399427f5655f649ae8a7acae1583f7f43d1",
+    "docs/resultados/congelados/li/percentiles/aislamiento_forma_tx.npz": "5a2bdd0160ac8924da91ae62864ba86f400aa6971f38e4ddc3d65ed3818d44c3",
+    "docs/resultados/congelados/li/percentiles/cadenas_cuenta.npz": "228b49a89e547b54f86c9682355ab76facca1b4306521e1b36d6204c9cdc4627",
+    "docs/resultados/congelados/li/percentiles/cadenas_tx.npz": "df266aa3a5a1f646c29d74332ce29fda75c294fa5f595f4e15e6bc5b0e9fe1fc",
+    "docs/resultados/congelados/li/percentiles/ciclos_cuenta.npz": "0df91c6c87e63eb939a1cef187424947aaf1a779c0db332bbd42bb696b9627dc",
+    "docs/resultados/congelados/li/percentiles/ciclos_tx.npz": "cb13550375ed0b9a9287e1d36200dfcbfb0a13ba2ccc6ce98d4f27ce677b0856",
+    "docs/resultados/congelados/li/percentiles/coles_atipico_cuenta.npz": "d03fb701f205f136884d9d2dc19af8ec2e9eb32beec91455ac7cfc01ae8a55b5",
+    "docs/resultados/congelados/li/percentiles/coles_atipico_tx.npz": "5b16a37a1fea63d18785e6381f1bf1fd5a268b5fdbc40d05f436a5720fb55dc6",
+    "docs/resultados/congelados/li/percentiles/concentracion_dispersion_cuenta.npz": "3aa1f93bb0c971f86b04f81105590b4ce518dda98488410809a5834717e73c1f",
+    "docs/resultados/congelados/li/percentiles/concentracion_dispersion_tx.npz": "9fa03a15a4ad83ec387c9cd4008ae9fe8e5e70d6b408b2291970662a2a8c7493",
+    "docs/resultados/congelados/li/percentiles/dispersion_concentracion_cuenta.npz": "18dbcd0430dd02864ef0225f2206ffe03529f7725c58d4071c5b79d7ce0cb51a",
+    "docs/resultados/congelados/li/percentiles/dispersion_concentracion_tx.npz": "6962aa0769a228ea333a0b9ccc59a23953326bc0f754f7193806e02eb74e729d",
+    "docs/resultados/congelados/resumen.json": "c7b41ca814a4fbe5da682cc499511838bc14c18e6747b8bf82f93ceb67b284d5",
+    "docs/resultados/congelados/verificacion_desarrollo.json": "b757f059a43903cf7053de244ef5c90410a53376fb5a6afc5a9a9946c6b8c9f4",
+    "docs/resultados/hito2/parametros.json": "37f2a36b57fe882f447a08c9de1ad6428b869c5966062fa01ce41ff3a5902bb5",
+    "docs/resultados/hito3/parametros.json": "649a0cf26b8456570d8d3b8b4c4a21c4ca448772605851bf29b43769e9914c1f",
+    "docs/resultados/hito4/diagnostico_grafo/diagnostico_grafo_desarrollo.json": "5c107d03c5b35ee0ef7371137f7e7b38f8d0d151a9faee39efb189bbdcea0c97",
+    "docs/resultados/hito4/diagnostico_grafo/modelos/mlp_sin_coles_hi.pt": "1a7e8af88fb89f26836d7e6ef0cd6bda9fc4874c074254b7a1320f98f67c5f33",
+    "docs/resultados/hito4/diagnostico_grafo/modelos/mlp_sin_coles_li.pt": "22d6c555511dc5a24ded1b747fe76f575cae3371e43f3dc445f5980eedfd1720",
+    "docs/resultados/hito4/modelos/estadisticas_hi.npz": "2504f15a7edc2231772a1c68837904d735600d5ef712841e5f0de6bf5d3c0268",
+    "docs/resultados/hito4/modelos/estadisticas_li.npz": "46de3bb5fe9a8112fec302d36f58da9c0d151c9b8cf891ba1fd91363f8d8cfa8",
+    "docs/resultados/hito4/modelos/gnn_sin_coles_hi.pt": "a056e4b1db753cb9be569802f2ca0baa80202ad025c7fd5f68235d248f734096",
+    "docs/resultados/hito4/modelos/gnn_sin_coles_li.pt": "ab16004df0a05a67128d356641a938f22179ce1349ca34cf6fc3c120b457b098",
+    "docs/resultados/hito4/parametros.json": "868f51b241e96c04f34724af9fa8d81345b5759c2a8763ea70de825019e1192c"
+  }
+}
