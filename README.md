@@ -19,6 +19,8 @@ montos y topología; nada de moneda ni formato de pago).
 | **HI, GNN estructural** | **0,276** | **0,98** | **0,40** |
 | **LI, GNN estructural** | **0,045** | **0,29** | **0,10** |
 
+El mérito es sobre todo de las variables por cuenta (dinero de paso, velocidad, contrapartes
+nuevas): en prueba, una red sin grafo con las mismas variables rinde lo mismo.
 Se evaluará una sola vez en **HI-Medium y LI-Medium**, una prueba fresca que nadie ha mirado.
 Detalle en el [hito 4](docs/hito4.md).
 

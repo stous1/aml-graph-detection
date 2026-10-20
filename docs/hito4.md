@@ -17,6 +17,10 @@
 - **CoLES empeora la GNN** (F1 0,158 contra 0,276 en HI), igual que en la validación de
   desarrollo. Los embeddings no se trasladan bien de desarrollo a prueba.
 - **PyGOD, sin etiquetas, está cerca del azar** en estos datos.
+- **¿Aporta el grafo?** Con exactamente las mismas variables, una red sin paso de mensajes
+  rinde lo mismo en prueba (AP 0,215 contra 0,210 en HI). En desarrollo el grafo parecía
+  ayudar en HI (+0,080 de AP), pero no se repitió. **El mérito es sobre todo de las
+  variables** (dinero de paso, velocidad, contrapartes nuevas, grado, montos).
 - **Umbrales relativos:** se marca en prueba la misma fracción de alertas que dio el mejor F1
   en desarrollo, sin calibrar valores absolutos de rareza.
 - Entrenado en la RTX 4080 SUPER (unos 30 segundos por red); evaluado en CPU con los pesos

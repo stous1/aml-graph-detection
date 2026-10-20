@@ -13,7 +13,8 @@ el lavado, pero sin etiquetas no se aprovecha.
 
 **Modelo final (hito 4, supervisado con etiquetas de desarrollo): GNN solo con variables
 estructurales.** En el período de prueba: F1 0,276 en HI y 0,045 en LI; precisión en el top-100
-de 0,98 y 0,29. Será el que se evalúe una sola vez en Medium.
+de 0,98 y 0,29. Será el que se evalúe una sola vez en Medium. El mérito es sobre todo de las
+variables por cuenta: en prueba, una red sin grafo con las mismas variables rinde lo mismo.
 
 ## Hito 1: ingesta, exploración y abanicos por forma
 
@@ -778,16 +779,58 @@ no dependen de la escala del puntaje. Las métricas de ranking (top-k) no depend
    entrenó CoLES y los de prueba no: la red aprende sobre una distribución que no se repite.
    No está verificada. La sonda del hito 3 mostraba información en los embeddings dentro de
    desarrollo; esa información no se traslada a prueba.
-3. **¿Cuánto aporta el grafo?** La comparación limpia (con y sin grafo, con las mismas
-   características) solo existe con CoLES incluido: 0,158 con grafo contra 0,167 sin grafo en
-   HI, y 0,034 contra 0,012 en LI. No es concluyente, y falta la variante sin grafo y sin
-   CoLES. Queda como pendiente.
+3. **¿Cuánto aporta el grafo?** Poco o nada en prueba: con exactamente las mismas variables,
+   una red sin paso de mensajes rinde lo mismo (ver la sección siguiente). En desarrollo el
+   grafo parecía aportar en HI, pero esa ventaja no se repitió en prueba.
 4. **PyGOD no sirve aquí.** Sin etiquetas, sus anomalías de nodo están cerca del azar en
    desarrollo y en prueba. En el top-100 de prueba (0,16 y 0,18) supera a la regla, pero muy
    por debajo de los demás.
 5. **Lo que sigue sin verse:** abanicos de entrada, capas bipartitas y lavado sin patrón
    (el modelo final encuentra menos del 2 % del sin patrón; la GNN con CoLES, el 2,7 % en HI
    y el 4 % en LI, a costa de más falsas alarmas).
+
+### ¿Aporta el grafo o el mérito es de las variables?
+
+Se entrenó una red **sin paso de mensajes con exactamente las mismas entradas** que la GNN
+final: las 12 variables estructurales por cuenta, los mismos atributos de cada transferencia,
+la misma cabeza y el mismo protocolo (días 2 a 5 para entrenar, época por AP en el día 6). La
+comparación de decisión usa solo la validación de desarrollo (día 6). La diferencia de AP lleva
+un intervalo bootstrap pareado (1.000 réplicas que remuestrean cuentas de origen completas, las
+mismas para los dos modelos). Además, ambas redes se reentrenaron con 5 semillas para medir la
+variabilidad del entrenamiento.
+
+**Desarrollo (día 6, unas 300 transferencias de lavado por variante):**
+
+| | AP GNN final | AP sin grafo | ΔAP (IC 95 %) | 5 semillas: AP media ± desvío | GNN gana en |
+|---|---|---|---|---|---|
+| HI | 0,230 | 0,150 | **+0,080 (+0,049 a +0,115)** | 0,220 ± 0,013 contra 0,132 ± 0,048 | 5 de 5 |
+| LI | 0,047 | 0,035 | +0,012 (−0,004 a +0,027) | 0,037 ± 0,014 contra 0,019 ± 0,008 | 4 de 5 |
+
+**Prueba (solo diagnóstico, medido una vez, no cambia ninguna decisión):**
+
+| | AP GNN final | AP sin grafo | ΔAP (IC 95 %) | F1 tx | Top-100 | Top-1.000 |
+|---|---|---|---|---|---|---|
+| HI | 0,210 | 0,215 | −0,004 (−0,023 a +0,019) | 0,276 / 0,264 | 0,98 / 1,00 | 0,40 / 0,42 |
+| LI | 0,024 | 0,027 | −0,002 (−0,007 a +0,002) | 0,045 / 0,059 | 0,29 / 0,33 | 0,10 / 0,11 |
+
+(F1 y top-k: GNN / sin grafo.)
+
+**Respuesta: el mérito es sobre todo de las variables.** En desarrollo, el grafo parecía aportar
+de forma clara en HI: +0,080 de AP, con un intervalo lejos de cero y en las 5 semillas. En
+prueba esa ventaja desaparece: la red sin grafo empata o supera a la GNN en HI y en LI, con
+intervalos que cubren el cero. Con las mismas 12 variables por cuenta (dinero de paso,
+velocidad, contrapartes nuevas, grado, montos) y los atributos de cada transferencia, una red
+sin paso de mensajes rinde lo mismo. Dos matices:
+
+- La red sin grafo es mucho más inestable entre semillas (desvío de 0,048 contra 0,013 en HI
+  desarrollo). La GNN da resultados más parejos, y la de prueba es una sola semilla de cada una.
+- Las variables por cuenta ya resumen la vecindad inmediata (grados, contrapartes nuevas,
+  pares de paso). Parte de lo que un grafo podría aportar ya está codificado en ellas.
+
+Las decisiones se mantienen: la GNN sigue siendo el modelo final, porque se eligió en
+desarrollo y en desarrollo ganaba. Propuesta para Medium, a fijar antes de abrir los archivos:
+evaluar también la red sin grafo, como comparación declarada de antemano. Así la prueba fresca
+responde esta misma pregunta sin el sesgo de un período ya mirado.
 
 ### Limitaciones del hito 4
 
