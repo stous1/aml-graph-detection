@@ -11,12 +11,13 @@ verdad del simulador AMLworld y siempre comparados con una regla simple.
 [![Python 3.12](https://img.shields.io/badge/python-3.12-3776ab?logo=python&logoColor=white)](.python-version)
 [![Licencia MIT](https://img.shields.io/badge/licencia-MIT-blue)](LICENSE)
 
-[![Universo de prueba en Cosmograph](docs/resultados/hito5/universo_escritorio.png)](https://stous1.github.io/aml-graph-detection/hito5_universo.html)
+[![El artefacto de las monedas: el detector del hito 1 cae al quitar la mezcla de monedas y la forma pura lo recupera](docs/resultados/demo/monedas.gif)](https://stous1.github.io/aml-graph-detection/demo.html)
 
-<sub>Cuentas del período de prueba de HI: en azul, alertas acertadas del modelo final; en
-naranja, falsas alarmas; en aguamarina, lavado no detectado.
-[Abrir el universo interactivo →](https://stous1.github.io/aml-graph-detection/hito5_universo.html)</sub>
+<sub>Precisión en el top-100 de cuentas del período de prueba: el detector del hito 1 con la
+mezcla de monedas, el mismo sin ella, la forma pura y el modelo final.
+[Abrir la página interactiva →](https://stous1.github.io/aml-graph-detection/demo.html)</sub>
 
+**[¿Forma o tamaño? (interactiva)](https://stous1.github.io/aml-graph-detection/demo.html)** ·
 **[Universo interactivo](https://stous1.github.io/aml-graph-detection/hito5_universo.html)** ·
 **[Sitio](https://stous1.github.io/aml-graph-detection/)** ·
 **[Informe técnico](INFORME_TECNICO.md)** ·
@@ -64,6 +65,7 @@ comparaciones, con tag `medium-preregistrado`) y se ejecutará en la v1.1.
 
 | Página | Qué muestra |
 |---|---|
+| [¿Forma o tamaño?](https://stous1.github.io/aml-graph-detection/demo.html) | Página interactiva: un abanico de lavado frente a un concentrador legítimo, qué precisión tendría un equipo que revisa k alertas, la animación del artefacto de las monedas y un explorador de alertas con vecindario, dinero en el tiempo y variables (funciona en celular) |
 | [Universo de prueba](https://stous1.github.io/aml-graph-detection/hito5_universo.html) | Cosmograph con las alertas del modelo final, el lavado por tipo y el no detectado (HI y LI; carga en celular) |
 | [Hito 1](https://stous1.github.io/aml-graph-detection/hito1.html) | Datos, artefactos del simulador (día 1 y cola), partición y primer detector |
 | [Hito 2](https://stous1.github.io/aml-graph-detection/hito2.html) | Ablación de monedas y detectores estructurales |
@@ -159,6 +161,7 @@ uv run python scripts/hito2.py desarrollar && uv run python scripts/hito2.py eva
 uv run python scripts/hito3.py desarrollar && uv run python scripts/hito3.py evaluar
 uv run python scripts/hito4.py desarrollar && uv run python scripts/hito4.py evaluar
 uv run python scripts/hito5.py && uv run python scripts/capturas.py
+uv run python scripts/demo.py && uv run python scripts/capturas_demo.py   # página interactiva
 uv run pytest            # pruebas sobre un mini-AMLworld sintético
 # GPU opcional: uv sync --no-group cpu --group gpu, y luego uv run --no-sync ...
 ```

@@ -874,6 +874,35 @@ protocolo aprobado se mantiene: bloques de 4 días con su historia previa, DuckD
 - **Paleta:** azul, naranja y aguamarina para las cuentas. Son los tres primeros colores de la
   paleta de referencia, validados para todos los pares sobre fondo oscuro.
 
+## Página interactiva: ¿forma o tamaño?
+
+[`docs/demo.html`](https://stous1.github.io/aml-graph-detection/demo.html) es HTML estático
+que lee los JSON publicados (`docs/resultados/demo/`, generados por `scripts/demo.py` con
+modelos y parámetros congelados):
+
+- **Dos casos elegidos con una regla fija.** El abanico de lavado con mayor puntaje de forma
+  entre los de 5 a 15 contrapartes (la cuenta 259840: 8 transferencias a 8 cuentas nuevas) y la
+  cuenta legítima con más contrapartes en 24 horas (la 485711: 88). La regla simple, medida por
+  el tamaño de la propia cuenta, pone al concentrador n.º 16 y al abanico n.º 1.569. El detector
+  de forma pone al abanico n.º 8 y al concentrador n.º 31.726. El modelo final pone al abanico
+  n.º 1. Con los umbrales congelados de la regla en HI (7.280 contrapartes por transferencia y
+  628 por cuenta), ninguno de los dos quedaría marcado por su propio tamaño: se comparan
+  puestos, no marcas. Para la regla y la forma, el puesto se
+  mide como centro. El puntaje por cuenta de la evaluación toma el máximo de sus
+  transferencias, y una cuenta que le paga a un concentrador gigante heredaría su tamaño.
+- **Precisión según cuántas alertas se revisan:** curvas del top-k por cuenta de la regla, el
+  detector de forma y el modelo final. En k = 100 coinciden con las métricas publicadas.
+- **El artefacto de las monedas,** animado con las cifras de `hito2/metricas.json` y
+  `hito4/metricas.json`.
+- **Explorador de alertas:** las 15 primeras alertas acertadas, las 8 falsas alarmas mejor
+  puntuadas y las 8 cuentas con lavado no detectado de más actividad, por variante. Vecindario
+  y dinero en el tiempo con `consultas.py` (las funciones pensadas para el agente investigador),
+  y las 12 variables estructurales con su percentil. No son una explicación causal de la red.
+
+`docs/demo/motor.js` no toca el DOM; `tests/test_demo.py` lo compara con Python usando Node.
+`scripts/capturas_demo.py` abre la página en escritorio y en 390 px, falla ante errores de
+consola o desborde horizontal y graba el GIF del README.
+
 ## Trabajo futuro
 
 - **"No te pareces a ti mismo" con historia larga (Large).** Con 10 días no es viable

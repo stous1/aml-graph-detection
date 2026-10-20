@@ -1,5 +1,17 @@
 # Cambios
 
+## v1.0.1 (2026-10-20)
+
+- Página interactiva **¿Forma o tamaño?** (`docs/demo.html`): un abanico de lavado frente a un
+  concentrador legítimo, con su puesto en cada método y las variables de forma activables; la
+  precisión según cuántas alertas se revisan; la animación del artefacto de las monedas, y un
+  explorador de alertas (vecindario y dinero en el tiempo con `consultas.py`, variables con su
+  percentil). HTML estático que lee los JSON publicados.
+- `docs/demo/motor.js` se prueba contra Python con Node (`tests/test_demo.py`); las curvas de
+  precisión coinciden con las métricas publicadas en k = 100.
+- `scripts/capturas_demo.py`: escritorio y celular, falla ante errores de consola o desborde
+  horizontal, y graba el GIF del README.
+
 ## v1.0 (2026-10-19)
 
 - **Hito 5:** universo de Cosmograph con las cuentas y transferencias de prueba (HI y LI):

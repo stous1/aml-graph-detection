@@ -36,6 +36,7 @@ H3 = _j("hito3/metricas.json")["variantes"]
 DIAG = _j("hito4/diagnostico_grafo/diagnostico_grafo_prueba.json")["variantes"]
 DIAG_DEV = _j("hito4/diagnostico_grafo/diagnostico_grafo_desarrollo.json")["variantes"]
 META = {v: _j(f"hito5/universo_{v}_meta.json") for v in ("hi", "li")}
+DEMO = _j("demo/forma_tamano.json")
 EXPL = _j("hito1/exploracion.json")
 
 
@@ -236,6 +237,15 @@ COMPROBACIONES: list[tuple[str, str, list[str]]] = [
         "docs/hito2.md",
         "| Abanicos hito 1 (moneda y canal) |",
         hi_li(H2, "abanicos_h1", ("f1", "p100", "p1000")),
+    ),
+    # Página interactiva
+    (
+        "docs/index.md",
+        "un abanico de lavado de",
+        [
+            f"de {DEMO['alerta']['red']['contrapartes']} cuentas",
+            f"de {DEMO['comercio']['red']['contrapartes']};",
+        ],
     ),
     # Hito 5
     (

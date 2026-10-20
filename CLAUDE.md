@@ -120,6 +120,11 @@ uv run python scripts/publicar_resultados.py --hito 1   # o 2, 3, 4: reports/hit
     desviarse, se informa como desviación.
   - `scripts/verificar_cifras.py` contrasta las cifras del README y de Pages con los JSON
     publicados; correrlo antes de publicar cambios en esos textos.
+  - Página interactiva: `demo.py` genera `docs/resultados/demo/*.json` con modelos congelados
+    (curvas de precisión por k, casos de "forma o tamaño" elegidos con regla fija, explorador de
+    alertas con `consultas.py`); `docs/demo.html` + `docs/demo/{motor,app}.js` + `estilo.css`.
+    `motor.js` no toca el DOM y `tests/test_demo.py` lo compara con Python; `scripts/capturas_demo.py`
+    toma capturas, graba el GIF y falla ante errores de consola o desborde horizontal.
   - Hito 3: `secuencias.py` (eventos por cuenta, sin moneda ni formato), `coles.py` (CoLES de
     pytorch-lifestream, determinista en CPU), `detectores/coles_atipico.py` (rareza de la huella)
     y `flujo_hito3.py` (cobertura, entrenamiento con el desarrollo de cada variante, combinado

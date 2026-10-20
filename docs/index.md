@@ -5,9 +5,10 @@ huellas de comportamiento y redes sobre grafos sobre AMLworld (IBM, sintético),
 partición temporal contra la verdad del simulador y siempre comparados con una regla simple.
 Caso 2 de un portafolio de ciencia de datos aplicada a banca.
 
-[![Universo de prueba](resultados/hito5/universo_escritorio.png)](hito5_universo.html)
+[![El artefacto de las monedas](resultados/demo/monedas.gif)](demo.html)
 
-**[Abrir el universo interactivo →](hito5_universo.html)** ·
+**[¿Forma o tamaño? (interactiva) →](demo.html)** ·
+**[Universo interactivo →](hito5_universo.html)** ·
 [Preregistro de la prueba con Medium](preregistro_medium.md) ·
 [Código](https://github.com/stous1/aml-graph-detection) ·
 [Informe técnico](https://github.com/stous1/aml-graph-detection/blob/main/INFORME_TECNICO.md)
@@ -29,6 +30,9 @@ formato de pago). Período de prueba, días 7 a 10:
 
 ## En un minuto
 
+- **[¿Forma o tamaño?](demo.html)** (interactiva): un abanico de lavado de 8 cuentas frente a un
+  concentrador legítimo de 88; qué precisión tendría un equipo que revisa k alertas; la caída del
+  detector del hito 1 al quitar las monedas, y un explorador de alertas del modelo final.
 - **Hito 5, universo** ([página](hito5.md)): Cosmograph con las alertas del modelo final, los
   patrones por tipo y el lavado no detectado. Carga en celular.
 - **Hito 4, grafos** ([página](hito4.md)): la GNN supervisada duplica al combinado no
