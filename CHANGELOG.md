@@ -1,5 +1,21 @@
 # Cambios
 
+## v1.0 (2026-10-19)
+
+- **Hito 5:** universo de Cosmograph con las cuentas y transferencias de prueba (HI y LI):
+  alertas del modelo final, lavado por tipo de patrón y lavado no detectado; carga en celular.
+  Capturas y revisión de consola con Playwright (`scripts/capturas.py`).
+- **Preregistro de la prueba con Medium** (`docs/preregistro_medium.md` y su JSON con las
+  huellas SHA-256 de 62 artefactos), con tag `medium-preregistrado`; incluye la red sin grafo
+  como comparación declarada.
+- **Diagnóstico del grafo:** con las mismas variables, la red sin grafo empata en prueba; el
+  mérito es de las variables.
+- **README final** como puerta de entrada y portada de Pages renovada.
+- **Verificación de cifras** (`scripts/verificar_cifras.py`): 40 comprobaciones del README y de
+  Pages contra los JSON publicados. Se corrigió la diferencia de AP del grafo en desarrollo
+  (+0,079, no +0,080) y la proporción de lavado de la cola.
+- Regla en CLAUDE.md: nunca ocultar el código de salida de pytest con tuberías.
+
 ## Hito 4 (2026-10-19)
 
 - Artefactos de Small congelados en archivos (Isolation Forest, percentiles, referencia de

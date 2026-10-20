@@ -110,6 +110,16 @@ uv run python scripts/publicar_resultados.py --hito 1   # o 2, 3, 4: reports/hit
     `detectores/anomalias_grafo.py` (PyGOD) y `flujo_hito4.py`. **Umbrales relativos:** en
     prueba se marca la misma fracción de alertas que dio el mejor F1 en desarrollo
     (`evaluacion.umbral_relativo`). Congelado en `hito4-congelado`.
+  - Hito 5: `flujo_hito5.py` arma el universo de Cosmograph (`docs/hito5_universo.html`, datos
+    en `docs/resultados/hito5/`) con el modelo final congelado y verifica el recall por tipo
+    contra el hito 4; `scripts/capturas.py` toma capturas con Playwright y falla si hay errores
+    de consola.
+  - Prueba con Medium: protocolo preregistrado en `docs/preregistro_medium.md` y
+    `docs/resultados/preregistro_medium.json` (tag `medium-preregistrado`, huellas SHA-256 de
+    los artefactos, en archivos de texto con fin de línea LF). No se cambia; si hace falta
+    desviarse, se informa como desviación.
+  - `scripts/verificar_cifras.py` contrasta las cifras del README y de Pages con los JSON
+    publicados; correrlo antes de publicar cambios en esos textos.
   - Hito 3: `secuencias.py` (eventos por cuenta, sin moneda ni formato), `coles.py` (CoLES de
     pytorch-lifestream, determinista en CPU), `detectores/coles_atipico.py` (rareza de la huella)
     y `flujo_hito3.py` (cobertura, entrenamiento con el desarrollo de cada variante, combinado

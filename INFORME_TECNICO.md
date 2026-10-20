@@ -803,7 +803,7 @@ variabilidad del entrenamiento.
 
 | | AP GNN final | AP sin grafo | ΔAP (IC 95 %) | 5 semillas: AP media ± desvío | GNN gana en |
 |---|---|---|---|---|---|
-| HI | 0,230 | 0,150 | **+0,080 (+0,049 a +0,115)** | 0,220 ± 0,013 contra 0,132 ± 0,048 | 5 de 5 |
+| HI | 0,230 | 0,150 | **+0,079 (+0,048 a +0,115)** | 0,220 ± 0,013 contra 0,132 ± 0,048 | 5 de 5 |
 | LI | 0,047 | 0,035 | +0,012 (−0,004 a +0,027) | 0,037 ± 0,014 contra 0,019 ± 0,008 | 4 de 5 |
 
 **Prueba (solo diagnóstico, medido una vez, no cambia ninguna decisión):**
@@ -816,7 +816,7 @@ variabilidad del entrenamiento.
 (F1 y top-k: GNN / sin grafo.)
 
 **Respuesta: el mérito es sobre todo de las variables.** En desarrollo, el grafo parecía aportar
-de forma clara en HI: +0,080 de AP, con un intervalo lejos de cero y en las 5 semillas. En
+de forma clara en HI: +0,079 de AP, con un intervalo lejos de cero y en las 5 semillas. En
 prueba esa ventaja desaparece: la red sin grafo empata o supera a la GNN en HI y en LI, con
 intervalos que cubren el cero. Con las mismas 12 variables por cuenta (dinero de paso,
 velocidad, contrapartes nuevas, grado, montos) y los atributos de cada transferencia, una red
@@ -852,6 +852,28 @@ estructural (con los artefactos de `docs/resultados/congelados/`) y la regla sim
 protocolo aprobado se mantiene: bloques de 4 días con su historia previa, DuckDB limitado a
 16 GB con desborde a disco, una sola medición y un tag previo.
 
+## Hito 5: universo de prueba en Cosmograph
+
+[Universo interactivo](https://stous1.github.io/aml-graph-detection/hito5_universo.html)
+(`docs/hito5_universo.html`, Cosmograph 2.5.1 desde esm.sh).
+
+- **Qué muestra:** las cuentas del período de prueba que importan para juzgar el modelo final
+  (GNN solo estructurales, congelado): alertas acertadas, falsas alarmas y cuentas con lavado
+  no detectado, más dos contrapartes de contexto por cuenta (muestra con semilla fija). Las
+  transferencias de lavado se colorean según si su intento fue detectado; un filtro por tipo de
+  patrón resalta sus cuentas y atenúa el resto.
+- **Mismas marcas que el hito 4:** el modelo final marca la fracción de alertas congelada
+  (0,59 % de las cuentas en HI y 1,64 % en LI). Al generar los datos (`scripts/hito5.py`), el
+  recall por tipo se verifica contra `docs/resultados/hito4/metricas.json`.
+- **Tamaño:** HI, 7.816 cuentas y 6.213 enlaces (487 aciertos, 1.691 falsas alarmas, 1.585 no
+  detectadas); LI, 19.363 cuentas y 14.444 enlaces (412, 7.809 y 1.579). Unos 1,4 MB y 3,3 MB de
+  datos.
+- **Celular:** el panel arranca plegado en pantallas chicas. `scripts/capturas.py` abre la
+  página con Chromium (escritorio y un iPhone 13 emulado), cambia de variante, aplica un filtro
+  y comprueba que no haya errores de consola.
+- **Paleta:** azul, naranja y aguamarina para las cuentas. Son los tres primeros colores de la
+  paleta de referencia, validados para todos los pares sobre fondo oscuro.
+
 ## Trabajo futuro
 
 - **"No te pareces a ti mismo" con historia larga (Large).** Con 10 días no es viable
@@ -863,5 +885,17 @@ protocolo aprobado se mantiene: bloques de 4 días con su historia previa, DuckD
   criterio de viabilidad fijado antes de medir. Large no se descarga sin aprobación.
 - **Agente investigador:** toma las alertas, usa `consultas.py` como herramientas,
   investiga, decide y redacta el caso.
+- **Detalles menores pendientes** (de la verificación final de la v1.0):
+  - Las cifras de prueba de los hitos 2 y 3 se calcularon antes de la corrección del
+    redondeo de DuckDB. Al recalcularlas en el hito 4, el combinado estructural dio
+    exactamente lo mismo, pero el resto de las tablas de esos hitos no se recalculó.
+  - La leyenda del gráfico del hito 3 incluye la categoría "con sospechosas", que no tiene
+    barras.
+  - Las redes del hito 4 se entrenaron con una sola semilla. Solo la comparación con y sin
+    grafo midió la variación entre semillas, y solo en desarrollo.
+  - Las páginas de Pages de los hitos 1 a 3 llevan tablas abreviadas. La versión completa y
+    autoritativa es la del informe técnico.
+  - La verificación automática (`scripts/verificar_cifras.py`) cubre el README, la portada y
+    las tablas principales de las páginas de hitos, no cada frase del informe.
 - **Calibración de rareza que se traslade:** referencia en una ventana que el modelo no vio
   al entrenar, o directamente rankings y umbrales relativos (hito 4).

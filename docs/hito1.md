@@ -11,7 +11,7 @@ cambian cómo se evalúa:
 
 - **Día 1:** concentra el 22 % del volumen y el 46 % son autotransferencias. Es el arranque
   del simulador y solo se usa como historia.
-- **Días 11 a 18:** una cola donde el 60 % es lavado. Se excluye.
+- **Días 11 a 18:** una cola donde cerca del 60 % es lavado (59 % en HI y 60 % en LI). Se excluye.
 
 ![Por día](resultados/hito1/por_dia.png)
 
