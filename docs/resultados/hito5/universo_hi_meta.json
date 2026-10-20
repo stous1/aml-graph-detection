@@ -1,0 +1,78 @@
+{
+ "variante": "HI",
+ "periodo": "prueba (días 7 a 10)",
+ "modelo": "gnn_sin_coles",
+ "fracciones": {
+  "transaccion": 0.000214229505554059,
+  "cuenta": 0.0059360803294697066
+ },
+ "puntos": 7816,
+ "enlaces": 6213,
+ "cuentas": {
+  "acierto": 487,
+  "falsa_alarma": 1691,
+  "no_detectado": 1585,
+  "contexto": 4053
+ },
+ "por_tipo": [
+  {
+   "tipo": "BIPARTITE",
+   "unidad": "intentos",
+   "detectados": 1,
+   "total": 18
+  },
+  {
+   "tipo": "CYCLE",
+   "unidad": "intentos",
+   "detectados": 10,
+   "total": 18
+  },
+  {
+   "tipo": "FAN-IN",
+   "unidad": "intentos",
+   "detectados": 1,
+   "total": 17
+  },
+  {
+   "tipo": "FAN-OUT",
+   "unidad": "intentos",
+   "detectados": 5,
+   "total": 19
+  },
+  {
+   "tipo": "GATHER-SCATTER",
+   "unidad": "intentos",
+   "detectados": 4,
+   "total": 20
+  },
+  {
+   "tipo": "RANDOM",
+   "unidad": "intentos",
+   "detectados": 6,
+   "total": 17
+  },
+  {
+   "tipo": "SCATTER-GATHER",
+   "unidad": "intentos",
+   "detectados": 10,
+   "total": 19
+  },
+  {
+   "tipo": "STACK",
+   "unidad": "intentos",
+   "detectados": 3,
+   "total": 15
+  },
+  {
+   "tipo": "sin patrón",
+   "unidad": "transacciones",
+   "detectados": 5,
+   "total": 750
+  }
+ ],
+ "transferencias": {
+  "lavado_detectado": 259,
+  "lavado_total": 1422,
+  "alertas_falsas": 134
+ }
+}

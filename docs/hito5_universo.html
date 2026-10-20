@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Universo de prueba</title>
+<meta name="description" content="Cuentas y transferencias del período de prueba de AMLworld: alertas del modelo final, patrones de lavado por tipo y lavado no detectado.">
+<style>
+  :root {
+    --fondo: #0b1020; --texto: #f0efec; --tenue: #c3c2b7; --panel: rgba(17, 22, 38, 0.92);
+    --borde: #2a3047;
+    --acierto: #3987e5; --falsa: #d95926; --no-detectado: #199e70; --contexto: #6b7280;
+    --enl-detectado: #7fb3f0; --enl-no-detectado: #5fd3a8; --enl-falsa: #f0956a; --enl-contexto: #39405a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--fondo); color: var(--texto);
+    font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  #grafo { position: fixed; inset: 0; }
+  details.panel { position: fixed; top: 12px; left: 12px; width: min(380px, calc(100vw - 24px));
+    max-height: calc(100vh - 24px); overflow: auto; background: var(--panel);
+    border: 1px solid var(--borde); border-radius: 10px; padding: 10px 14px; }
+  summary { cursor: pointer; font-weight: 600; font-size: 15px; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: " ▾"; color: var(--tenue); }
+  details:not([open]) summary::after { content: " ▸"; }
+  p { margin: 8px 0; color: var(--tenue); }
+  .controles { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
+  .controles button, .controles select { font: inherit; color: var(--texto); background: #1b2236;
+    border: 1px solid var(--borde); border-radius: 6px; padding: 6px 10px; min-height: 36px; }
+  .controles button[aria-pressed="true"] { border-color: var(--acierto); background: #1d2f4f; }
+  h2 { font-size: 13px; margin: 12px 0 6px; color: var(--tenue); font-weight: 600; }
+  ul.leyenda { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+  ul.leyenda li { display: flex; align-items: center; gap: 8px; }
+  .punto { width: 11px; height: 11px; border-radius: 50%; flex: none; }
+  .linea { width: 18px; height: 3px; border-radius: 2px; flex: none; }
+  .cuenta { margin-left: auto; color: var(--tenue); font-variant-numeric: tabular-nums; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  td, th { padding: 3px 4px; text-align: left; border-bottom: 1px solid var(--borde); font-size: 13px; }
+  th { color: var(--tenue); font-weight: 600; }
+  td.n { text-align: right; }
+  #estado { margin-top: 8px; color: var(--tenue); font-size: 12px; }
+  a { color: #93c5fd; }
+</style>
+</head>
+<body>
+<div id="grafo" role="img" aria-label="Grafo de cuentas y transferencias del período de prueba"></div>
+<details class="panel" id="panel">
+  <summary>Universo de prueba · modelo final</summary>
+  <p>Cuentas y transferencias del período de prueba (días 7 a 10). El modelo final (GNN con
+    variables estructurales, congelado) marca la misma fracción de alertas que en desarrollo.
+    Pasa el cursor sobre un punto para ver la cuenta. <a href="hito5.html">Qué estoy viendo</a> ·
+    <a href="index.html">Portada</a></p>
+  <div class="controles">
+    <button type="button" data-variante="hi" aria-pressed="true">HI</button>
+    <button type="button" data-variante="li" aria-pressed="false">LI</button>
+    <select id="tipo" aria-label="Tipo de patrón"><option value="">Todos los patrones</option></select>
+  </div>
+  <h2>Cuentas</h2>
+  <ul class="leyenda">
+    <li><span class="punto" style="background:var(--acierto)"></span>Alerta acertada (con lavado)<span class="cuenta" id="n-acierto"></span></li>
+    <li><span class="punto" style="background:var(--falsa)"></span>Falsa alarma<span class="cuenta" id="n-falsa_alarma"></span></li>
+    <li><span class="punto" style="background:var(--no-detectado)"></span>Lavado no detectado<span class="cuenta" id="n-no_detectado"></span></li>
+    <li><span class="punto" style="background:var(--contexto)"></span>Contexto<span class="cuenta" id="n-contexto"></span></li>
+  </ul>
+  <h2>Transferencias</h2>
+  <ul class="leyenda">
+    <li><span class="linea" style="background:var(--enl-detectado)"></span>Lavado de un patrón detectado</li>
+    <li><span class="linea" style="background:var(--enl-no-detectado)"></span>Lavado no detectado</li>
+    <li><span class="linea" style="background:var(--enl-falsa)"></span>Alerta sobre una transferencia legítima</li>
+    <li><span class="linea" style="background:var(--enl-contexto)"></span>Contexto</li>
+  </ul>
+  <h2>Patrones detectados por tipo</h2>
+  <table><thead><tr><th>Tipo</th><th class="n">Detectados</th><th class="n">Total</th></tr></thead>
+    <tbody id="tabla"></tbody></table>
+  <div id="estado">Cargando…</div>
+</details>
+<script type="module">
+  import { Cosmograph, prepareCosmographData } from "https://esm.sh/@cosmograph/cosmograph@2.5.1";
+
+  const css = getComputedStyle(document.documentElement);
+  const v = (n) => css.getPropertyValue(n).trim();
+  const COLORES = {
+    acierto: v("--acierto"), falsa_alarma: v("--falsa"), no_detectado: v("--no-detectado"),
+    contexto: v("--contexto"),
+  };
+  const COLORES_ENLACE = {
+    detectado: v("--enl-detectado"), no_detectado: v("--enl-no-detectado"),
+    alerta_falsa: v("--enl-falsa"), contexto: v("--enl-contexto"),
+  };
+  const panel = document.getElementById("panel");
+  if (window.innerWidth > 700) panel.open = true;
+  const estado = document.getElementById("estado");
+  const selectorTipo = document.getElementById("tipo");
+  const datos = {};
+  let variante = "hi";
+
+  async function cargar(v) {
+    if (!datos[v]) {
+      const base = `resultados/hito5/universo_${v}`;
+      const [puntos, enlaces, meta] = await Promise.all(
+        ["puntos", "enlaces", "meta"].map((n) => fetch(`${base}_${n}.json`).then((r) => r.json())));
+      datos[v] = { puntos, enlaces, meta };
+    }
+    return datos[v];
+  }
+
+  function leyenda(meta) {
+    for (const [cat, n] of Object.entries(meta.cuentas)) {
+      const el = document.getElementById(`n-${cat}`);
+      if (el) el.textContent = n.toLocaleString("es-CO");
+    }
+    document.getElementById("tabla").innerHTML = meta.por_tipo.map((r) =>
+      `<tr><td>${r.tipo}${r.unidad === "transacciones" ? " (tx)" : ""}</td>` +
+      `<td class="n">${r.detectados.toLocaleString("es-CO")}</td>` +
+      `<td class="n">${r.total.toLocaleString("es-CO")}</td></tr>`).join("");
+    const actual = selectorTipo.value;
+    selectorTipo.innerHTML = '<option value="">Todos los patrones</option>' + meta.por_tipo
+      .map((r) => { const t = r.tipo === "sin patrón" ? "SIN_PATRON" : r.tipo;
+        return `<option value="${t}">${r.tipo} (${r.detectados}/${r.total})</option>`; })
+      .join("");
+    selectorTipo.value = [...selectorTipo.options].some((o) => o.value === actual) ? actual : "";
+  }
+
+  async function dibujar() {
+    estado.textContent = "Cargando…";
+    try {
+      const { puntos, enlaces, meta } = await cargar(variante);
+      leyenda(meta);
+      const p = puntos, e = enlaces;
+      const preparado = await prepareCosmographData({
+        points: { pointIdBy: "id", pointColorBy: "categoria", pointSizeBy: "tamano", pointLabelBy: "etiqueta" },
+        links: { linkSourceBy: "origen", linkTargetsBy: ["destino"], linkColorBy: "categoria" },
+      }, p, e);
+      const contenedor = document.getElementById("grafo");
+      window.cosmograph?.destroy?.();
+      contenedor.innerHTML = "";
+      window.cosmograph = new Cosmograph(contenedor, {
+        points: preparado.points, links: preparado.links, ...preparado.cosmographConfig,
+        pointColorByFn: (c) => COLORES[c] ?? COLORES.contexto,
+        linkColorByFn: (c) => COLORES_ENLACE[c] ?? COLORES_ENLACE.contexto,
+        pointSizeStrategy: "direct",
+        backgroundColor: v("--fondo"),
+        linkWidthScale: 1.2,
+        showDynamicLabels: false,
+        showTopLabels: false,
+        showHoveredPointLabel: true,
+        fitViewOnInit: true,
+        simulationRepulsion: 0.7,
+        simulationGravity: 0.25,
+      });
+      estado.textContent = `${meta.variante}: ${p.length.toLocaleString("es-CO")} cuentas y ` +
+        `${e.length.toLocaleString("es-CO")} enlaces. Pellizca o usa la rueda para acercar.`;
+    } catch (error) {
+      estado.textContent = "No se pudo cargar la visualización: " + error;
+      console.error(error);
+    }
+  }
+
+  document.querySelectorAll("[data-variante]").forEach((b) => b.addEventListener("click", () => {
+    variante = b.dataset.variante;
+    document.querySelectorAll("[data-variante]").forEach((x) =>
+      x.setAttribute("aria-pressed", String(x === b)));
+    selectorTipo.value = "";
+    dibujar();
+  }));
+  // El filtro no reconstruye el grafo: selecciona (y encuadra) las cuentas de las
+  // transferencias de ese tipo; Cosmograph atenúa las demás.
+  function resaltar() {
+    const c = window.cosmograph, d = datos[variante];
+    if (!c || !d) return;
+    const tipo = selectorTipo.value;
+    if (!tipo) {
+      c.unselectAll?.();
+      c.fitView?.(600);
+      estado.textContent = `${d.meta.variante}: ${d.puntos.length.toLocaleString("es-CO")} cuentas y ` +
+        `${d.enlaces.length.toLocaleString("es-CO")} enlaces.`;
+      return;
+    }
+    const ids = new Set(d.enlaces.filter((x) => x.tipo === tipo).flatMap((x) => [x.origen, x.destino]));
+    const indices = d.puntos.flatMap((x, i) => (ids.has(x.id) ? [i] : []));
+    c.selectPoints?.(indices);
+    c.fitViewByIndices?.(indices, 600);
+    estado.textContent = `${d.meta.variante}: ${indices.length.toLocaleString("es-CO")} cuentas con ` +
+      `transferencias de ${tipo === "SIN_PATRON" ? "lavado sin patrón" : tipo} resaltadas.`;
+  }
+  selectorTipo.addEventListener("change", resaltar);
+  dibujar();
+</script>
+</body>
+</html>
