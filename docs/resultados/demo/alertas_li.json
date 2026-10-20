@@ -1,0 +1,7952 @@
+{
+  "variante": "LI",
+  "modelo": "gnn_sin_coles",
+  "fraccion_alertas_cuentas": 0.016402953074826105,
+  "ventana": [
+    "2022-09-06 00:00:00",
+    "2022-09-11 00:00:00"
+  ],
+  "paso_horas": 6,
+  "cuentas": [
+    {
+      "cuenta": 18171,
+      "categoria": "acierto",
+      "puesto": 1,
+      "puntaje": 0.959648,
+      "patrones": [
+        "CYCLE"
+      ],
+      "transferencias": 2,
+      "contrapartes": 2,
+      "vecinos": [
+        {
+          "contraparte": 639288,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 3038.65,
+          "lavado": true
+        },
+        {
+          "contraparte": 130681,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 2798.37,
+          "lavado": true
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 3038.65,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 0.0,
+          "sale": 2798.37,
+          "n_entra": 0,
+          "n_sale": 1
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 0.6931,
+          "percentil": 0.4089
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 0.6931,
+          "percentil": 0.5131
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 0.6931,
+          "percentil": 0.5171
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 0.6931,
+          "percentil": 0.5867
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 1.0,
+          "percentil": 0.6588
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 41.7,
+          "percentil": 0.0771
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.9209,
+          "percentil": 0.9943
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 1.0,
+          "percentil": 0.959
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 0.0412,
+          "percentil": 0.3706
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 7.9792,
+          "percentil": 0.7013
+        }
+      ]
+    },
+    {
+      "cuenta": 639288,
+      "categoria": "acierto",
+      "puesto": 1,
+      "puntaje": 0.959648,
+      "patrones": [
+        "CYCLE"
+      ],
+      "transferencias": 39,
+      "contrapartes": 8,
+      "vecinos": [
+        {
+          "contraparte": 285904,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 3234.7,
+          "lavado": true
+        },
+        {
+          "contraparte": 18171,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 3038.65,
+          "lavado": true
+        },
+        {
+          "contraparte": 675770,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 16978617.95,
+          "lavado": false
+        },
+        {
+          "contraparte": 202821,
+          "direccion": "salida",
+          "n": 20,
+          "usd": 6426402.37,
+          "lavado": false
+        },
+        {
+          "contraparte": 357390,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 44124.39,
+          "lavado": false
+        },
+        {
+          "contraparte": 354843,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 26957.66,
+          "lavado": false
+        },
+        {
+          "contraparte": 147585,
+          "direccion": "entrada",
+          "n": 4,
+          "usd": 2827.59,
+          "lavado": false
+        },
+        {
+          "contraparte": 373230,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 47.31,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 4244654.49,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 0.0,
+          "sale": 1290672.01,
+          "n_entra": 0,
+          "n_sale": 5
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 706.9,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 47.31,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 0.0,
+          "sale": 1285280.47,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 706.9,
+          "sale": 4250046.02,
+          "n_entra": 1,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 0.0,
+          "sale": 5391.53,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 3941.6,
+          "sale": 0.0,
+          "n_entra": 2,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 0.0,
+          "sale": 4247693.14,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 1285280.47,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 0.0,
+          "sale": 49515.93,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 0.0,
+          "sale": 5529934.96,
+          "n_entra": 0,
+          "n_sale": 5
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 706.9,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-10 00:00:00",
+          "entra": 0.0,
+          "sale": 1290672.01,
+          "n_entra": 0,
+          "n_sale": 5
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 1.9459,
+          "percentil": 0.5703
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 3.5264,
+          "percentil": 0.9686
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.3863,
+          "percentil": 0.9387
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 1.7918,
+          "percentil": 0.9667
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 0.5,
+          "percentil": 0.4793
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1515,
+          "percentil": 0.1998
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.1667,
+          "percentil": 0.9281
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 10.975,
+          "percentil": 0.005
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.0003,
+          "percentil": 0.7214
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.375,
+          "percentil": 0.8126
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 2.0939,
+          "percentil": 0.9346
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 13.3083,
+          "percentil": 0.9802
+        }
+      ]
+    },
+    {
+      "cuenta": 712,
+      "categoria": "acierto",
+      "puesto": 3,
+      "puntaje": 0.94274,
+      "patrones": [
+        "CYCLE"
+      ],
+      "transferencias": 18,
+      "contrapartes": 4,
+      "vecinos": [
+        {
+          "contraparte": 557799,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 19310.07,
+          "lavado": true
+        },
+        {
+          "contraparte": 177481,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 18271.15,
+          "lavado": true
+        },
+        {
+          "contraparte": 23293,
+          "direccion": "entrada",
+          "n": 4,
+          "usd": 25377.25,
+          "lavado": false
+        },
+        {
+          "contraparte": 673595,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 2245.13,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 6344.31,
+          "sale": 561.28,
+          "n_entra": 1,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 6344.31,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 561.28,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 6344.31,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 0.0,
+          "sale": 561.28,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 6344.31,
+          "sale": 561.28,
+          "n_entra": 1,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 18271.15,
+          "sale": 19310.07,
+          "n_entra": 1,
+          "n_sale": 1
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 1.7918,
+          "percentil": 0.5519
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 2.6391,
+          "percentil": 0.8598
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.0986,
+          "percentil": 0.7962
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 1.0986,
+          "percentil": 0.8532
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 0.4,
+          "percentil": 0.4657
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1538,
+          "percentil": 0.2023
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.2,
+          "percentil": 0.9335
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 3.0,
+          "percentil": 0.0013
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.4938,
+          "percentil": 0.953
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.5,
+          "percentil": 0.8525
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 1.6365,
+          "percentil": 0.8837
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 8.1952,
+          "percentil": 0.739
+        }
+      ]
+    },
+    {
+      "cuenta": 177481,
+      "categoria": "acierto",
+      "puesto": 3,
+      "puntaje": 0.94274,
+      "patrones": [
+        "CYCLE"
+      ],
+      "transferencias": 3,
+      "contrapartes": 3,
+      "vecinos": [
+        {
+          "contraparte": 210892,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 19442.0,
+          "lavado": true
+        },
+        {
+          "contraparte": 712,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 18271.15,
+          "lavado": true
+        },
+        {
+          "contraparte": 427579,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 333.36,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 333.36,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 19442.0,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 18271.15,
+          "n_entra": 0,
+          "n_sale": 1
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 1.0986,
+          "percentil": 0.4863
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 0.6931,
+          "percentil": 0.5131
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.0986,
+          "percentil": 0.7962
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 0.6931,
+          "percentil": 0.5867
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 1.0,
+          "percentil": 0.6588
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.5,
+          "percentil": 0.9786
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 3.55,
+          "percentil": 0.0016
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.9239,
+          "percentil": 0.9945
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.6667,
+          "percentil": 0.8978
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 0.6896,
+          "percentil": 0.5765
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 9.448,
+          "percentil": 0.8624
+        }
+      ]
+    },
+    {
+      "cuenta": 147591,
+      "categoria": "acierto",
+      "puesto": 7,
+      "puntaje": 0.923589,
+      "patrones": [
+        "RANDOM"
+      ],
+      "transferencias": 3,
+      "contrapartes": 2,
+      "vecinos": [
+        {
+          "contraparte": 366595,
+          "direccion": "salida",
+          "n": 2,
+          "usd": 6367.77,
+          "lavado": true
+        },
+        {
+          "contraparte": 147489,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 6048.52,
+          "lavado": true
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 6048.52,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 0.0,
+          "sale": 6367.77,
+          "n_entra": 0,
+          "n_sale": 2
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 0.6931,
+          "percentil": 0.4089
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 1.0986,
+          "percentil": 0.6763
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 0.6931,
+          "percentil": 0.5171
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 0.6931,
+          "percentil": 0.5867
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.5,
+          "percentil": 0.2929
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 12.4667,
+          "percentil": 0.0058
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.9499,
+          "percentil": 0.9964
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 1.0,
+          "percentil": 0.959
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 0.6526,
+          "percentil": 0.5591
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 8.3284,
+          "percentil": 0.7602
+        }
+      ]
+    },
+    {
+      "cuenta": 366595,
+      "categoria": "acierto",
+      "puesto": 7,
+      "puntaje": 0.923589,
+      "patrones": [
+        "RANDOM"
+      ],
+      "transferencias": 4,
+      "contrapartes": 2,
+      "vecinos": [
+        {
+          "contraparte": 147645,
+          "direccion": "salida",
+          "n": 2,
+          "usd": 6419.89,
+          "lavado": true
+        },
+        {
+          "contraparte": 147591,
+          "direccion": "entrada",
+          "n": 2,
+          "usd": 6367.77,
+          "lavado": true
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 6367.77,
+          "sale": 0.0,
+          "n_entra": 2,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 6419.89,
+          "n_entra": 0,
+          "n_sale": 2
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 1.0986,
+          "percentil": 0.4863
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 1.0986,
+          "percentil": 0.6763
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 0.6931,
+          "percentil": 0.5171
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 0.6931,
+          "percentil": 0.5867
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 0.5,
+          "percentil": 0.4793
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.5,
+          "percentil": 0.2929
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 30.1333,
+          "percentil": 0.0405
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.9919,
+          "percentil": 0.9994
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 1.0,
+          "percentil": 0.959
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 0.892,
+          "percentil": 0.673
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 8.0703,
+          "percentil": 0.7176
+        }
+      ]
+    },
+    {
+      "cuenta": 61829,
+      "categoria": "acierto",
+      "puesto": 9,
+      "puntaje": 0.918342,
+      "patrones": [
+        "RANDOM"
+      ],
+      "transferencias": 3,
+      "contrapartes": 2,
+      "vecinos": [
+        {
+          "contraparte": 231614,
+          "direccion": "salida",
+          "n": 2,
+          "usd": 1059341.47,
+          "lavado": true
+        },
+        {
+          "contraparte": 612,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 1005649.01,
+          "lavado": true
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 1005649.01,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 0.0,
+          "sale": 1059341.47,
+          "n_entra": 0,
+          "n_sale": 2
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 0.6931,
+          "percentil": 0.4089
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 1.0986,
+          "percentil": 0.6763
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 0.6931,
+          "percentil": 0.5171
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 0.6931,
+          "percentil": 0.5867
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.5,
+          "percentil": 0.2929
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 26.2,
+          "percentil": 0.0244
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.9493,
+          "percentil": 0.9964
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 1.0,
+          "percentil": 0.959
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 0.6515,
+          "percentil": 0.5586
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 13.442,
+          "percentil": 0.9817
+        }
+      ]
+    },
+    {
+      "cuenta": 231614,
+      "categoria": "acierto",
+      "puesto": 9,
+      "puntaje": 0.918342,
+      "patrones": [
+        "RANDOM"
+      ],
+      "transferencias": 52,
+      "contrapartes": 8,
+      "vecinos": [
+        {
+          "contraparte": 61829,
+          "direccion": "entrada",
+          "n": 2,
+          "usd": 1059341.47,
+          "lavado": true
+        },
+        {
+          "contraparte": 290389,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 1041049.56,
+          "lavado": true
+        },
+        {
+          "contraparte": 64746,
+          "direccion": "salida",
+          "n": 25,
+          "usd": 8605783.55,
+          "lavado": false
+        },
+        {
+          "contraparte": 231374,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 36575.96,
+          "lavado": false
+        },
+        {
+          "contraparte": 232296,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 10489.04,
+          "lavado": false
+        },
+        {
+          "contraparte": 301732,
+          "direccion": "entrada",
+          "n": 10,
+          "usd": 1243.0,
+          "lavado": false
+        },
+        {
+          "contraparte": 231749,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 994.24,
+          "lavado": false
+        },
+        {
+          "contraparte": 207471,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 12.09,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 248.56,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 0.0,
+          "sale": 1721156.71,
+          "n_entra": 0,
+          "n_sale": 5
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 248.6,
+          "sale": 0.0,
+          "n_entra": 2,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 248.6,
+          "sale": 0.0,
+          "n_entra": 2,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 0.0,
+          "sale": 248.56,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 1721156.71,
+          "n_entra": 0,
+          "n_sale": 5
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 12.09,
+          "sale": 1721156.71,
+          "n_entra": 1,
+          "n_sale": 5
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 0.0,
+          "sale": 248.56,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 248.6,
+          "sale": 0.0,
+          "n_entra": 2,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 248.6,
+          "sale": 0.0,
+          "n_entra": 2,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 36575.96,
+          "sale": 1721405.27,
+          "n_entra": 1,
+          "n_sale": 7
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 0.0,
+          "sale": 10489.04,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-10 00:00:00",
+          "entra": 248.6,
+          "sale": 0.0,
+          "n_entra": 2,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 1059341.47,
+          "sale": 2762206.27,
+          "n_entra": 2,
+          "n_sale": 6
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 2.7081,
+          "percentil": 0.8578
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 3.6636,
+          "percentil": 0.9777
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.6094,
+          "percentil": 0.9783
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 1.6094,
+          "percentil": 0.9447
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 0.2857,
+          "percentil": 0.4327
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1053,
+          "percentil": 0.1001
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.3571,
+          "percentil": 0.9584
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 29.1,
+          "percentil": 0.036
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.1136,
+          "percentil": 0.8629
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.375,
+          "percentil": 0.8126
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 1.4031,
+          "percentil": 0.842
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 12.2397,
+          "percentil": 0.9614
+        }
+      ]
+    },
+    {
+      "cuenta": 55383,
+      "categoria": "acierto",
+      "puesto": 11,
+      "puntaje": 0.918283,
+      "patrones": [
+        "RANDOM"
+      ],
+      "transferencias": 9,
+      "contrapartes": 2,
+      "vecinos": [
+        {
+          "contraparte": 231748,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 13573.56,
+          "lavado": true
+        },
+        {
+          "contraparte": 147629,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 40308.1,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 0.0,
+          "sale": 10077.02,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 10077.02,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 10077.02,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 13573.56,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 0.0,
+          "sale": 10077.02,
+          "n_entra": 0,
+          "n_sale": 2
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 0.6931,
+          "percentil": 0.4089
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 2.1972,
+          "percentil": 0.7662
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 0.6931,
+          "percentil": 0.5171
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 0.6931,
+          "percentil": 0.5867
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.125,
+          "percentil": 0.1535
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.0,
+          "percentil": 0.457
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 96.0,
+          "percentil": 0.543
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.3367,
+          "percentil": 0.9281
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.5,
+          "percentil": 0.8525
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 0.7769,
+          "percentil": 0.6198
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 8.6975,
+          "percentil": 0.8068
+        }
+      ]
+    },
+    {
+      "cuenta": 231748,
+      "categoria": "acierto",
+      "puesto": 11,
+      "puntaje": 0.918283,
+      "patrones": [
+        "RANDOM"
+      ],
+      "transferencias": 41,
+      "contrapartes": 8,
+      "vecinos": [
+        {
+          "contraparte": 55383,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 13573.56,
+          "lavado": true
+        },
+        {
+          "contraparte": 301844,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 12544.36,
+          "lavado": true
+        },
+        {
+          "contraparte": 177472,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 21538.75,
+          "lavado": false
+        },
+        {
+          "contraparte": 231521,
+          "direccion": "entrada",
+          "n": 4,
+          "usd": 9410.8,
+          "lavado": false
+        },
+        {
+          "contraparte": 10843,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 9120.16,
+          "lavado": false
+        },
+        {
+          "contraparte": 232835,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 3334.49,
+          "lavado": false
+        },
+        {
+          "contraparte": 80837,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 1914.28,
+          "lavado": false
+        },
+        {
+          "contraparte": 90831,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 472.68,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 6705.96,
+          "n_entra": 0,
+          "n_sale": 6
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 0.0,
+          "sale": 478.57,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 2352.7,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 0.0,
+          "sale": 596.74,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 2352.7,
+          "sale": 6587.79,
+          "n_entra": 1,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 14897.06,
+          "sale": 118.17,
+          "n_entra": 2,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 0.0,
+          "sale": 7066.36,
+          "n_entra": 0,
+          "n_sale": 6
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 0.0,
+          "sale": 2398.21,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 2352.7,
+          "sale": 16908.05,
+          "n_entra": 1,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 0.0,
+          "sale": 4307.75,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 0.0,
+          "sale": 478.57,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 0.0,
+          "sale": 4307.75,
+          "n_entra": 0,
+          "n_sale": 2
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 1.7918,
+          "percentil": 0.5519
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 3.6109,
+          "percentil": 0.9744
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.0986,
+          "percentil": 0.7962
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 1.9459,
+          "percentil": 0.9816
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 0.4,
+          "percentil": 0.4657
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1667,
+          "percentil": 0.2109
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 29.375,
+          "percentil": 0.0372
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.4395,
+          "percentil": 0.9452
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.25,
+          "percentil": 0.7621
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 1.5622,
+          "percentil": 0.8722
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 7.4702,
+          "percentil": 0.603
+        }
+      ]
+    },
+    {
+      "cuenta": 210892,
+      "categoria": "acierto",
+      "puesto": 26,
+      "puntaje": 0.893598,
+      "patrones": [
+        "CYCLE"
+      ],
+      "transferencias": 26,
+      "contrapartes": 7,
+      "vecinos": [
+        {
+          "contraparte": 177481,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 19442.0,
+          "lavado": true
+        },
+        {
+          "contraparte": 357297,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 18180.87,
+          "lavado": true
+        },
+        {
+          "contraparte": 638206,
+          "direccion": "entrada",
+          "n": 16,
+          "usd": 1232017.65,
+          "lavado": false
+        },
+        {
+          "contraparte": 127911,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 79780.32,
+          "lavado": false
+        },
+        {
+          "contraparte": 631161,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 6834.86,
+          "lavado": false
+        },
+        {
+          "contraparte": 674996,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 137.84,
+          "lavado": false
+        },
+        {
+          "contraparte": 315331,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 43.21,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 308004.41,
+          "sale": 0.0,
+          "n_entra": 4,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 308004.41,
+          "sale": 0.0,
+          "n_entra": 4,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 137.84,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 308004.41,
+          "sale": 0.0,
+          "n_entra": 4,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 43.21,
+          "sale": 6834.86,
+          "n_entra": 1,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 308004.41,
+          "sale": 0.0,
+          "n_entra": 4,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 0.0,
+          "sale": 79780.32,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 18180.87,
+          "sale": 19442.0,
+          "n_entra": 1,
+          "n_sale": 1
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 2.9957,
+          "percentil": 0.945
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 2.0794,
+          "percentil": 0.7421
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.6094,
+          "percentil": 0.9783
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 1.3863,
+          "percentil": 0.9141
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 0.2105,
+          "percentil": 0.358
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.4286,
+          "percentil": 0.282
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.0526,
+          "percentil": 0.9149
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 0.5,
+          "percentil": 0.0002
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.0848,
+          "percentil": 0.8472
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.5714,
+          "percentil": 0.8859
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 0.9623,
+          "percentil": 0.7062
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 10.8623,
+          "percentil": 0.9257
+        }
+      ]
+    },
+    {
+      "cuenta": 554,
+      "categoria": "acierto",
+      "puesto": 31,
+      "puntaje": 0.890263,
+      "patrones": [
+        "RANDOM"
+      ],
+      "transferencias": 32,
+      "contrapartes": 6,
+      "vecinos": [
+        {
+          "contraparte": 370754,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 9311.91,
+          "lavado": true
+        },
+        {
+          "contraparte": 169496,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 9042.92,
+          "lavado": true
+        },
+        {
+          "contraparte": 339939,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 11875.71,
+          "lavado": false
+        },
+        {
+          "contraparte": 676688,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 1954.44,
+          "lavado": false
+        },
+        {
+          "contraparte": 207788,
+          "direccion": "salida",
+          "n": 20,
+          "usd": 1422.49,
+          "lavado": false
+        },
+        {
+          "contraparte": 699547,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 118.3,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 284.5,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 0.0,
+          "sale": 488.61,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 11875.71,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 0.0,
+          "sale": 284.5,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 0.0,
+          "sale": 488.61,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 0.0,
+          "sale": 488.61,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 0.0,
+          "sale": 284.5,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 0.0,
+          "sale": 284.5,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 0.0,
+          "sale": 488.61,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-10 00:00:00",
+          "entra": 118.3,
+          "sale": 284.5,
+          "n_entra": 1,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 9311.91,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 0.0,
+          "sale": 9042.92,
+          "n_entra": 0,
+          "n_sale": 1
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 1.3863,
+          "percentil": 0.5094
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 3.4012,
+          "percentil": 0.9581
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.3863,
+          "percentil": 0.9387
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 1.3863,
+          "percentil": 0.9141
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1034,
+          "percentil": 0.0985
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.3333,
+          "percentil": 0.9552
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 4.5833,
+          "percentil": 0.0021
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.5829,
+          "percentil": 0.9638
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.6667,
+          "percentil": 0.8978
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 2.7808,
+          "percentil": 0.9721
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 6.9612,
+          "percentil": 0.5102
+        }
+      ]
+    },
+    {
+      "cuenta": 370754,
+      "categoria": "acierto",
+      "puesto": 31,
+      "puntaje": 0.890263,
+      "patrones": [
+        "RANDOM"
+      ],
+      "transferencias": 34,
+      "contrapartes": 6,
+      "vecinos": [
+        {
+          "contraparte": 108942,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 9484.22,
+          "lavado": true
+        },
+        {
+          "contraparte": 554,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 9311.91,
+          "lavado": true
+        },
+        {
+          "contraparte": 196684,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 3235561.92,
+          "lavado": false
+        },
+        {
+          "contraparte": 380694,
+          "direccion": "salida",
+          "n": 2,
+          "usd": 639.2,
+          "lavado": false
+        },
+        {
+          "contraparte": 202992,
+          "direccion": "entrada",
+          "n": 10,
+          "usd": 184.58,
+          "lavado": false
+        },
+        {
+          "contraparte": 757,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 0.53,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 0.11,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 0.0,
+          "sale": 647112.38,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 36.92,
+          "sale": 0.0,
+          "n_entra": 2,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 0.0,
+          "sale": 0.11,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 0.0,
+          "sale": 647112.38,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 36.92,
+          "sale": 0.0,
+          "n_entra": 2,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 0.0,
+          "sale": 0.11,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 36.92,
+          "sale": 647112.38,
+          "n_entra": 2,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 0.0,
+          "sale": 647112.49,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 36.92,
+          "sale": 639.2,
+          "n_entra": 2,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-10 00:00:00",
+          "entra": 0.0,
+          "sale": 647112.49,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 9484.22,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 9311.91,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 36.92,
+          "sale": 0.0,
+          "n_entra": 2,
+          "n_sale": 0
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 2.4849,
+          "percentil": 0.7695
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 3.1781,
+          "percentil": 0.9344
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.0986,
+          "percentil": 0.7962
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 1.6094,
+          "percentil": 0.9447
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 0.1818,
+          "percentil": 0.3121
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1739,
+          "percentil": 0.2151
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.0909,
+          "percentil": 0.9196
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 2.9667,
+          "percentil": 0.0013
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.003,
+          "percentil": 0.7448
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.3333,
+          "percentil": 0.7927
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 1.6226,
+          "percentil": 0.8817
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 11.4694,
+          "percentil": 0.9429
+        }
+      ]
+    },
+    {
+      "cuenta": 61582,
+      "categoria": "acierto",
+      "puesto": 33,
+      "puntaje": 0.888637,
+      "patrones": [
+        "CYCLE"
+      ],
+      "transferencias": 3,
+      "contrapartes": 3,
+      "vecinos": [
+        {
+          "contraparte": 89320,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 19247.24,
+          "lavado": true
+        },
+        {
+          "contraparte": 277354,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 19212.15,
+          "lavado": true
+        },
+        {
+          "contraparte": 497668,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 213.16,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 19247.24,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 213.16,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 0.0,
+          "sale": 19212.15,
+          "n_entra": 0,
+          "n_sale": 1
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 1.0986,
+          "percentil": 0.4863
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 0.6931,
+          "percentil": 0.5131
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.0986,
+          "percentil": 0.7962
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 0.6931,
+          "percentil": 0.5867
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 1.0,
+          "percentil": 0.6588
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.5,
+          "percentil": 0.9786
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 31.2167,
+          "percentil": 0.0454
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.9872,
+          "percentil": 0.9991
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.6667,
+          "percentil": 0.8978
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 0.6954,
+          "percentil": 0.5794
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 9.4643,
+          "percentil": 0.8634
+        }
+      ]
+    },
+    {
+      "cuenta": 89320,
+      "categoria": "acierto",
+      "puesto": 33,
+      "puntaje": 0.888637,
+      "patrones": [
+        "CYCLE"
+      ],
+      "transferencias": 74,
+      "contrapartes": 9,
+      "vecinos": [
+        {
+          "contraparte": 61582,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 19247.24,
+          "lavado": true
+        },
+        {
+          "contraparte": 290426,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 17775.84,
+          "lavado": true
+        },
+        {
+          "contraparte": 55286,
+          "direccion": "entrada",
+          "n": 20,
+          "usd": 311537.15,
+          "lavado": false
+        },
+        {
+          "contraparte": 12721,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 28718.96,
+          "lavado": false
+        },
+        {
+          "contraparte": 658107,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 13164.1,
+          "lavado": false
+        },
+        {
+          "contraparte": 134536,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 3611.08,
+          "lavado": false
+        },
+        {
+          "contraparte": 16973,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 2889.24,
+          "lavado": false
+        },
+        {
+          "contraparte": 232311,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 1232.7,
+          "lavado": false
+        },
+        {
+          "contraparte": 29104,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 865.76,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 2849.26,
+          "n_entra": 0,
+          "n_sale": 5
+        },
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 0.0,
+          "sale": 722.31,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 0.0,
+          "sale": 7426.28,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 62307.43,
+          "sale": 0.0,
+          "n_entra": 4,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 0.0,
+          "sale": 3571.57,
+          "n_entra": 0,
+          "n_sale": 7
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 62307.43,
+          "sale": 246.54,
+          "n_entra": 4,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 0.0,
+          "sale": 7179.74,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 0.0,
+          "sale": 2632.82,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 0.0,
+          "sale": 8365.03,
+          "n_entra": 0,
+          "n_sale": 8
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 62307.43,
+          "sale": 0.0,
+          "n_entra": 4,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 62307.43,
+          "sale": 938.75,
+          "n_entra": 4,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 17775.84,
+          "sale": 19493.78,
+          "n_entra": 1,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 0.0,
+          "sale": 13423.64,
+          "n_entra": 0,
+          "n_sale": 8
+        },
+        {
+          "inicio": "2022-09-10 00:00:00",
+          "entra": 0.0,
+          "sale": 246.54,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 2632.82,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 62307.43,
+          "sale": 0.0,
+          "n_entra": 4,
+          "n_sale": 0
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 3.091,
+          "percentil": 0.9666
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 3.989,
+          "percentil": 0.9922
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.0986,
+          "percentil": 0.7962
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 2.0794,
+          "percentil": 0.9894
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 0.0952,
+          "percentil": 0.0649
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1321,
+          "percentil": 0.1847
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.0476,
+          "percentil": 0.9146
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 0.5167,
+          "percentil": 0.0002
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.2117,
+          "percentil": 0.8992
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.2222,
+          "percentil": 0.7524
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 1.6948,
+          "percentil": 0.892
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 8.5929,
+          "percentil": 0.797
+        }
+      ]
+    },
+    {
+      "cuenta": 119920,
+      "categoria": "falsa_alarma",
+      "puesto": 5,
+      "puntaje": 0.928554,
+      "patrones": [],
+      "transferencias": 21,
+      "contrapartes": 5,
+      "vecinos": [
+        {
+          "contraparte": 16922,
+          "direccion": "salida",
+          "n": 2,
+          "usd": 31542.32,
+          "lavado": false
+        },
+        {
+          "contraparte": 8007,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 14051.16,
+          "lavado": false
+        },
+        {
+          "contraparte": 51525,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 7705.92,
+          "lavado": false
+        },
+        {
+          "contraparte": 271510,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 4733.06,
+          "lavado": false
+        },
+        {
+          "contraparte": 271510,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 4070.68,
+          "lavado": false
+        },
+        {
+          "contraparte": 134619,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 593.46,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 1926.48,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 0.0,
+          "sale": 3512.79,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 0.0,
+          "sale": 10172.33,
+          "n_entra": 0,
+          "n_sale": 5
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 0.0,
+          "sale": 5439.27,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 4664.14,
+          "sale": 0.0,
+          "n_entra": 2,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 0.0,
+          "sale": 35055.11,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 0.0,
+          "sale": 1926.48,
+          "n_entra": 0,
+          "n_sale": 2
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 1.0986,
+          "percentil": 0.4863
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 2.9957,
+          "percentil": 0.9093
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.0986,
+          "percentil": 0.7962
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 1.6094,
+          "percentil": 0.9447
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.2105,
+          "percentil": 0.2364
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.5,
+          "percentil": 0.9786
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 17.3167,
+          "percentil": 0.0087
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.0804,
+          "percentil": 0.8445
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.4,
+          "percentil": 0.8155
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 1.5727,
+          "percentil": 0.8739
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 8.0019,
+          "percentil": 0.7054
+        }
+      ]
+    },
+    {
+      "cuenta": 134619,
+      "categoria": "falsa_alarma",
+      "puesto": 5,
+      "puntaje": 0.928554,
+      "patrones": [],
+      "transferencias": 18,
+      "contrapartes": 4,
+      "vecinos": [
+        {
+          "contraparte": 271510,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 4238.22,
+          "lavado": false
+        },
+        {
+          "contraparte": 119926,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 3006.32,
+          "lavado": false
+        },
+        {
+          "contraparte": 232535,
+          "direccion": "entrada",
+          "n": 8,
+          "usd": 2844.04,
+          "lavado": false
+        },
+        {
+          "contraparte": 119920,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 593.46,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 711.01,
+          "sale": 751.58,
+          "n_entra": 2,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 0.0,
+          "sale": 4989.8,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 711.01,
+          "sale": 0.0,
+          "n_entra": 2,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 0.0,
+          "sale": 751.58,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 711.01,
+          "sale": 0.0,
+          "n_entra": 2,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 593.46,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 711.01,
+          "sale": 751.58,
+          "n_entra": 2,
+          "n_sale": 2
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 2.1972,
+          "percentil": 0.6187
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 2.3979,
+          "percentil": 0.8144
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 0.6931,
+          "percentil": 0.5171
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 1.3863,
+          "percentil": 0.9141
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 0.125,
+          "percentil": 0.1963
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.3,
+          "percentil": 0.2647
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.375,
+          "percentil": 0.9617
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 24.7167,
+          "percentil": 0.0197
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.3629,
+          "percentil": 0.9328
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.5,
+          "percentil": 0.8525
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 1.5089,
+          "percentil": 0.8631
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 6.3876,
+          "percentil": 0.4117
+        }
+      ]
+    },
+    {
+      "cuenta": 55371,
+      "categoria": "falsa_alarma",
+      "puesto": 13,
+      "puntaje": 0.911985,
+      "patrones": [],
+      "transferencias": 48,
+      "contrapartes": 7,
+      "vecinos": [
+        {
+          "contraparte": 356550,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 11442.8,
+          "lavado": false
+        },
+        {
+          "contraparte": 178286,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 9403.8,
+          "lavado": false
+        },
+        {
+          "contraparte": 55455,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 7652.4,
+          "lavado": false
+        },
+        {
+          "contraparte": 92880,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 4148.75,
+          "lavado": false
+        },
+        {
+          "contraparte": 229468,
+          "direccion": "salida",
+          "n": 2,
+          "usd": 3210.25,
+          "lavado": false
+        },
+        {
+          "contraparte": 301764,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 3063.52,
+          "lavado": false
+        },
+        {
+          "contraparte": 132108,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 2631.4,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 4773.8,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 0.0,
+          "sale": 829.75,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 0.0,
+          "sale": 2538.61,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 0.0,
+          "sale": 4741.46,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 0.0,
+          "sale": 2570.95,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 829.75,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 0.0,
+          "sale": 4741.46,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 3063.52,
+          "sale": 1913.1,
+          "n_entra": 1,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 1487.6,
+          "n_entra": 0,
+          "n_sale": 5
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 0.0,
+          "sale": 3793.86,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 0.0,
+          "sale": 1487.6,
+          "n_entra": 0,
+          "n_sale": 5
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 0.0,
+          "sale": 6070.95,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 2710.51,
+          "n_entra": 0,
+          "n_sale": 5
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 0.6931,
+          "percentil": 0.4089
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 3.8712,
+          "percentil": 0.988
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 0.6931,
+          "percentil": 0.5171
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 1.9459,
+          "percentil": 0.9816
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1277,
+          "percentil": 0.1819
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 31.7167,
+          "percentil": 0.0478
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.0796,
+          "percentil": 0.844
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.1429,
+          "percentil": 0.737
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 0.9329,
+          "percentil": 0.6921
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 6.7647,
+          "percentil": 0.478
+        }
+      ]
+    },
+    {
+      "cuenta": 301764,
+      "categoria": "falsa_alarma",
+      "puesto": 13,
+      "puntaje": 0.911985,
+      "patrones": [],
+      "transferencias": 45,
+      "contrapartes": 7,
+      "vecinos": [
+        {
+          "contraparte": 229277,
+          "direccion": "entrada",
+          "n": 4,
+          "usd": 101383.24,
+          "lavado": false
+        },
+        {
+          "contraparte": 694695,
+          "direccion": "entrada",
+          "n": 12,
+          "usd": 58538.56,
+          "lavado": false
+        },
+        {
+          "contraparte": 207379,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 25626.64,
+          "lavado": false
+        },
+        {
+          "contraparte": 112063,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 11833.45,
+          "lavado": false
+        },
+        {
+          "contraparte": 55371,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 3063.52,
+          "lavado": false
+        },
+        {
+          "contraparte": 231621,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 1113.04,
+          "lavado": false
+        },
+        {
+          "contraparte": 232006,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 850.55,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 2366.69,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 25345.81,
+          "sale": 170.11,
+          "n_entra": 1,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 14634.64,
+          "sale": 6406.66,
+          "n_entra": 3,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 14634.64,
+          "sale": 0.0,
+          "n_entra": 3,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 25345.81,
+          "sale": 2536.8,
+          "n_entra": 1,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 6406.66,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 25345.81,
+          "sale": 2366.69,
+          "n_entra": 1,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 14634.64,
+          "sale": 3233.63,
+          "n_entra": 3,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 6406.66,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 39980.45,
+          "sale": 0.0,
+          "n_entra": 4,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 0.0,
+          "sale": 1283.15,
+          "n_entra": 0,
+          "n_sale": 7
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 0.0,
+          "sale": 8773.35,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 0.0,
+          "sale": 2366.69,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 170.11,
+          "n_entra": 0,
+          "n_sale": 2
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 2.8332,
+          "percentil": 0.8985
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 3.4012,
+          "percentil": 0.9581
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.0986,
+          "percentil": 0.7962
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 1.7918,
+          "percentil": 0.9667
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 0.125,
+          "percentil": 0.1963
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1724,
+          "percentil": 0.2148
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.5,
+          "percentil": 0.9786
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 29.0083,
+          "percentil": 0.0356
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.2657,
+          "percentil": 0.9132
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.1429,
+          "percentil": 0.737
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 1.5641,
+          "percentil": 0.8725
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 8.4116,
+          "percentil": 0.7732
+        }
+      ]
+    },
+    {
+      "cuenta": 335867,
+      "categoria": "falsa_alarma",
+      "puesto": 15,
+      "puntaje": 0.910961,
+      "patrones": [],
+      "transferencias": 7,
+      "contrapartes": 4,
+      "vecinos": [
+        {
+          "contraparte": 19769,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 12745.87,
+          "lavado": false
+        },
+        {
+          "contraparte": 210989,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 4806.99,
+          "lavado": false
+        },
+        {
+          "contraparte": 335868,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 4559.46,
+          "lavado": false
+        },
+        {
+          "contraparte": 335868,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 3198.36,
+          "lavado": false
+        },
+        {
+          "contraparte": 19381,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 2627.78,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 3198.36,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 11994.22,
+          "sale": 0.0,
+          "n_entra": 3,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 0.0,
+          "sale": 12745.87,
+          "n_entra": 0,
+          "n_sale": 3
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 1.3863,
+          "percentil": 0.5094
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 1.6094,
+          "percentil": 0.704
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.3863,
+          "percentil": 0.9387
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 1.0986,
+          "percentil": 0.8532
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.5,
+          "percentil": 0.2929
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.6667,
+          "percentil": 0.9888
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 26.55,
+          "percentil": 0.0256
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.7523,
+          "percentil": 0.9808
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.75,
+          "percentil": 0.9073
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 0.2134,
+          "percentil": 0.4013
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 8.2921,
+          "percentil": 0.7547
+        }
+      ]
+    },
+    {
+      "cuenta": 335868,
+      "categoria": "falsa_alarma",
+      "puesto": 15,
+      "puntaje": 0.910961,
+      "patrones": [],
+      "transferencias": 4,
+      "contrapartes": 3,
+      "vecinos": [
+        {
+          "contraparte": 19381,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 4981.9,
+          "lavado": false
+        },
+        {
+          "contraparte": 335867,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 4559.46,
+          "lavado": false
+        },
+        {
+          "contraparte": 335867,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 3198.36,
+          "lavado": false
+        },
+        {
+          "contraparte": 210989,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 2348.59,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 10528.85,
+          "sale": 0.0,
+          "n_entra": 3,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 0.0,
+          "sale": 4559.46,
+          "n_entra": 0,
+          "n_sale": 1
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 1.3863,
+          "percentil": 0.5094
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 0.6931,
+          "percentil": 0.5131
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.3863,
+          "percentil": 0.9387
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 0.6931,
+          "percentil": 0.5867
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 1.0,
+          "percentil": 0.6588
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.3333,
+          "percentil": 0.9552
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 20.4667,
+          "percentil": 0.0116
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.433,
+          "percentil": 0.9442
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 1.0,
+          "percentil": 0.959
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 0.2793,
+          "percentil": 0.4164
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 8.2356,
+          "percentil": 0.7457
+        }
+      ]
+    },
+    {
+      "cuenta": 225525,
+      "categoria": "falsa_alarma",
+      "puesto": 17,
+      "puntaje": 0.908295,
+      "patrones": [],
+      "transferencias": 14,
+      "contrapartes": 3,
+      "vecinos": [
+        {
+          "contraparte": 638712,
+          "direccion": "entrada",
+          "n": 4,
+          "usd": 25063.77,
+          "lavado": false
+        },
+        {
+          "contraparte": 484800,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 4710.71,
+          "lavado": false
+        },
+        {
+          "contraparte": 484800,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 4240.74,
+          "lavado": false
+        },
+        {
+          "contraparte": 335480,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 2723.49,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 6265.94,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 0.0,
+          "sale": 680.87,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 6265.94,
+          "sale": 680.87,
+          "n_entra": 1,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 6265.94,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 0.0,
+          "sale": 4240.74,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 680.87,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 6265.94,
+          "sale": 680.87,
+          "n_entra": 1,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 4710.71,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 1.7918,
+          "percentil": 0.5519
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 2.3026,
+          "percentil": 0.793
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 1.0986,
+          "percentil": 0.7962
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 1.0986,
+          "percentil": 0.8532
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 0.4,
+          "percentil": 0.4657
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.2222,
+          "percentil": 0.2406
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.0,
+          "percentil": 0.457
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 96.0,
+          "percentil": 0.543
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.2339,
+          "percentil": 0.9055
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.3333,
+          "percentil": 0.7927
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 1.0274,
+          "percentil": 0.7351
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 7.8729,
+          "percentil": 0.6819
+        }
+      ]
+    },
+    {
+      "cuenta": 484800,
+      "categoria": "falsa_alarma",
+      "puesto": 17,
+      "puntaje": 0.908295,
+      "patrones": [],
+      "transferencias": 2,
+      "contrapartes": 1,
+      "vecinos": [
+        {
+          "contraparte": 225525,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 4710.71,
+          "lavado": false
+        },
+        {
+          "contraparte": 225525,
+          "direccion": "entrada",
+          "n": 1,
+          "usd": 4240.74,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 4240.74,
+          "sale": 0.0,
+          "n_entra": 1,
+          "n_sale": 0
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 0.0,
+          "sale": 4710.71,
+          "n_entra": 0,
+          "n_sale": 1
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 0.6931,
+          "percentil": 0.4089
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 0.6931,
+          "percentil": 0.5131
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 0.6931,
+          "percentil": 0.5171
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 0.6931,
+          "percentil": 0.5867
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 1.0,
+          "percentil": 0.6588
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 54.7333,
+          "percentil": 0.0845
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.9002,
+          "percentil": 0.9927
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 1.0,
+          "percentil": 0.959
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 0.0525,
+          "percentil": 0.3723
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 8.4066,
+          "percentil": 0.7725
+        }
+      ]
+    },
+    {
+      "cuenta": 694695,
+      "categoria": "no_detectado",
+      "puesto": 41915,
+      "puntaje": 0.158516,
+      "patrones": [
+        "sin patrón"
+      ],
+      "transferencias": 113838,
+      "contrapartes": 15265,
+      "vecinos": [
+        {
+          "contraparte": 350462,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 58890366.96,
+          "lavado": true
+        },
+        {
+          "contraparte": 296274,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 9943318.85,
+          "lavado": true
+        },
+        {
+          "contraparte": 123799,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 5637463.36,
+          "lavado": true
+        },
+        {
+          "contraparte": 319914,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 3551284.3,
+          "lavado": true
+        },
+        {
+          "contraparte": 291937,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 3486013.44,
+          "lavado": true
+        },
+        {
+          "contraparte": 315270,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 2715608.45,
+          "lavado": true
+        },
+        {
+          "contraparte": 453242,
+          "direccion": "salida",
+          "n": 18,
+          "usd": 2599170.72,
+          "lavado": true
+        },
+        {
+          "contraparte": 386697,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 1219443.5,
+          "lavado": true
+        },
+        {
+          "contraparte": 45384,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 1131409.36,
+          "lavado": true
+        },
+        {
+          "contraparte": 649032,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 602049.53,
+          "lavado": true
+        },
+        {
+          "contraparte": 351045,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 554209.24,
+          "lavado": true
+        },
+        {
+          "contraparte": 161533,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 403620.56,
+          "lavado": true
+        },
+        {
+          "contraparte": 284501,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 302695.72,
+          "lavado": true
+        },
+        {
+          "contraparte": 253318,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 292408.15,
+          "lavado": true
+        },
+        {
+          "contraparte": 419470,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 219217.16,
+          "lavado": true
+        },
+        {
+          "contraparte": 15764,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 196384.64,
+          "lavado": true
+        },
+        {
+          "contraparte": 252620,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 195632.92,
+          "lavado": true
+        },
+        {
+          "contraparte": 130464,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 136344.5,
+          "lavado": true
+        },
+        {
+          "contraparte": 80934,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 127830.25,
+          "lavado": true
+        },
+        {
+          "contraparte": 63521,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 116797.4,
+          "lavado": true
+        },
+        {
+          "contraparte": 306728,
+          "direccion": "salida",
+          "n": 18,
+          "usd": 110067.35,
+          "lavado": true
+        },
+        {
+          "contraparte": 38370,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 107154.1,
+          "lavado": true
+        },
+        {
+          "contraparte": 48841,
+          "direccion": "salida",
+          "n": 2,
+          "usd": 105695.84,
+          "lavado": true
+        },
+        {
+          "contraparte": 86441,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 77322.48,
+          "lavado": true
+        },
+        {
+          "contraparte": 335388,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 77212.28,
+          "lavado": true
+        },
+        {
+          "contraparte": 207256,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 75650.0,
+          "lavado": true
+        },
+        {
+          "contraparte": 647975,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 65183.1,
+          "lavado": true
+        },
+        {
+          "contraparte": 657797,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 58890.04,
+          "lavado": true
+        },
+        {
+          "contraparte": 663195,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 55159.36,
+          "lavado": true
+        },
+        {
+          "contraparte": 177967,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 52824.95,
+          "lavado": true
+        },
+        {
+          "contraparte": 28550,
+          "direccion": "salida",
+          "n": 18,
+          "usd": 47800.78,
+          "lavado": true
+        },
+        {
+          "contraparte": 292977,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 47091.28,
+          "lavado": true
+        },
+        {
+          "contraparte": 350963,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 44597.88,
+          "lavado": true
+        },
+        {
+          "contraparte": 216026,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 33763.95,
+          "lavado": true
+        },
+        {
+          "contraparte": 567075,
+          "direccion": "salida",
+          "n": 2,
+          "usd": 29264.95,
+          "lavado": true
+        },
+        {
+          "contraparte": 704367,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 29049.5,
+          "lavado": true
+        },
+        {
+          "contraparte": 279682,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 28058.0,
+          "lavado": true
+        },
+        {
+          "contraparte": 319488,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 24308.85,
+          "lavado": true
+        },
+        {
+          "contraparte": 287873,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 24302.12,
+          "lavado": true
+        },
+        {
+          "contraparte": 332741,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 23847.65,
+          "lavado": true
+        }
+      ],
+      "vecinos_omitidos": 15225,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 749240173.69,
+          "n_entra": 0,
+          "n_sale": 5955
+        },
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 0.0,
+          "sale": 1017252595.46,
+          "n_entra": 0,
+          "n_sale": 6195
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 0.0,
+          "sale": 574011313.46,
+          "n_entra": 0,
+          "n_sale": 6196
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 0.0,
+          "sale": 1742237702.05,
+          "n_entra": 0,
+          "n_sale": 6211
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 0.0,
+          "sale": 1096188696.83,
+          "n_entra": 0,
+          "n_sale": 6021
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 0.0,
+          "sale": 1185749017.34,
+          "n_entra": 0,
+          "n_sale": 6334
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 0.0,
+          "sale": 1028777586.38,
+          "n_entra": 0,
+          "n_sale": 6079
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 772026484.11,
+          "n_entra": 0,
+          "n_sale": 6123
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 0.0,
+          "sale": 1350406829.53,
+          "n_entra": 0,
+          "n_sale": 6140
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 0.0,
+          "sale": 1092836981.86,
+          "n_entra": 0,
+          "n_sale": 6147
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 0.0,
+          "sale": 697718669.47,
+          "n_entra": 0,
+          "n_sale": 6171
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 941779303.8,
+          "n_entra": 0,
+          "n_sale": 6099
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 85333.3,
+          "sale": 1746837880.67,
+          "n_entra": 195,
+          "n_sale": 7231
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 107528.26,
+          "sale": 1887386899.56,
+          "n_entra": 202,
+          "n_sale": 7511
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 71290.44,
+          "sale": 1047272017.16,
+          "n_entra": 189,
+          "n_sale": 7422
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 72153.52,
+          "sale": 3190829065.16,
+          "n_entra": 181,
+          "n_sale": 7467
+        },
+        {
+          "inicio": "2022-09-10 00:00:00",
+          "entra": 0.0,
+          "sale": 219212086.72,
+          "n_entra": 0,
+          "n_sale": 2379
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 0.0,
+          "sale": 449394012.56,
+          "n_entra": 0,
+          "n_sale": 2540
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 299606723.99,
+          "n_entra": 0,
+          "n_sale": 2412
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 0.0,
+          "sale": 601411746.04,
+          "n_entra": 0,
+          "n_sale": 2438
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 6.6438,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 11.6358,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 6.6438,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 9.5818,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1282,
+          "percentil": 0.1822
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 12.5833,
+          "percentil": 0.0059
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.0,
+          "percentil": 0.7133
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.0,
+          "percentil": 0.3664
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 30.4719,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 12.1576,
+          "percentil": 0.9596
+        }
+      ]
+    },
+    {
+      "cuenta": 694696,
+      "categoria": "no_detectado",
+      "puesto": 42434,
+      "puntaje": 0.156286,
+      "patrones": [
+        "sin patrón"
+      ],
+      "transferencias": 71088,
+      "contrapartes": 9507,
+      "vecinos": [
+        {
+          "contraparte": 103774,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 10737424.93,
+          "lavado": true
+        },
+        {
+          "contraparte": 201924,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 6658316.35,
+          "lavado": true
+        },
+        {
+          "contraparte": 353052,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 4433361.18,
+          "lavado": true
+        },
+        {
+          "contraparte": 19737,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 2842795.88,
+          "lavado": true
+        },
+        {
+          "contraparte": 303374,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 2661404.53,
+          "lavado": true
+        },
+        {
+          "contraparte": 232281,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 2403779.91,
+          "lavado": true
+        },
+        {
+          "contraparte": 210479,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 1167114.56,
+          "lavado": true
+        },
+        {
+          "contraparte": 294763,
+          "direccion": "salida",
+          "n": 19,
+          "usd": 1147682.18,
+          "lavado": true
+        },
+        {
+          "contraparte": 294197,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 834237.36,
+          "lavado": true
+        },
+        {
+          "contraparte": 410768,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 542449.75,
+          "lavado": true
+        },
+        {
+          "contraparte": 313773,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 401811.87,
+          "lavado": true
+        },
+        {
+          "contraparte": 123136,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 382587.87,
+          "lavado": true
+        },
+        {
+          "contraparte": 222830,
+          "direccion": "salida",
+          "n": 20,
+          "usd": 300950.82,
+          "lavado": true
+        },
+        {
+          "contraparte": 224136,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 298147.43,
+          "lavado": true
+        },
+        {
+          "contraparte": 20089,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 138374.45,
+          "lavado": true
+        },
+        {
+          "contraparte": 1137,
+          "direccion": "salida",
+          "n": 22,
+          "usd": 100331.7,
+          "lavado": true
+        },
+        {
+          "contraparte": 310021,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 79726.4,
+          "lavado": true
+        },
+        {
+          "contraparte": 41904,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 79026.76,
+          "lavado": true
+        },
+        {
+          "contraparte": 677054,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 78218.97,
+          "lavado": true
+        },
+        {
+          "contraparte": 705810,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 72228.15,
+          "lavado": true
+        },
+        {
+          "contraparte": 333877,
+          "direccion": "salida",
+          "n": 6,
+          "usd": 69041.19,
+          "lavado": true
+        },
+        {
+          "contraparte": 284790,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 68184.4,
+          "lavado": true
+        },
+        {
+          "contraparte": 702162,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 65354.64,
+          "lavado": true
+        },
+        {
+          "contraparte": 265333,
+          "direccion": "salida",
+          "n": 9,
+          "usd": 63916.45,
+          "lavado": true
+        },
+        {
+          "contraparte": 614717,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 55039.4,
+          "lavado": true
+        },
+        {
+          "contraparte": 152011,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 40225.0,
+          "lavado": true
+        },
+        {
+          "contraparte": 656737,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 39372.76,
+          "lavado": true
+        },
+        {
+          "contraparte": 72163,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 38488.51,
+          "lavado": true
+        },
+        {
+          "contraparte": 198836,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 36831.04,
+          "lavado": true
+        },
+        {
+          "contraparte": 31627,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 27252.15,
+          "lavado": true
+        },
+        {
+          "contraparte": 276362,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 23846.74,
+          "lavado": true
+        },
+        {
+          "contraparte": 187470,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 22269.9,
+          "lavado": true
+        },
+        {
+          "contraparte": 393679,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 20581.62,
+          "lavado": true
+        },
+        {
+          "contraparte": 95569,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 17976.76,
+          "lavado": true
+        },
+        {
+          "contraparte": 159576,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 14713.83,
+          "lavado": true
+        },
+        {
+          "contraparte": 159544,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 14222.35,
+          "lavado": true
+        },
+        {
+          "contraparte": 141336,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 13768.19,
+          "lavado": true
+        },
+        {
+          "contraparte": 50279,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 11281.17,
+          "lavado": true
+        },
+        {
+          "contraparte": 700299,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 10091.09,
+          "lavado": true
+        },
+        {
+          "contraparte": 27732,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 7848.68,
+          "lavado": true
+        }
+      ],
+      "vecinos_omitidos": 9467,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 869054430.05,
+          "n_entra": 0,
+          "n_sale": 3834
+        },
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 0.0,
+          "sale": 936673722.6,
+          "n_entra": 0,
+          "n_sale": 3793
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 0.0,
+          "sale": 1100084163.63,
+          "n_entra": 0,
+          "n_sale": 3805
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 0.0,
+          "sale": 717923750.71,
+          "n_entra": 0,
+          "n_sale": 3881
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 0.0,
+          "sale": 315854846.37,
+          "n_entra": 0,
+          "n_sale": 3844
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 0.0,
+          "sale": 1734765864.64,
+          "n_entra": 0,
+          "n_sale": 3829
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 0.0,
+          "sale": 517586259.97,
+          "n_entra": 0,
+          "n_sale": 3812
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 1055529096.02,
+          "n_entra": 0,
+          "n_sale": 3828
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 0.0,
+          "sale": 885303063.15,
+          "n_entra": 0,
+          "n_sale": 3748
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 0.0,
+          "sale": 741199014.27,
+          "n_entra": 0,
+          "n_sale": 3777
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 0.0,
+          "sale": 1069186664.05,
+          "n_entra": 0,
+          "n_sale": 3812
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 928047325.53,
+          "n_entra": 0,
+          "n_sale": 3976
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 85037.1,
+          "sale": 743180529.74,
+          "n_entra": 113,
+          "n_sale": 4578
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 51240.67,
+          "sale": 675987823.45,
+          "n_entra": 116,
+          "n_sale": 4670
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 53515.38,
+          "sale": 1689801666.49,
+          "n_entra": 135,
+          "n_sale": 4691
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 53419.07,
+          "sale": 1621106293.59,
+          "n_entra": 109,
+          "n_sale": 4592
+        },
+        {
+          "inicio": "2022-09-10 00:00:00",
+          "entra": 0.0,
+          "sale": 146655972.9,
+          "n_entra": 0,
+          "n_sale": 1623
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 0.0,
+          "sale": 147134369.85,
+          "n_entra": 0,
+          "n_sale": 1533
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 240426262.52,
+          "n_entra": 0,
+          "n_sale": 1489
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 0.0,
+          "sale": 293771092.15,
+          "n_entra": 0,
+          "n_sale": 1500
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 6.1612,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 11.165,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 6.1612,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 9.1089,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1279,
+          "percentil": 0.182
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 12.3,
+          "percentil": 0.0057
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.0,
+          "percentil": 0.7132
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.0,
+          "percentil": 0.3664
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 20.439,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 12.3507,
+          "percentil": 0.9638
+        }
+      ]
+    },
+    {
+      "cuenta": 694697,
+      "categoria": "no_detectado",
+      "puesto": 36890,
+      "puntaje": 0.183015,
+      "patrones": [
+        "sin patrón"
+      ],
+      "transferencias": 21808,
+      "contrapartes": 2941,
+      "vecinos": [
+        {
+          "contraparte": 315534,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 2192621.35,
+          "lavado": true
+        },
+        {
+          "contraparte": 236887,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 863312.88,
+          "lavado": true
+        },
+        {
+          "contraparte": 710222,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 174890.12,
+          "lavado": true
+        },
+        {
+          "contraparte": 10253,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 141399.34,
+          "lavado": true
+        },
+        {
+          "contraparte": 93330,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 47851.98,
+          "lavado": true
+        },
+        {
+          "contraparte": 92685,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 31476.39,
+          "lavado": true
+        },
+        {
+          "contraparte": 1969,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 26629.27,
+          "lavado": true
+        },
+        {
+          "contraparte": 238642,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 19046.35,
+          "lavado": true
+        },
+        {
+          "contraparte": 668923,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 6416.22,
+          "lavado": true
+        },
+        {
+          "contraparte": 84994,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 6409.94,
+          "lavado": true
+        },
+        {
+          "contraparte": 6857,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 6162.86,
+          "lavado": true
+        },
+        {
+          "contraparte": 130445,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 5442.08,
+          "lavado": true
+        },
+        {
+          "contraparte": 242517,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 5106.51,
+          "lavado": true
+        },
+        {
+          "contraparte": 2862,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 4760.27,
+          "lavado": true
+        },
+        {
+          "contraparte": 414376,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 3615.27,
+          "lavado": true
+        },
+        {
+          "contraparte": 692196,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 1387.8,
+          "lavado": true
+        },
+        {
+          "contraparte": 183267,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 1229.59,
+          "lavado": true
+        },
+        {
+          "contraparte": 423629,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 1038.09,
+          "lavado": true
+        },
+        {
+          "contraparte": 691804,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 937.13,
+          "lavado": true
+        },
+        {
+          "contraparte": 692991,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 741.31,
+          "lavado": true
+        },
+        {
+          "contraparte": 17893,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 145.33,
+          "lavado": true
+        },
+        {
+          "contraparte": 236953,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 1217338470.08,
+          "lavado": false
+        },
+        {
+          "contraparte": 7069,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 374143365.07,
+          "lavado": false
+        },
+        {
+          "contraparte": 396477,
+          "direccion": "salida",
+          "n": 7,
+          "usd": 339153899.46,
+          "lavado": false
+        },
+        {
+          "contraparte": 423969,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 293624108.57,
+          "lavado": false
+        },
+        {
+          "contraparte": 408393,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 186723534.55,
+          "lavado": false
+        },
+        {
+          "contraparte": 25494,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 153177634.48,
+          "lavado": false
+        },
+        {
+          "contraparte": 243489,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 135210044.86,
+          "lavado": false
+        },
+        {
+          "contraparte": 396676,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 126286359.34,
+          "lavado": false
+        },
+        {
+          "contraparte": 57506,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 122726978.76,
+          "lavado": false
+        },
+        {
+          "contraparte": 668847,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 121594621.05,
+          "lavado": false
+        },
+        {
+          "contraparte": 710605,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 104132103.91,
+          "lavado": false
+        },
+        {
+          "contraparte": 711830,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 100859429.53,
+          "lavado": false
+        },
+        {
+          "contraparte": 220462,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 88817621.59,
+          "lavado": false
+        },
+        {
+          "contraparte": 7531,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 82013571.14,
+          "lavado": false
+        },
+        {
+          "contraparte": 26278,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 64515184.89,
+          "lavado": false
+        },
+        {
+          "contraparte": 422939,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 59944417.96,
+          "lavado": false
+        },
+        {
+          "contraparte": 114740,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 58278136.03,
+          "lavado": false
+        },
+        {
+          "contraparte": 93041,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 58242965.97,
+          "lavado": false
+        },
+        {
+          "contraparte": 688471,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 50809416.14,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 2901,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 208960072.37,
+          "n_entra": 0,
+          "n_sale": 1156
+        },
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 0.0,
+          "sale": 182466192.66,
+          "n_entra": 0,
+          "n_sale": 1174
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 0.0,
+          "sale": 141783972.69,
+          "n_entra": 0,
+          "n_sale": 1192
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 0.0,
+          "sale": 420729984.61,
+          "n_entra": 0,
+          "n_sale": 1189
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 0.0,
+          "sale": 76256759.2,
+          "n_entra": 0,
+          "n_sale": 1219
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 0.0,
+          "sale": 92055458.68,
+          "n_entra": 0,
+          "n_sale": 1142
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 0.0,
+          "sale": 670560797.06,
+          "n_entra": 0,
+          "n_sale": 1171
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 115067207.4,
+          "n_entra": 0,
+          "n_sale": 1179
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 0.0,
+          "sale": 253898194.62,
+          "n_entra": 0,
+          "n_sale": 1121
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 0.0,
+          "sale": 122809437.72,
+          "n_entra": 0,
+          "n_sale": 1291
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 0.0,
+          "sale": 105024242.5,
+          "n_entra": 0,
+          "n_sale": 1093
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 472208347.5,
+          "n_entra": 0,
+          "n_sale": 1206
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 12843.47,
+          "sale": 351390131.23,
+          "n_entra": 37,
+          "n_sale": 1389
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 12157.84,
+          "sale": 179640791.86,
+          "n_entra": 38,
+          "n_sale": 1490
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 60332.64,
+          "sale": 361506283.02,
+          "n_entra": 43,
+          "n_sale": 1364
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 20838.18,
+          "sale": 952325658.34,
+          "n_entra": 51,
+          "n_sale": 1410
+        },
+        {
+          "inicio": "2022-09-10 00:00:00",
+          "entra": 0.0,
+          "sale": 61353643.3,
+          "n_entra": 0,
+          "n_sale": 437
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 0.0,
+          "sale": 18041509.97,
+          "n_entra": 0,
+          "n_sale": 443
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 52433441.32,
+          "n_entra": 0,
+          "n_sale": 489
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 0.0,
+          "sale": 36862503.88,
+          "n_entra": 0,
+          "n_sale": 484
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 5.1358,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 9.9823,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 5.1358,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 7.9277,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1281,
+          "percentil": 0.182
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 12.6667,
+          "percentil": 0.0059
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.0,
+          "percentil": 0.7138
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.0,
+          "percentil": 0.3664
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 18.7232,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 12.3175,
+          "percentil": 0.9631
+        }
+      ]
+    },
+    {
+      "cuenta": 694699,
+      "categoria": "no_detectado",
+      "puesto": 39328,
+      "puntaje": 0.17042,
+      "patrones": [
+        "sin patrón"
+      ],
+      "transferencias": 15724,
+      "contrapartes": 2112,
+      "vecinos": [
+        {
+          "contraparte": 310498,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 1130575.63,
+          "lavado": true
+        },
+        {
+          "contraparte": 360542,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 55262.52,
+          "lavado": true
+        },
+        {
+          "contraparte": 351302,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 37757.69,
+          "lavado": true
+        },
+        {
+          "contraparte": 313623,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 27699.9,
+          "lavado": true
+        },
+        {
+          "contraparte": 296118,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 19238.18,
+          "lavado": true
+        },
+        {
+          "contraparte": 81784,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 18803.46,
+          "lavado": true
+        },
+        {
+          "contraparte": 77617,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 14342.88,
+          "lavado": true
+        },
+        {
+          "contraparte": 53488,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 5097.41,
+          "lavado": true
+        },
+        {
+          "contraparte": 361929,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 5070.57,
+          "lavado": true
+        },
+        {
+          "contraparte": 672394,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 4821.37,
+          "lavado": true
+        },
+        {
+          "contraparte": 223866,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 2816.56,
+          "lavado": true
+        },
+        {
+          "contraparte": 86648,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 1374.37,
+          "lavado": true
+        },
+        {
+          "contraparte": 299861,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 1163.1,
+          "lavado": true
+        },
+        {
+          "contraparte": 73179,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 729.96,
+          "lavado": true
+        },
+        {
+          "contraparte": 300746,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 728.64,
+          "lavado": true
+        },
+        {
+          "contraparte": 53124,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 845356955.45,
+          "lavado": false
+        },
+        {
+          "contraparte": 309802,
+          "direccion": "salida",
+          "n": 17,
+          "usd": 332321501.1,
+          "lavado": false
+        },
+        {
+          "contraparte": 327363,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 250346006.08,
+          "lavado": false
+        },
+        {
+          "contraparte": 307264,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 248202672.91,
+          "lavado": false
+        },
+        {
+          "contraparte": 80615,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 173093645.84,
+          "lavado": false
+        },
+        {
+          "contraparte": 74618,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 157052459.87,
+          "lavado": false
+        },
+        {
+          "contraparte": 327410,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 119823497.79,
+          "lavado": false
+        },
+        {
+          "contraparte": 316004,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 116153478.7,
+          "lavado": false
+        },
+        {
+          "contraparte": 358419,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 92013300.85,
+          "lavado": false
+        },
+        {
+          "contraparte": 74066,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 81237016.19,
+          "lavado": false
+        },
+        {
+          "contraparte": 310552,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 79268841.28,
+          "lavado": false
+        },
+        {
+          "contraparte": 307301,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 75568140.91,
+          "lavado": false
+        },
+        {
+          "contraparte": 73157,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 73208866.68,
+          "lavado": false
+        },
+        {
+          "contraparte": 297432,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 72689359.18,
+          "lavado": false
+        },
+        {
+          "contraparte": 77221,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 66951929.63,
+          "lavado": false
+        },
+        {
+          "contraparte": 77890,
+          "direccion": "salida",
+          "n": 2,
+          "usd": 66951372.56,
+          "lavado": false
+        },
+        {
+          "contraparte": 303595,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 65773948.82,
+          "lavado": false
+        },
+        {
+          "contraparte": 78290,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 59196351.17,
+          "lavado": false
+        },
+        {
+          "contraparte": 410532,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 55353824.38,
+          "lavado": false
+        },
+        {
+          "contraparte": 77713,
+          "direccion": "salida",
+          "n": 17,
+          "usd": 52084824.0,
+          "lavado": false
+        },
+        {
+          "contraparte": 71908,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 41183240.4,
+          "lavado": false
+        },
+        {
+          "contraparte": 310482,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 37857180.71,
+          "lavado": false
+        },
+        {
+          "contraparte": 329389,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 35058975.65,
+          "lavado": false
+        },
+        {
+          "contraparte": 348688,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 21782099.05,
+          "lavado": false
+        },
+        {
+          "contraparte": 223200,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 19863522.32,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 2072,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 146501629.91,
+          "n_entra": 0,
+          "n_sale": 854
+        },
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 0.0,
+          "sale": 101298169.4,
+          "n_entra": 0,
+          "n_sale": 832
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 0.0,
+          "sale": 119347846.78,
+          "n_entra": 0,
+          "n_sale": 863
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 0.0,
+          "sale": 336854623.93,
+          "n_entra": 0,
+          "n_sale": 810
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 0.0,
+          "sale": 118493552.32,
+          "n_entra": 0,
+          "n_sale": 771
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 0.0,
+          "sale": 318231605.58,
+          "n_entra": 0,
+          "n_sale": 876
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 0.0,
+          "sale": 144049025.92,
+          "n_entra": 0,
+          "n_sale": 860
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 123228086.2,
+          "n_entra": 0,
+          "n_sale": 852
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 0.0,
+          "sale": 38128876.36,
+          "n_entra": 0,
+          "n_sale": 878
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 0.0,
+          "sale": 297834858.56,
+          "n_entra": 0,
+          "n_sale": 805
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 0.0,
+          "sale": 196057018.19,
+          "n_entra": 0,
+          "n_sale": 846
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 171981516.91,
+          "n_entra": 0,
+          "n_sale": 830
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 10584.17,
+          "sale": 232113811.84,
+          "n_entra": 23,
+          "n_sale": 1082
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 8608.09,
+          "sale": 490808986.27,
+          "n_entra": 28,
+          "n_sale": 964
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 12948.02,
+          "sale": 254464633.48,
+          "n_entra": 23,
+          "n_sale": 995
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 14073.61,
+          "sale": 609708267.98,
+          "n_entra": 31,
+          "n_sale": 1054
+        },
+        {
+          "inicio": "2022-09-10 00:00:00",
+          "entra": 0.0,
+          "sale": 29654933.75,
+          "n_entra": 0,
+          "n_sale": 353
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 0.0,
+          "sale": 67729421.23,
+          "n_entra": 0,
+          "n_sale": 374
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 18180224.29,
+          "n_entra": 0,
+          "n_sale": 353
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 0.0,
+          "sale": 27227957.37,
+          "n_entra": 0,
+          "n_sale": 367
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 4.6634,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 9.6563,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 4.6634,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 7.6049,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1285,
+          "percentil": 0.1822
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 12.8167,
+          "percentil": 0.006
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.0,
+          "percentil": 0.713
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.0,
+          "percentil": 0.3664
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 16.4142,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 12.4063,
+          "percentil": 0.9651
+        }
+      ]
+    },
+    {
+      "cuenta": 694708,
+      "categoria": "no_detectado",
+      "puesto": 32163,
+      "puntaje": 0.210256,
+      "patrones": [
+        "sin patrón"
+      ],
+      "transferencias": 11538,
+      "contrapartes": 1557,
+      "vecinos": [
+        {
+          "contraparte": 389690,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 14880393.46,
+          "lavado": true
+        },
+        {
+          "contraparte": 680946,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 9016739.63,
+          "lavado": true
+        },
+        {
+          "contraparte": 268913,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 1154570.87,
+          "lavado": true
+        },
+        {
+          "contraparte": 392973,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 826864.99,
+          "lavado": true
+        },
+        {
+          "contraparte": 686421,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 84859.48,
+          "lavado": true
+        },
+        {
+          "contraparte": 394250,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 22681.03,
+          "lavado": true
+        },
+        {
+          "contraparte": 184598,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 8595.68,
+          "lavado": true
+        },
+        {
+          "contraparte": 393176,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 7847.98,
+          "lavado": true
+        },
+        {
+          "contraparte": 680111,
+          "direccion": "salida",
+          "n": 2,
+          "usd": 6593.45,
+          "lavado": true
+        },
+        {
+          "contraparte": 391490,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 5743.79,
+          "lavado": true
+        },
+        {
+          "contraparte": 679012,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 5544.27,
+          "lavado": true
+        },
+        {
+          "contraparte": 175920,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 2172.67,
+          "lavado": true
+        },
+        {
+          "contraparte": 219712,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 1784.44,
+          "lavado": true
+        },
+        {
+          "contraparte": 219733,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 1167.5,
+          "lavado": true
+        },
+        {
+          "contraparte": 681364,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 351.15,
+          "lavado": true
+        },
+        {
+          "contraparte": 269480,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 123672076.29,
+          "lavado": false
+        },
+        {
+          "contraparte": 678586,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 91179471.65,
+          "lavado": false
+        },
+        {
+          "contraparte": 685375,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 88781676.3,
+          "lavado": false
+        },
+        {
+          "contraparte": 184478,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 66783032.28,
+          "lavado": false
+        },
+        {
+          "contraparte": 680800,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 64662821.19,
+          "lavado": false
+        },
+        {
+          "contraparte": 680628,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 63502215.81,
+          "lavado": false
+        },
+        {
+          "contraparte": 389169,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 63100045.3,
+          "lavado": false
+        },
+        {
+          "contraparte": 219235,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 61637519.23,
+          "lavado": false
+        },
+        {
+          "contraparte": 681362,
+          "direccion": "salida",
+          "n": 16,
+          "usd": 51413454.83,
+          "lavado": false
+        },
+        {
+          "contraparte": 183224,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 51077957.85,
+          "lavado": false
+        },
+        {
+          "contraparte": 682397,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 49859169.73,
+          "lavado": false
+        },
+        {
+          "contraparte": 176116,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 30970273.77,
+          "lavado": false
+        },
+        {
+          "contraparte": 175639,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 25641464.69,
+          "lavado": false
+        },
+        {
+          "contraparte": 390006,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 22439452.5,
+          "lavado": false
+        },
+        {
+          "contraparte": 679490,
+          "direccion": "salida",
+          "n": 9,
+          "usd": 19209194.28,
+          "lavado": false
+        },
+        {
+          "contraparte": 393922,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 14078276.65,
+          "lavado": false
+        },
+        {
+          "contraparte": 682486,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 13253793.36,
+          "lavado": false
+        },
+        {
+          "contraparte": 269861,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 12321608.6,
+          "lavado": false
+        },
+        {
+          "contraparte": 682320,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 12267322.78,
+          "lavado": false
+        },
+        {
+          "contraparte": 683667,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 12259002.87,
+          "lavado": false
+        },
+        {
+          "contraparte": 394923,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 11423721.7,
+          "lavado": false
+        },
+        {
+          "contraparte": 680287,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 9762930.62,
+          "lavado": false
+        },
+        {
+          "contraparte": 391238,
+          "direccion": "salida",
+          "n": 24,
+          "usd": 9667085.64,
+          "lavado": false
+        },
+        {
+          "contraparte": 681396,
+          "direccion": "salida",
+          "n": 13,
+          "usd": 9334371.62,
+          "lavado": false
+        },
+        {
+          "contraparte": 183095,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 8690942.06,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 1517,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 33207702.72,
+          "n_entra": 0,
+          "n_sale": 576
+        },
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 0.0,
+          "sale": 56453369.73,
+          "n_entra": 0,
+          "n_sale": 639
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 0.0,
+          "sale": 57720125.59,
+          "n_entra": 0,
+          "n_sale": 684
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 0.0,
+          "sale": 74410951.97,
+          "n_entra": 0,
+          "n_sale": 593
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 0.0,
+          "sale": 69881226.35,
+          "n_entra": 0,
+          "n_sale": 647
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 0.0,
+          "sale": 22899787.87,
+          "n_entra": 0,
+          "n_sale": 552
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 0.0,
+          "sale": 42988561.36,
+          "n_entra": 0,
+          "n_sale": 682
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 86022574.44,
+          "n_entra": 0,
+          "n_sale": 611
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 0.0,
+          "sale": 56863777.06,
+          "n_entra": 0,
+          "n_sale": 622
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 0.0,
+          "sale": 46571981.0,
+          "n_entra": 0,
+          "n_sale": 585
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 0.0,
+          "sale": 61502754.66,
+          "n_entra": 0,
+          "n_sale": 655
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 56853637.29,
+          "n_entra": 0,
+          "n_sale": 630
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 10669.2,
+          "sale": 159233791.79,
+          "n_entra": 20,
+          "n_sale": 731
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 12317.46,
+          "sale": 155874060.38,
+          "n_entra": 23,
+          "n_sale": 777
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 12220.08,
+          "sale": 55883729.53,
+          "n_entra": 23,
+          "n_sale": 763
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 11910.04,
+          "sale": 146071185.45,
+          "n_entra": 18,
+          "n_sale": 767
+        },
+        {
+          "inicio": "2022-09-10 00:00:00",
+          "entra": 0.0,
+          "sale": 13879496.92,
+          "n_entra": 0,
+          "n_sale": 194
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 0.0,
+          "sale": 29101431.9,
+          "n_entra": 0,
+          "n_sale": 221
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 29230616.81,
+          "n_entra": 0,
+          "n_sale": 260
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 0.0,
+          "sale": 36912657.48,
+          "n_entra": 0,
+          "n_sale": 265
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 4.4427,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 9.3462,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 4.4427,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 7.2957,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1286,
+          "percentil": 0.1823
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 12.2167,
+          "percentil": 0.0056
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.0,
+          "percentil": 0.7146
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.0,
+          "percentil": 0.3664
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 11.9386,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 11.6258,
+          "percentil": 0.9469
+        }
+      ]
+    },
+    {
+      "cuenta": 694709,
+      "categoria": "no_detectado",
+      "puesto": 35913,
+      "puntaje": 0.188311,
+      "patrones": [
+        "sin patrón"
+      ],
+      "transferencias": 14809,
+      "contrapartes": 1927,
+      "vecinos": [
+        {
+          "contraparte": 195438,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 192793.87,
+          "lavado": true
+        },
+        {
+          "contraparte": 687437,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 102345.48,
+          "lavado": true
+        },
+        {
+          "contraparte": 695804,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 56754.14,
+          "lavado": true
+        },
+        {
+          "contraparte": 689493,
+          "direccion": "salida",
+          "n": 19,
+          "usd": 29924.37,
+          "lavado": true
+        },
+        {
+          "contraparte": 696298,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 24906.54,
+          "lavado": true
+        },
+        {
+          "contraparte": 188771,
+          "direccion": "salida",
+          "n": 13,
+          "usd": 20969.02,
+          "lavado": true
+        },
+        {
+          "contraparte": 258298,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 20923.61,
+          "lavado": true
+        },
+        {
+          "contraparte": 400956,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 15158.22,
+          "lavado": true
+        },
+        {
+          "contraparte": 257824,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 11385.56,
+          "lavado": true
+        },
+        {
+          "contraparte": 701059,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 6903.09,
+          "lavado": true
+        },
+        {
+          "contraparte": 194699,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 4532.88,
+          "lavado": true
+        },
+        {
+          "contraparte": 687931,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 2815.0,
+          "lavado": true
+        },
+        {
+          "contraparte": 689538,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 299008814.74,
+          "lavado": false
+        },
+        {
+          "contraparte": 396893,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 225500497.26,
+          "lavado": false
+        },
+        {
+          "contraparte": 697998,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 196624787.0,
+          "lavado": false
+        },
+        {
+          "contraparte": 200243,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 140357368.81,
+          "lavado": false
+        },
+        {
+          "contraparte": 409808,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 137528626.01,
+          "lavado": false
+        },
+        {
+          "contraparte": 693835,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 114050535.42,
+          "lavado": false
+        },
+        {
+          "contraparte": 192019,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 114025107.5,
+          "lavado": false
+        },
+        {
+          "contraparte": 395792,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 109379936.68,
+          "lavado": false
+        },
+        {
+          "contraparte": 188149,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 102276636.79,
+          "lavado": false
+        },
+        {
+          "contraparte": 694094,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 94383471.59,
+          "lavado": false
+        },
+        {
+          "contraparte": 402501,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 81563523.57,
+          "lavado": false
+        },
+        {
+          "contraparte": 189114,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 70931865.4,
+          "lavado": false
+        },
+        {
+          "contraparte": 188852,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 65228813.4,
+          "lavado": false
+        },
+        {
+          "contraparte": 191731,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 56785868.86,
+          "lavado": false
+        },
+        {
+          "contraparte": 395249,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 54293993.12,
+          "lavado": false
+        },
+        {
+          "contraparte": 194544,
+          "direccion": "salida",
+          "n": 18,
+          "usd": 53858399.48,
+          "lavado": false
+        },
+        {
+          "contraparte": 689001,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 48803052.06,
+          "lavado": false
+        },
+        {
+          "contraparte": 198465,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 35878046.86,
+          "lavado": false
+        },
+        {
+          "contraparte": 192272,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 34781195.77,
+          "lavado": false
+        },
+        {
+          "contraparte": 50779,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 26244033.58,
+          "lavado": false
+        },
+        {
+          "contraparte": 283989,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 21838678.25,
+          "lavado": false
+        },
+        {
+          "contraparte": 689017,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 19086006.59,
+          "lavado": false
+        },
+        {
+          "contraparte": 194391,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 18524073.71,
+          "lavado": false
+        },
+        {
+          "contraparte": 186747,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 13454795.18,
+          "lavado": false
+        },
+        {
+          "contraparte": 186031,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 13420546.66,
+          "lavado": false
+        },
+        {
+          "contraparte": 409817,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 11970873.74,
+          "lavado": false
+        },
+        {
+          "contraparte": 186314,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 11140093.95,
+          "lavado": false
+        },
+        {
+          "contraparte": 284240,
+          "direccion": "salida",
+          "n": 14,
+          "usd": 10683543.13,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 1887,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 225989034.55,
+          "n_entra": 0,
+          "n_sale": 734
+        },
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 0.0,
+          "sale": 134194336.97,
+          "n_entra": 0,
+          "n_sale": 867
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 0.0,
+          "sale": 106024463.43,
+          "n_entra": 0,
+          "n_sale": 851
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 0.0,
+          "sale": 54211997.33,
+          "n_entra": 0,
+          "n_sale": 768
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 0.0,
+          "sale": 176391762.18,
+          "n_entra": 0,
+          "n_sale": 842
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 0.0,
+          "sale": 65492490.0,
+          "n_entra": 0,
+          "n_sale": 772
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 0.0,
+          "sale": 115884081.25,
+          "n_entra": 0,
+          "n_sale": 758
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 162651498.84,
+          "n_entra": 0,
+          "n_sale": 848
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 0.0,
+          "sale": 82881254.64,
+          "n_entra": 0,
+          "n_sale": 840
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 0.0,
+          "sale": 118562905.63,
+          "n_entra": 0,
+          "n_sale": 741
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 0.0,
+          "sale": 114716748.37,
+          "n_entra": 0,
+          "n_sale": 795
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 204258923.63,
+          "n_entra": 0,
+          "n_sale": 844
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 1942.57,
+          "sale": 97419568.57,
+          "n_entra": 10,
+          "n_sale": 969
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 12443.01,
+          "sale": 209649157.24,
+          "n_entra": 17,
+          "n_sale": 927
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 5539.28,
+          "sale": 153610563.37,
+          "n_entra": 8,
+          "n_sale": 896
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 2942.44,
+          "sale": 310227850.71,
+          "n_entra": 7,
+          "n_sale": 1058
+        },
+        {
+          "inicio": "2022-09-10 00:00:00",
+          "entra": 0.0,
+          "sale": 74596570.6,
+          "n_entra": 0,
+          "n_sale": 317
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 0.0,
+          "sale": 35848708.93,
+          "n_entra": 0,
+          "n_sale": 293
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 31944298.91,
+          "n_entra": 0,
+          "n_sale": 335
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 0.0,
+          "sale": 64792696.61,
+          "n_entra": 0,
+          "n_sale": 312
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 3.7612,
+          "percentil": 0.9995
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 9.6002,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 3.7612,
+          "percentil": 0.9995
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 7.5422,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1276,
+          "percentil": 0.1818
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 12.2667,
+          "percentil": 0.0057
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.0,
+          "percentil": 0.7127
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.0,
+          "percentil": 0.3664
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 12.5938,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 12.0522,
+          "percentil": 0.9573
+        }
+      ]
+    },
+    {
+      "cuenta": 92105,
+      "categoria": "no_detectado",
+      "puesto": 198880,
+      "puntaje": 0.001651,
+      "patrones": [
+        "SCATTER-GATHER"
+      ],
+      "transferencias": 64,
+      "contrapartes": 17,
+      "vecinos": [
+        {
+          "contraparte": 202,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 18477.97,
+          "lavado": true
+        },
+        {
+          "contraparte": 231762,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 18248.93,
+          "lavado": true
+        },
+        {
+          "contraparte": 85,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 16295.66,
+          "lavado": true
+        },
+        {
+          "contraparte": 231609,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 13437.4,
+          "lavado": true
+        },
+        {
+          "contraparte": 55312,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 10718.38,
+          "lavado": true
+        },
+        {
+          "contraparte": 637934,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 7170.5,
+          "lavado": true
+        },
+        {
+          "contraparte": 650215,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 7052.32,
+          "lavado": true
+        },
+        {
+          "contraparte": 231800,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 2814.15,
+          "lavado": true
+        },
+        {
+          "contraparte": 630658,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 2740.52,
+          "lavado": true
+        },
+        {
+          "contraparte": 229342,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 1012.88,
+          "lavado": true
+        },
+        {
+          "contraparte": 639071,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 851.61,
+          "lavado": true
+        },
+        {
+          "contraparte": 64661,
+          "direccion": "salida",
+          "n": 1,
+          "usd": 306.54,
+          "lavado": true
+        },
+        {
+          "contraparte": 275497,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 236637.84,
+          "lavado": false
+        },
+        {
+          "contraparte": 369368,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 94978.45,
+          "lavado": false
+        },
+        {
+          "contraparte": 559181,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 8903.8,
+          "lavado": false
+        },
+        {
+          "contraparte": 97989,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 2996.25,
+          "lavado": false
+        },
+        {
+          "contraparte": 55557,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 983.6,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 0,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 0.0,
+          "sale": 78351.87,
+          "n_entra": 0,
+          "n_sale": 7
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 0.0,
+          "sale": 2380.01,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 0.0,
+          "sale": 1780.76,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 0.0,
+          "sale": 78155.15,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 0.0,
+          "sale": 196.72,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 599.25,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 0.0,
+          "sale": 78155.15,
+          "n_entra": 0,
+          "n_sale": 4
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 0.0,
+          "sale": 1780.76,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 0.0,
+          "sale": 599.25,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 196.72,
+          "n_entra": 0,
+          "n_sale": 3
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 0.0,
+          "sale": 78351.87,
+          "n_entra": 0,
+          "n_sale": 7
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 0.0,
+          "sale": 1780.76,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 0.0,
+          "sale": 7958.11,
+          "n_entra": 0,
+          "n_sale": 5
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 0.0,
+          "sale": 1012.88,
+          "n_entra": 0,
+          "n_sale": 1
+        },
+        {
+          "inicio": "2022-09-10 00:00:00",
+          "entra": 0.0,
+          "sale": 29714.07,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 0.0,
+          "sale": 4791.63,
+          "n_entra": 0,
+          "n_sale": 5
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 31686.33,
+          "n_entra": 0,
+          "n_sale": 2
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 0.0,
+          "sale": 46135.52,
+          "n_entra": 0,
+          "n_sale": 8
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 0.0,
+          "percentil": 0.1744
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 4.1744,
+          "percentil": 0.9964
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 0.0,
+          "percentil": 0.1744
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 2.8904,
+          "percentil": 0.9998
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.2656,
+          "percentil": 0.2608
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 0.0,
+          "percentil": 0.457
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 96.0,
+          "percentil": 0.543
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.0,
+          "percentil": 0.3558
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.7059,
+          "percentil": 0.904
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 1.48,
+          "percentil": 0.8576
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 8.844,
+          "percentil": 0.8197
+        }
+      ]
+    },
+    {
+      "cuenta": 694703,
+      "categoria": "no_detectado",
+      "puesto": 43033,
+      "puntaje": 0.153741,
+      "patrones": [
+        "sin patrón"
+      ],
+      "transferencias": 9873,
+      "contrapartes": 1330,
+      "vecinos": [
+        {
+          "contraparte": 642914,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 186875.36,
+          "lavado": true
+        },
+        {
+          "contraparte": 130126,
+          "direccion": "salida",
+          "n": 18,
+          "usd": 77146.44,
+          "lavado": true
+        },
+        {
+          "contraparte": 228414,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 43710.25,
+          "lavado": true
+        },
+        {
+          "contraparte": 129724,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 43205.22,
+          "lavado": true
+        },
+        {
+          "contraparte": 637054,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 6635.02,
+          "lavado": true
+        },
+        {
+          "contraparte": 641888,
+          "direccion": "salida",
+          "n": 2,
+          "usd": 3933.66,
+          "lavado": true
+        },
+        {
+          "contraparte": 642606,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 2405.33,
+          "lavado": true
+        },
+        {
+          "contraparte": 228842,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 2204.2,
+          "lavado": true
+        },
+        {
+          "contraparte": 129789,
+          "direccion": "salida",
+          "n": 5,
+          "usd": 1828.17,
+          "lavado": true
+        },
+        {
+          "contraparte": 346472,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 1490.97,
+          "lavado": true
+        },
+        {
+          "contraparte": 633628,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 372.61,
+          "lavado": true
+        },
+        {
+          "contraparte": 634988,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 1489232549.1,
+          "lavado": false
+        },
+        {
+          "contraparte": 637345,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 224462376.9,
+          "lavado": false
+        },
+        {
+          "contraparte": 347272,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 73810701.45,
+          "lavado": false
+        },
+        {
+          "contraparte": 347640,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 64871651.44,
+          "lavado": false
+        },
+        {
+          "contraparte": 632119,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 54311033.29,
+          "lavado": false
+        },
+        {
+          "contraparte": 346933,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 51295613.58,
+          "lavado": false
+        },
+        {
+          "contraparte": 634096,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 50094444.41,
+          "lavado": false
+        },
+        {
+          "contraparte": 347616,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 47961151.02,
+          "lavado": false
+        },
+        {
+          "contraparte": 637835,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 28644477.26,
+          "lavado": false
+        },
+        {
+          "contraparte": 248523,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 19006360.51,
+          "lavado": false
+        },
+        {
+          "contraparte": 633615,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 18175140.8,
+          "lavado": false
+        },
+        {
+          "contraparte": 632939,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 16863948.31,
+          "lavado": false
+        },
+        {
+          "contraparte": 131888,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 13247106.8,
+          "lavado": false
+        },
+        {
+          "contraparte": 126432,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 10572981.39,
+          "lavado": false
+        },
+        {
+          "contraparte": 228712,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 9827982.79,
+          "lavado": false
+        },
+        {
+          "contraparte": 634694,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 9638268.68,
+          "lavado": false
+        },
+        {
+          "contraparte": 136508,
+          "direccion": "salida",
+          "n": 10,
+          "usd": 9490840.82,
+          "lavado": false
+        },
+        {
+          "contraparte": 124303,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 8628557.29,
+          "lavado": false
+        },
+        {
+          "contraparte": 632526,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 8574003.33,
+          "lavado": false
+        },
+        {
+          "contraparte": 248144,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 7556426.18,
+          "lavado": false
+        },
+        {
+          "contraparte": 124284,
+          "direccion": "salida",
+          "n": 8,
+          "usd": 6946716.19,
+          "lavado": false
+        },
+        {
+          "contraparte": 637633,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 6645331.68,
+          "lavado": false
+        },
+        {
+          "contraparte": 131554,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 6613434.13,
+          "lavado": false
+        },
+        {
+          "contraparte": 641207,
+          "direccion": "salida",
+          "n": 4,
+          "usd": 6334604.73,
+          "lavado": false
+        },
+        {
+          "contraparte": 635587,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 6277419.29,
+          "lavado": false
+        },
+        {
+          "contraparte": 633078,
+          "direccion": "salida",
+          "n": 3,
+          "usd": 5969091.79,
+          "lavado": false
+        },
+        {
+          "contraparte": 248921,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 5791942.32,
+          "lavado": false
+        },
+        {
+          "contraparte": 129860,
+          "direccion": "salida",
+          "n": 12,
+          "usd": 5787247.2,
+          "lavado": false
+        },
+        {
+          "contraparte": 124068,
+          "direccion": "salida",
+          "n": 15,
+          "usd": 5736273.27,
+          "lavado": false
+        }
+      ],
+      "vecinos_omitidos": 1290,
+      "flujo": [
+        {
+          "inicio": "2022-09-06 00:00:00",
+          "entra": 0.0,
+          "sale": 83141550.57,
+          "n_entra": 0,
+          "n_sale": 585
+        },
+        {
+          "inicio": "2022-09-06 06:00:00",
+          "entra": 0.0,
+          "sale": 59858270.44,
+          "n_entra": 0,
+          "n_sale": 553
+        },
+        {
+          "inicio": "2022-09-06 12:00:00",
+          "entra": 0.0,
+          "sale": 29428439.26,
+          "n_entra": 0,
+          "n_sale": 530
+        },
+        {
+          "inicio": "2022-09-06 18:00:00",
+          "entra": 0.0,
+          "sale": 22170874.14,
+          "n_entra": 0,
+          "n_sale": 450
+        },
+        {
+          "inicio": "2022-09-07 00:00:00",
+          "entra": 0.0,
+          "sale": 87768092.4,
+          "n_entra": 0,
+          "n_sale": 490
+        },
+        {
+          "inicio": "2022-09-07 06:00:00",
+          "entra": 0.0,
+          "sale": 49628918.78,
+          "n_entra": 0,
+          "n_sale": 555
+        },
+        {
+          "inicio": "2022-09-07 12:00:00",
+          "entra": 0.0,
+          "sale": 9631032.54,
+          "n_entra": 0,
+          "n_sale": 500
+        },
+        {
+          "inicio": "2022-09-07 18:00:00",
+          "entra": 0.0,
+          "sale": 47571090.69,
+          "n_entra": 0,
+          "n_sale": 573
+        },
+        {
+          "inicio": "2022-09-08 00:00:00",
+          "entra": 0.0,
+          "sale": 77787957.43,
+          "n_entra": 0,
+          "n_sale": 531
+        },
+        {
+          "inicio": "2022-09-08 06:00:00",
+          "entra": 0.0,
+          "sale": 61939275.59,
+          "n_entra": 0,
+          "n_sale": 590
+        },
+        {
+          "inicio": "2022-09-08 12:00:00",
+          "entra": 0.0,
+          "sale": 40540372.58,
+          "n_entra": 0,
+          "n_sale": 526
+        },
+        {
+          "inicio": "2022-09-08 18:00:00",
+          "entra": 0.0,
+          "sale": 14331528.81,
+          "n_entra": 0,
+          "n_sale": 471
+        },
+        {
+          "inicio": "2022-09-09 00:00:00",
+          "entra": 9013.64,
+          "sale": 1581911623.36,
+          "n_entra": 22,
+          "n_sale": 666
+        },
+        {
+          "inicio": "2022-09-09 06:00:00",
+          "entra": 8519.4,
+          "sale": 75422506.73,
+          "n_entra": 23,
+          "n_sale": 650
+        },
+        {
+          "inicio": "2022-09-09 12:00:00",
+          "entra": 8939.82,
+          "sale": 44611948.74,
+          "n_entra": 17,
+          "n_sale": 619
+        },
+        {
+          "inicio": "2022-09-09 18:00:00",
+          "entra": 3750.16,
+          "sale": 38133728.69,
+          "n_entra": 17,
+          "n_sale": 618
+        },
+        {
+          "inicio": "2022-09-10 00:00:00",
+          "entra": 0.0,
+          "sale": 60155700.56,
+          "n_entra": 0,
+          "n_sale": 212
+        },
+        {
+          "inicio": "2022-09-10 06:00:00",
+          "entra": 0.0,
+          "sale": 10670111.7,
+          "n_entra": 0,
+          "n_sale": 202
+        },
+        {
+          "inicio": "2022-09-10 12:00:00",
+          "entra": 0.0,
+          "sale": 2935668.95,
+          "n_entra": 0,
+          "n_sale": 262
+        },
+        {
+          "inicio": "2022-09-10 18:00:00",
+          "entra": 0.0,
+          "sale": 28573929.73,
+          "n_entra": 0,
+          "n_sale": 211
+        }
+      ],
+      "variables": [
+        {
+          "nombre": "log_n_in",
+          "texto": "transferencias recibidas (log)",
+          "valor": 4.382,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_n_out",
+          "texto": "transferencias enviadas (log)",
+          "valor": 9.1896,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_grado_in",
+          "texto": "contrapartes de entrada (log)",
+          "valor": 4.382,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_grado_out",
+          "texto": "contrapartes de salida (log)",
+          "valor": 7.1325,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "unicidad_in",
+          "texto": "unicidad de entrada",
+          "valor": 1.0,
+          "percentil": 0.7459
+        },
+        {
+          "nombre": "unicidad_out",
+          "texto": "unicidad de salida",
+          "valor": 0.1277,
+          "percentil": 0.182
+        },
+        {
+          "nombre": "frac_paso",
+          "texto": "fracción de dinero de paso",
+          "valor": 1.0,
+          "percentil": 0.9978
+        },
+        {
+          "nombre": "velocidad_horas",
+          "texto": "horas entre recibir y reenviar",
+          "valor": 13.0333,
+          "percentil": 0.0061
+        },
+        {
+          "nombre": "balance",
+          "texto": "balance entre lo que entra y sale",
+          "valor": 0.0,
+          "percentil": 0.713
+        },
+        {
+          "nombre": "frac_nuevas",
+          "texto": "fracción de contrapartes nuevas",
+          "valor": 0.0,
+          "percentil": 0.3664
+        },
+        {
+          "nombre": "cv_montos",
+          "texto": "dispersión de montos (CV)",
+          "valor": 45.3707,
+          "percentil": 1.0
+        },
+        {
+          "nombre": "log_monto_medio",
+          "texto": "monto medio (log)",
+          "valor": 12.4121,
+          "percentil": 0.9652
+        }
+      ]
+    }
+  ]
+}

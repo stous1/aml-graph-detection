@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Forma o tamaño?</title>
+<meta name="description" content="El lavado se reconoce por su forma, no por su tamaño. Casos reales del período de prueba de AMLworld, el artefacto de las monedas y un explorador de alertas.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%232a78d6%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="demo/estilo.css">
+</head>
+<body>
+<header class="cabecera">
+  <div class="contenedor">
+    <p class="volver"><a href="index.html">← Proyecto</a> · <a href="hito5_universo.html">Universo</a> · <a href="https://github.com/stous1/aml-graph-detection">Código</a></p>
+    <h1>¿Forma o tamaño?</h1>
+    <p class="bajada">Una regla que cuenta contrapartes encuentra comercios, no lavado. El lavado se
+      reconoce por su <strong>forma</strong>: cuentas nuevas, una transferencia a cada una, dinero
+      que entra y sale casi igual. Casos reales del período de prueba de AMLworld.</p>
+    <nav class="pestanas" role="tablist">
+      <button role="tab" id="tab-forma" aria-selected="true" aria-controls="panel-forma">¿Forma o tamaño?</button>
+      <button role="tab" id="tab-monedas" aria-selected="false" aria-controls="panel-monedas">El artefacto de las monedas</button>
+      <button role="tab" id="tab-alertas" aria-selected="false" aria-controls="panel-alertas">Explorador de alertas</button>
+    </nav>
+  </div>
+</header>
+
+<main class="contenedor">
+  <section id="panel-forma" role="tabpanel" aria-labelledby="tab-forma">
+    <h2>Dos cuentas, dos formas</h2>
+    <p class="lectura" id="forma-lectura"></p>
+    <div class="columnas" id="casos"></div>
+    <h2>¿Cuántas alertas puede revisar tu equipo?</h2>
+    <p class="lectura">Si se revisan las <em>k</em> cuentas mejor puntuadas por cada método, ¿qué
+      fracción tiene lavado? Mueve el control.</p>
+    <div class="chips" id="variante-curvas" aria-label="Variante"></div>
+    <div class="tarjeta">
+      <label for="k">Cuentas revisadas: <strong id="k-texto"></strong></label>
+      <input type="range" id="k" class="deslizante" min="0" max="1000" value="333">
+      <div class="tres" id="curvas"></div>
+    </div>
+  </section>
+
+  <section id="panel-monedas" role="tabpanel" aria-labelledby="tab-monedas" hidden>
+    <h2>Lo que parecía forma era una huella del simulador</h2>
+    <p class="lectura" id="monedas-lectura"></p>
+    <div class="tarjeta anim" id="anim">
+      <div class="pasos" id="anim-pasos"></div>
+      <div id="anim-barras"></div>
+      <p class="anim-texto" id="anim-texto"></p>
+      <div><button class="boton" id="anim-repetir" type="button">Repetir</button></div>
+    </div>
+    <div class="tarjeta" style="margin-top:16px">
+      <h3>El abanico de la primera pestaña paga así</h3>
+      <p class="sub" id="monedas-sub"></p>
+      <div class="monedas" id="monedas"></div>
+    </div>
+  </section>
+
+  <section id="panel-alertas" role="tabpanel" aria-labelledby="tab-alertas" hidden>
+    <h2>Explorador de alertas del modelo final</h2>
+    <p class="lectura" id="alertas-lectura"></p>
+    <div class="chips" id="variante-alertas" aria-label="Variante"></div>
+    <div class="chips" id="categorias" aria-label="Categoría"></div>
+    <div class="explorador">
+      <div class="lista" id="lista" aria-label="Cuentas"></div>
+      <div id="detalle"></div>
+    </div>
+  </section>
+
+  <p class="pie">Cifras leídas de los JSON publicados en
+    <a href="https://github.com/stous1/aml-graph-detection/tree/main/docs/resultados">docs/resultados</a>,
+    con modelos y parámetros congelados. El período de prueba (días 7 a 10) se usó en cuatro hitos;
+    la prueba fresca con Medium está <a href="preregistro_medium.html">preregistrada</a>.</p>
+</main>
+
+<script src="demo/motor.js"></script>
+<script src="demo/app.js"></script>
+</body>
+</html>

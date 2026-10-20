@@ -1,0 +1,433 @@
+{
+  "variante": "HI",
+  "cuentas_evaluadas": 366967,
+  "config_forma": {
+    "ventana_horas": 48,
+    "min_contrapartes": 3,
+    "por_formato": false,
+    "variables": [
+      "novedad",
+      "unicidad",
+      "homogeneidad"
+    ],
+    "tamano": "ninguno",
+    "direccion": "salida"
+  },
+  "piso": 0.01,
+  "alerta": {
+    "etiqueta": "abanico de lavado",
+    "cuenta": 259840,
+    "lavado": true,
+    "contrapartes_24h": 9,
+    "estructura": {
+      "direccion": "salida",
+      "n_contrapartes": 8,
+      "variables": {
+        "novedad": 1.0,
+        "exclusividad": 0.533773,
+        "unicidad": 1.0,
+        "homogeneidad": 0.795547,
+        "formato": 1.0,
+        "mezcla_monedas": 0.375,
+        "dispersion": 0.380903
+      }
+    },
+    "puesto": {
+      "regla": 1569,
+      "forma": 8,
+      "final": 1
+    },
+    "red": {
+      "direccion": "salida",
+      "desde": "2022-09-07 00:00:00",
+      "hasta": "2022-09-09 00:00:00",
+      "transferencias": 8,
+      "contrapartes": 8,
+      "usd_total": 117271.88,
+      "dibujo": [
+        {
+          "n": 1,
+          "usd": 19848.61,
+          "lavado": true
+        },
+        {
+          "n": 1,
+          "usd": 17576.3,
+          "lavado": true
+        },
+        {
+          "n": 1,
+          "usd": 16396.41,
+          "lavado": true
+        },
+        {
+          "n": 1,
+          "usd": 16329.97,
+          "lavado": true
+        },
+        {
+          "n": 1,
+          "usd": 13737.46,
+          "lavado": true
+        },
+        {
+          "n": 1,
+          "usd": 13699.68,
+          "lavado": true
+        },
+        {
+          "n": 1,
+          "usd": 13313.45,
+          "lavado": true
+        },
+        {
+          "n": 1,
+          "usd": 6370.0,
+          "lavado": true
+        }
+      ],
+      "monedas_pagadas": {
+        "US Dollar": 5,
+        "Yuan": 2,
+        "Euro": 1
+      }
+    }
+  },
+  "comercio": {
+    "etiqueta": "concentrador legítimo",
+    "cuenta": 485711,
+    "lavado": false,
+    "contrapartes_24h": 88,
+    "estructura": {
+      "direccion": "entrada",
+      "n_contrapartes": 88,
+      "variables": {
+        "novedad": 1.0,
+        "exclusividad": 0.983333,
+        "unicidad": 1.0,
+        "homogeneidad": 0.259188,
+        "formato": 1.0,
+        "mezcla_monedas": 0.0,
+        "dispersion": 0.010069
+      }
+    },
+    "puesto": {
+      "regla": 16,
+      "forma": 31726,
+      "final": 55664
+    },
+    "red": {
+      "direccion": "entrada",
+      "desde": "2022-09-08 00:00:00",
+      "hasta": "2022-09-09 00:00:00",
+      "transferencias": 88,
+      "contrapartes": 88,
+      "usd_total": 328966.78,
+      "dibujo": [
+        {
+          "n": 1,
+          "usd": 102422.34,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4998.88,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4997.93,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4980.79,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4921.44,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4912.75,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4805.86,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4683.71,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4654.91,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4626.22,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4601.6,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4600.83,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4481.6,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4407.7,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4318.77,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4302.75,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4287.23,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4279.28,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4278.93,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4263.91,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4226.07,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4180.12,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4160.0,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4120.18,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4062.44,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 4053.59,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 3943.63,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 3780.79,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 3608.58,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 3525.59,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 3465.8,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 3332.88,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 3270.05,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 3203.86,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 3188.59,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 3185.33,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 3089.91,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 3006.8,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2965.08,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2810.91,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2737.23,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2732.11,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2732.08,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2725.43,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2470.35,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2351.09,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2308.26,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2253.2,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2200.01,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2196.42,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2064.18,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2050.92,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 2035.84,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 1943.28,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 1918.87,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 1911.15,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 1893.04,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 1878.25,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 1718.4,
+          "lavado": false
+        },
+        {
+          "n": 1,
+          "usd": 1615.0,
+          "lavado": false
+        }
+      ],
+      "monedas_pagadas": {
+        "US Dollar": 88
+      }
+    }
+  }
+}
